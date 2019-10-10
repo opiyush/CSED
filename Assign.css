@@ -1,0 +1,125 @@
+
+body {
+	background: url("back2.jpg") fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-color: #d8f0f3;
+}
+.card{
+	background-color: #e6e6e6;
+}
+.navbar-default{
+	border : none;
+	background-color: white;
+	border-radius: 15px;
+}
+.modal-content{
+	border-radius: 10px;
+	border: 1.5px solid #dc3545;
+}
+
+h3{
+	font-style: italic;
+	font-family: sans-serif;
+}
+h2{
+	text-align: center;
+	font-style: italic;
+	font-family: sans-serif;
+	color: white;
+}
+
+#MEm{
+	color: yellow;
+	font-size: 85px;
+}
+
+#Login{
+	float: left;
+}
+
+#sign{
+	float: left;
+}
+
+#Login input  {
+	width: 290px;
+	height: 40px;
+	border : none;
+	border-bottom: 1px solid black;
+}
+
+#Login input:active{
+	border:none;
+}
+
+#sign input  {
+	width: 290px;
+	height: 40px;
+	border : none;
+	border-bottom: 1px solid black;
+}
+
+#Login input[type="submit"]{
+	width: 80px;
+	height: 42px;
+	background-color: #dc3545;
+	color: white;
+	border: 1px solid white;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 0;
+}
+
+#sign input[type="submit"]{
+	width: 90px;
+	height: 42px;
+	border: 1px solid white;
+	background-color: #dc3545;
+	color: white;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 0;
+}
+
+
+
+.modal-body{
+	padding:0;
+}
+.close {
+	float: right;
+}
+#nav-home-tab{
+	float: left;
+	padding-left: : 10px;
+	padding-right: 10px;
+}
+#nav-profile-tab{
+	float: left;
+	padding-left: : 10px;
+	padding-right: 10px;
+}
+
+.nav-tabs{
+	border-bottom: none;
+}
+
+.modal-dialog {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: auto;
+    width: 350px;
+}
+@media(max-width: 768px) {
+  .modal-dialog {
+    min-height: calc(100vh - 20px);
+  }
+}
+
+.bg-dark{
+	opacity: 0.6;
+}
