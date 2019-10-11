@@ -2,7 +2,7 @@
 .header {
   overflow: none;
   background-color: #fffafa;
-  padding: 10px 5px;
+  padding: 10px 5px 0px 5px;
 }
 
 .header h1{
