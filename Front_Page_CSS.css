@@ -71,6 +71,10 @@ hr{
 .panel-body {
     padding: 15px;
 }
+div.space{
+  height: 500px;
+  width: auto;
+}
 .panel-footer {
     padding: 10px 15px;
     background-color: #f5f5f5;
@@ -83,5 +87,5 @@ hr{
     padding-left: 20px;
     border-top: 1px solid #333333;
     background-color: #333333;
-    
+
 }
