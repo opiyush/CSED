@@ -83,7 +83,13 @@ h2{
 	padding: 0;
 }
 
+#role {
+	width: 290px;
+}
 
+#role option{
+	width: 290px;
+}
 
 .modal-body{
 	padding:0;
