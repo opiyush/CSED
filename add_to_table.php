@@ -12,10 +12,12 @@
      $sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
      $params = array($name,$empno);
      $stmt = sqlsrv_query( $conn,"Insert into Admin_teachers_table (Name, EmpNo) VALUES (?,?);",$params);
-
+     echo '$stmt';
      if($stmt==true)
      {
+       echo "true"
        ?>
+
        <form>
        	<input type="button" id="return_back" value="Return to previous page" onClick="javascript:history.go(-1)" />
        </form>
