@@ -54,7 +54,13 @@
 										<br>
 										<input type="email" name="Email" placeholder="User Id" required ><br><br>
 										<input type="password" name="Pss" placeholder="Password" required><br><br>
-										<input type="hidden" name="Role" placeholder="Role" required><br><br>
+										<select name="Role" id="role">
+											    <option value="" disabled selected hidden>Choose Role</option>
+                          <option value="Admin">Admin</option>
+  												<option value="HOD">HOD</option>
+  									   		<option value="Faculty">Faculty</option>
+  									    	<option value="TechStaff">Technical Staff</option>
+										</select><br><br>
 										<input type="submit" name="Login" value="Login">
 									</form >
 								</div>
