@@ -145,7 +145,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-              <form action="add_faculty.php" method="post">
+              <form action="add_to_table.php" method="post">
                 <div class="form-group">
                   <label for="name">Name:</label>
                   <input type="name" class="form-control" name="name">
