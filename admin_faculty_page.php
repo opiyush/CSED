@@ -4,10 +4,15 @@
     <meta charset="utf-8">
     <title>Admin->Faculty </title>
     <link rel="stylesheet" href="admin_page.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+    <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+    <!-- <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
 
 
       <script>
@@ -42,11 +47,8 @@
      $stmt = sqlsrv_query( $conn, "select * from Admin_teachers_table",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+  <!-- scripts were here -->
 
   <?php
   //checking the result of fetching the contents
@@ -118,28 +120,52 @@
     }
   </script>
 
+
+  <!-- eding the php script and closing the connection -->
+  <?php sqlsrv_free_stmt($stmt);
+  sqlsrv_close($conn);
+  ?>
+
+  <!-- add faculty button and its modal -->
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#add_faculty">Add Faculty</button>
-
+        <button class="btn btn-primary" data-toggle="modal" data-target="#add_faculty" >Add Faculty</button>
         <!-- modal -->
 
-        <div class="modal" id="add_faculty" >
+        <div class="modal fade" id="add_faculty" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Modal Heading</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Add The Details</h4>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
-              Modal body..
+              <form action="add_faculty.php" method="post">
+                <div class="form-group">
+                  <label for="name">Name:</label>
+                  <input type="name" class="form-control" name="name">
+                </div>
+                <div class="form-group">
+                  <label for="empno">Employee Number:</label>
+                  <input type="text" class="form-control" name="empno">
+                </div>
+                <div class="form-group">
+                  <label for="sel1">Subject list:</label>
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <input type="submit" class="btn btn-default">Submit</input>
+              </form>
             </div>
-
             <!-- Modal footer -->
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -149,69 +175,9 @@
           </div>
           </div>
 
-</div>
-</div>
-</div>
-
-
-  <!-- was for edit button alert working -->
-
-  <!-- <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        </button>
-        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <input class="form-control " type="text" placeholder="Mohsin">
-        </div>
-        <div class="form-group">
-          <input class="form-control " type="text" placeholder="Irshad">
-        </div>
-        <div class="form-group">
-          <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
-        </div>
-      </div>
-      <div class="modal-footer ">
-        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
-      </div>
-    </div>
-
-    </div>
-
-  </div> -->
-
-
-  <!-- was for delete button alert working -->
-
-  <!-- <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        </button>
-        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
-      </div>
-      <div class="modal-body">
-       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
-      </div>
-      <div class="modal-footer ">
-        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
-      </div>
-    </div>
-    </div>
-  </div> -->
-
-  <!-- eding the php script and closing the connection -->
-  <?php sqlsrv_free_stmt($stmt);
-  sqlsrv_close($conn);
-  ?>
+  </div>
+  </div>
+  </div>
 
 </body>
 </html>
