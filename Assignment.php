@@ -20,9 +20,8 @@ $(document).ready(function(){
 <?php
 $server = "DESKTOP-HAF4GQB";
 $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
-$a=$_POST["semester"];
 $b=$_POST["subject"];
-$stmt = sqlsrv_query( $conn, "select Assg_Link, Heading, Published_date, Due_date, Semester from Assignment where Semester=$a and Subject=$b",array()); //making query and storing it in stmt variable
+$stmt = sqlsrv_query( $conn, "select Assg_Link, Heading, Published_date, Due_date from Assignment ",array()); //making query and storing it in stmt variable
 //echo starts for displaying the top of the page
 ?>
 <?php
@@ -42,7 +41,6 @@ if ($stmt !== NULL) {
               <th>Assignment</th>
               <th>Publised Date</th>
               <th>Due Date</th>
-              <th>Semester</th>
               <th>Download</th>
             </thead>
 
@@ -57,7 +55,6 @@ if ($stmt !== NULL) {
                   <td><?php echo $rows["Heading"] ?></td>
                   <td><?php $Date = $rows["Published_date"]->format('d/m/Y'); echo $Date;?></td>
                   <td><?php $Date = $rows["Due_date"]->format('d/m/Y'); echo $Date; ?></td>
-                  <td><?php echo $rows["Semester"]?></td>
                   <td><a href="<?php echo $rows["Assg_Link"]?>">Click</a></td>
                 </tr>
                 <?php
