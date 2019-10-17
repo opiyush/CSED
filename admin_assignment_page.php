@@ -2,8 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Admin->News and Announcements </title>
-    <link rel="stylesheet" href="">
+    <title>Admin->Assignments </title>
+    <!-- <link rel="stylesheet" href=""> -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -44,7 +44,7 @@
   <?php
      $server = "HARSH";
      $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
-     $stmt = sqlsrv_query( $conn, "select * from Admin_teachers_table",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "select * from Assignment",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
 
@@ -64,8 +64,10 @@
           <thead>
             <th>Heading</th>
             <th>Published On</th>
+            <th>Due Date</th>
             <th>Published By</th>
             <th>Link</th>
+            <th>Subject</th>
             <th>Edit</th>
             <th>Delete</th>
           </thead>
@@ -75,17 +77,19 @@
           ?>
             <tr>
 
-            <!-- <td><?php //echo $rows["Heading"] ?></td>
-            <td><?php //echo $rows["PublishedOn"]?></td>
-            <td><?php //echo $rows["PublishedBy"]?></td>
-            <td><?php //echo $rows["Link"]?></td> -->
-            <td><?php echo $rows["Name"] ?></td>
-            <td><?php echo $rows["EmpNo"]?></td>
+            <td><?php echo $rows["Heading"] ?></td>
+            <td><?php echo $rows["Published_date"]?></td>
+            <td><?php echo $rows["Due_date"]?></td>
+            <td><?php echo $rows["Emp_Id"]?></td>
+            <td><?php echo $rows["Assg_Link"]?></td>
+            <td><?php echo $rows["Sub_Code"]?></td>
+
             <!-- delete and edit -->
             <td><p data-placement="top" data-toggle="tooltip" title="Edit">
+              <form onsubmit="return validate(this);" action="Edit_on_eno.php" method="post">
               <button class="btn btn-primary btn-xs"  >
                 <span class="glyphicon glyphicon-pencil"></span>
-              </button>
+              </button></form>
             </p></td>
             <td><p data-placement="top" data-toggle="tooltip" title="Delete">
               <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post">
@@ -162,10 +166,10 @@ function validate(form) {
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Add The Assignment</h4>
             </div>
-
+            <form action="add_to_ass_table.php" method="post">
             <!-- Modal body -->
             <div class="modal-body">
-              <form action="add_to_ass_table.php" method="post">
+
                 <div class="form-group">
                   <label for="name">Heading:</label>
                   <input type="name" class="form-control" name="heading">
@@ -175,13 +179,14 @@ function validate(form) {
                   <input type="text" class="form-control" name="link">
                 </div>
 
-                <input id="submit_modal" type="submit" class="btn btn-default"></input>
-              </form>
+
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
+              <button id="submit_modal" type="submit" class="btn btn-success">Submit</input>
               <button id="close_modal" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
+            </form>
 
           </div>
           </div>
