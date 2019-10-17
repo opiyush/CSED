@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Admin->staff </title>
+    <title>Admin->News and Announcements </title>
     <link rel="stylesheet" href="">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -58,13 +58,14 @@
   <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h4>List Of staff</h4>
+      <h4>List Of Assignments</h4>
       <div class="table-responsive">
         <table id="mytable" class="table table-bordred table-striped">
           <thead>
-            <th><input type="checkbox" id="checkall" /></th>
-            <th>Name</th>
-            <th>Employee No</th>
+            <th>Heading</th>
+            <th>Published On</th>
+            <th>Published By</th>
+            <th>Link</th>
             <th>Edit</th>
             <th>Delete</th>
           </thead>
@@ -73,7 +74,11 @@
           while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
           ?>
             <tr>
-            <td><input type="checkbox" class="checkthis" /></td>
+
+            <!-- <td><?php //echo $rows["Heading"] ?></td>
+            <td><?php //echo $rows["PublishedOn"]?></td>
+            <td><?php //echo $rows["PublishedBy"]?></td>
+            <td><?php //echo $rows["Link"]?></td> -->
             <td><?php echo $rows["Name"] ?></td>
             <td><?php echo $rows["EmpNo"]?></td>
             <!-- delete and edit -->
@@ -83,7 +88,7 @@
               </button>
             </p></td>
             <td><p data-placement="top" data-toggle="tooltip" title="Delete">
-              <form action="delete_on_eno.php" method="post">
+              <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post">
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['EmpNo']?>" >
                 <span class="glyphicon glyphicon-trash"></span>
               </button>
@@ -115,10 +120,25 @@
 
   <!-- delete function if want to do it through js -->
   <script>
-    function delete_staff(eid){
+    function delete_assignment(eid){
 
     }
   </script>
+  <script>
+function validate(form) {
+
+    // validation code here ...
+
+
+    if(false) {
+        alert('Please correct the errors in the form!');
+        return false;
+    }
+    else {
+        return confirm('Do you really want to submit the form?');
+    }
+}
+</script>
 
 
   <!-- eding the php script and closing the connection -->
@@ -126,49 +146,41 @@
   sqlsrv_close($conn);
   ?>
 
-  <!-- add staff button and its modal -->
+  <!-- add faculty button and its modal -->
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#add_staff" >Add staff</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#add_faculty" >Add Assignments</button>
         <!-- modal -->
 
-        <div class="modal fade" id="add_staff" role="dialog">
+        <div class="modal fade" id="add_faculty" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Add The Details</h4>
+              <h4 class="modal-title">Add The Assignment</h4>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
-              <form action="add_to_table.php" method="post">
+              <form action="add_to_ass_table.php" method="post">
                 <div class="form-group">
-                  <label for="name">Name:</label>
-                  <input type="name" class="form-control" name="name">
+                  <label for="name">Heading:</label>
+                  <input type="name" class="form-control" name="heading">
                 </div>
                 <div class="form-group">
-                  <label for="empno">Employee Number:</label>
-                  <input type="text" class="form-control" name="empno">
+                  <label for="empno">Link:</label>
+                  <input type="text" class="form-control" name="link">
                 </div>
-                <div class="form-group">
-                  <label for="sel1">Subject list:</label>
-                  <select class="form-control" id="sel1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </select>
-                </div>
-                <input type="submit" class="btn btn-default"></input>
+
+                <input id="submit_modal" type="submit" class="btn btn-default"></input>
               </form>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button id="close_modal" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
 
           </div>
