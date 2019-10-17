@@ -177,7 +177,7 @@ function validate(form) {
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-              <input type="submit" class="btn btn-default"></input>
+              <button type="submit" class="btn btn-default">Submit</input>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
             </form>
