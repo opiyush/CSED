@@ -142,10 +142,9 @@
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Add The Details</h4>
             </div>
-
+            <form action="add_to_table.php" method="post">
             <!-- Modal body -->
             <div class="modal-body">
-              <form action="add_to_table.php" method="post">
                 <div class="form-group">
                   <label for="name">Name:</label>
                   <input type="name" class="form-control" name="name">
@@ -163,13 +162,13 @@
                     <option>4</option>
                   </select>
                 </div>
-                <input type="submit" class="btn btn-default"></input>
-              </form>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
+              <button type="submit" class="btn btn-default">Submit</input>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
+            </form>
 
           </div>
           </div>
