@@ -162,10 +162,10 @@ function validate(form) {
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Add The Notice</h4>
             </div>
-
+            <form action="add_to_table.php" method="post">
             <!-- Modal body -->
             <div class="modal-body">
-              <form action="add_to_table.php" method="post">
+
                 <div class="form-group">
                   <label for="name">Heading:</label>
                   <input type="name" class="form-control" name="name">
@@ -174,15 +174,13 @@ function validate(form) {
                   <label for="empno">Link:</label>
                   <input type="text" class="form-control" name="empno">
                 </div>
-
-                <input type="submit" class="btn btn-default"></input>
-              </form>
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
+              <input type="submit" class="btn btn-default"></input>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
-
+            </form>
           </div>
           </div>
           </div>
