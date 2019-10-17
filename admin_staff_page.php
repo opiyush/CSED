@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Admin->Faculty </title>
+    <title>Admin->staff </title>
     <link rel="stylesheet" href="admin_page.css">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -58,7 +58,7 @@
   <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h4>List Of Faculty</h4>
+      <h4>List Of staff</h4>
       <div class="table-responsive">
         <table id="mytable" class="table table-bordred table-striped">
           <thead>
@@ -115,7 +115,7 @@
 
   <!-- delete function if want to do it through js -->
   <script>
-    function delete_faculty(eid){
+    function delete_staff(eid){
 
     }
   </script>
@@ -126,14 +126,14 @@
   sqlsrv_close($conn);
   ?>
 
-  <!-- add faculty button and its modal -->
+  <!-- add staff button and its modal -->
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#add_faculty" >Add Faculty</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#add_staff" >Add staff</button>
         <!-- modal -->
 
-        <div class="modal fade" id="add_faculty" role="dialog">
+        <div class="modal fade" id="add_staff" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
 
