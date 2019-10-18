@@ -6,14 +6,18 @@
      if( $conn === false ) {
      die( print_r( sqlsrv_errors(), true));
    }
-     $empno = $_POST['empno'];
-     $name = $_POST['name'];
+     $heading = $_POST['heading'];
+     $link = $_POST['link'];
+     $Published_date = '18-10-2019';
+     $Due_date = NULL;
+     $empid = "G6";
+     $sub_code ='KCS701';
      //$subject = $_POST['subject'];
-     $sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
-     $params = array($name,$empno);
-     $stmt = sqlsrv_query( $conn,"Insert into Admin_teachers_table (Name, EmpNo) VALUES (?,?);",$params);
+     //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
+     $params = array($link,$Published_date,$Due_date,$empid,$heading,$sub_code);
+     $stmt = sqlsrv_query( $conn,"Insert into Assignment (Assg_Link, Published_date, Due_date, Emp_Id, Heading, Sub_Code) VALUES (?,?,?,?,?,?);",$params);
      echo '$stmt';
-     if($stmt==true)
+     if($stmt!=NULL)
      {
        echo "true"
        ?>

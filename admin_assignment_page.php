@@ -13,29 +13,6 @@
     <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
     <!-- <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
-
-
-      <!-- <script>
-      $(document).ready(function(){
-        $("#mytable #checkall").click(function () {
-                if ($("#mytable #checkall").is(":checked")) {
-                    $("#mytable input[type=checkbox]").each(function
-                       () {
-                        $(this).prop("checked", true);
-                    });
-
-                } else {
-                    $("#mytable input[type=checkbox]").each(function () {
-                        $(this).prop("checked", false);
-                    });
-                }
-            });
-
-            $("[data-toggle=tooltip]").tooltip();
-        });
-      </script> -->
-
-
   </head>
 
 <body>
