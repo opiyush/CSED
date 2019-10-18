@@ -3,23 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Admin->Faculty </title>
-    <link rel="stylesheet" href="">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
-    <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-    <!-- <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
-
-
+    <link rel="stylesheet" href="Login.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
-
 <body>
-
-  <!-- <?php include 'header.php' ?> -->
+  <?php include 'header.php' ?>
   <!-- php code for connecting to the database -->
   <?php
      $server = "HARSH";
@@ -57,13 +49,13 @@
             <!-- delete and edit -->
             <td><p data-placement="top" data-toggle="tooltip" title="Edit">
               <button class="btn btn-primary btn-xs"  >
-                <span class="glyphicon glyphicon-pencil"></span>
+                <!-- <span class="btn-edit"></span> -->
               </button>
             </p></td>
             <td><p data-placement="top" data-toggle="tooltip" title="Delete">
               <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post">
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['EmpNo']?>" >
-                <span class="glyphicon glyphicon-trash"></span>
+                <!-- <span class="glyphicon glyphicon-trash"></span> -->
               </button>
             </form>
             </p></td>
@@ -76,7 +68,7 @@
         </table>
 
         <!-- page number and next page code -->
-        <div class="clearfix"></div>
+        <!-- <div class="clearfix"></div>
         <ul class="pagination pull-right">
           <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
           <li class="active"><a href="#">1</a></li>
@@ -85,7 +77,7 @@
           <li><a href="#">4</a></li>
           <li><a href="#">5</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </div>
@@ -130,8 +122,8 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Add The Details</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <form action="add_to_table.php" method="post">
             <!-- Modal body -->
