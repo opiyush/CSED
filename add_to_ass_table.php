@@ -8,7 +8,7 @@
    }
      $heading = $_POST['heading'];
      $link = $_POST['link'];
-     $Published_date = '18-10-2019';
+     $Published_date = date("d-m-Y");
      $Due_date = NULL;
      $empid = "G6";
      $sub_code ='KCS701';
@@ -44,6 +44,6 @@
 
 </head>
 <body>
-  <h1><?php echo $empno ?></h1>
+  <h1></h1>
 </body>
 </html>
