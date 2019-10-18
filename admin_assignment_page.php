@@ -15,7 +15,7 @@
     <!-- <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
 
 
-      <script>
+      <!-- <script>
       $(document).ready(function(){
         $("#mytable #checkall").click(function () {
                 if ($("#mytable #checkall").is(":checked")) {
@@ -33,12 +33,13 @@
 
             $("[data-toggle=tooltip]").tooltip();
         });
-      </script>
+      </script> -->
 
 
   </head>
 
 <body>
+  <?php //include 'header.php' ?>
 
   <!-- php code for connecting to the database -->
   <?php
@@ -92,8 +93,8 @@
               </button></form>
             </p></td>
             <td><p data-placement="top" data-toggle="tooltip" title="Delete">
-              <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post">
-               <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['EmpNo']?>" >
+              <form onsubmit="return validate(this);" action="delete_assignment.php" method="post">
+               <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Assg_Id']?>" >
                 <span class="glyphicon glyphicon-trash"></span>
               </button>
             </form>
