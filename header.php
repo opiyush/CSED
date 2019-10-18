@@ -17,7 +17,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active" href="Front_Page.php">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">About <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="Faculty.php">Faculty <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="Assignment1.php">Academic Corner<span class="sr-only">(current)</span></a>

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="Login.css">
 </head>
 <body>
-<?php include 'header.php';?>
+<?php include 'header.php'?>
 
 	<?php
 	     $server = "DESKTOP-BOK28QQ";
