@@ -41,7 +41,7 @@ for ($x = 1; $x <=4; $x++) {
                   <?php
                   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC) and $rows["Semester"] == $x){
                     ?>
-                  <option value="<?php $rows["Sub_Code"]?>"> <?php echo $rows["Subject"]?></option>
+                  <option value="<?php echo $rows["Sub_Code"]?>"> <?php echo $rows["Subject"]?></option>
                   <<?php } ?>
                 </select>
                 <button type="submit" class="btn">FIND</button>
