@@ -25,42 +25,35 @@
           <a class="nav-item nav-link" href="#">Infrastructure <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Placement <span class="sr-only">(current)</span></a>
-          <div  class="container " style="text-align: center; color: pink ">
-            <button type="button" class="btn btn-outline-success float-right mt-2" data-toggle="modal" data-target="#myModal">LOGIN</button>
+
+          <a  class="nav-item nav-link" data-toggle="modal" data-target="#myModal">Log In<span class="sr-only">(current)</span></a>
 
             <!-- Modal --> <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
-
               <!-- Modal content-->
               <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Login</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
                 <div class="modal-body">
-                  <nav class="navbar navbar-default">
+                  <nav class="form-group">
                     <div class="container-fluid">
-
-
-                      <nav>
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" >Login</a>
-              <!--						<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Sign Up</a>-->
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                        </div>
-                      </nav>
-
                       <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                           <form id="Login">
                             <br>
-                            <input type="email" name="Email" placeholder="User Id" required ><br><br>
-                            <input type="password" name="Pss" placeholder="Password" required><br><br>
-                            <select name="Role" id="role">
+                            <input type="email" name="Email" placeholder="User Id" required class="form-control"><br><br>
+                            <input type="password" name="Pss" placeholder="Password" required class="form-control"><br><br>
+                            <select name="Role" id="role" class="form-control">
                                   <option value="" disabled selected hidden>Choose Role</option>
                                   <option value="Admin">Admin</option>
                                   <option value="HOD">HOD</option>
                                   <option value="Faculty">Faculty</option>
                                   <option value="TechStaff">Technical Staff</option>
                             </select><br><br>
-                            <input type="submit" name="Login" value="Login">
+                            <input type="submit" name="Login" value="Login" class="btn-primary">
                           </form >
                         </div>
         <!--
@@ -86,8 +79,6 @@
 
 
               </div>
-
-            </div>
           </div>
         </div>
 
