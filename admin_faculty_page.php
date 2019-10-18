@@ -15,31 +15,11 @@
     <!-- <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
 
 
-      <!-- <script>
-      $(document).ready(function(){
-        $("#mytable #checkall").click(function () {
-                if ($("#mytable #checkall").is(":checked")) {
-                    $("#mytable input[type=checkbox]").each(function
-                       () {
-                        $(this).prop("checked", true);
-                    });
-
-                } else {
-                    $("#mytable input[type=checkbox]").each(function () {
-                        $(this).prop("checked", false);
-                    });
-                }
-            });
-
-            $("[data-toggle=tooltip]").tooltip();
-        });
-      </script> -->
-
-
   </head>
 
 <body>
 
+  <!-- <?php include 'header.php' ?> -->
   <!-- php code for connecting to the database -->
   <?php
      $server = "HARSH";
