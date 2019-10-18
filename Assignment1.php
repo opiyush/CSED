@@ -1,22 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="Login.css">
+</head>
+<body>
 <?php include 'header.php';?>
-<script>
-$(document).ready(function(){
-  $("#mytable #checkall").click(function () {
-    if ($("#mytable #checkall").is(":checked")) {
-      $("#mytable input[type=checkbox]").each(function () {
-        $(this).prop("checked", true);
-      });
-
-    } else {
-      $("#mytable input[type=checkbox]").each(function () {
-        $(this).prop("checked", false);
-      });
-    }
-  });
-
-  $("[data-toggle=tooltip]").tooltip();
-});
-</script>
 <?php
 $server = "DESKTOP-HAF4GQB";
 $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );

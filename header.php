@@ -1,11 +1,4 @@
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="Login.css">
-</head>
-<body>
   <div class="header">
     <div class="row">
       <div class="col-md-1">
