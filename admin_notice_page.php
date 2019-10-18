@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Admin->News and Announcements </title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="Login.css">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -39,7 +39,7 @@
   </head>
 
 <body>
-  <!-- <?php include 'header.php' ?> -->
+  <?php include 'header.php' ?>
   <!-- php code for connecting to the database -->
   <?php
      $server = "HARSH";
@@ -81,9 +81,10 @@
             <td><?php echo $rows["Notice_Link"]?></td>
             <!-- delete and edit -->
             <td><p data-placement="top" data-toggle="tooltip" title="Edit">
+              <form onsubmit="return validate(this);" action="delete_notice.php" method="post">
               <button class="btn btn-primary btn-xs"  >
                 <span class="glyphicon glyphicon-pencil"></span>
-              </button>
+              </button></form>
             </p></td>
             <td><p data-placement="top" data-toggle="tooltip" title="Delete">
               <form onsubmit="return validate(this);" action="delete_notice.php" method="post">
@@ -160,17 +161,21 @@ function validate(form) {
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Add The Notice</h4>
             </div>
-            <form action="add_to_table.php" method="post">
+            <form action="add_to_notice.php" method="post">
             <!-- Modal body -->
             <div class="modal-body">
 
                 <div class="form-group">
                   <label for="name">Heading:</label>
-                  <input type="name" class="form-control" name="name">
+                  <input type="name" class="form-control" name="heading">
                 </div>
                 <div class="form-group">
                   <label for="empno">Link:</label>
-                  <input type="text" class="form-control" name="empno">
+                  <input type="text" class="form-control" name="link">
+                </div>
+                <div class="form-group">
+                  <label for="empno">Published By:</label>
+                  <input type="text" class="form-control" name="published_by">
                 </div>
             </div>
             <!-- Modal footer -->
