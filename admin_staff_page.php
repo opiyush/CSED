@@ -14,7 +14,7 @@
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
     <!-- <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script> -->
 
-
+<!--
       <script>
       $(document).ready(function(){
         $("#mytable #checkall").click(function () {
@@ -33,13 +33,13 @@
 
             $("[data-toggle=tooltip]").tooltip();
         });
-      </script>
+      </script> -->
 
 
   </head>
 
 <body>
-
+  <!-- <?php include 'header.php' ?> -->
   <!-- php code for connecting to the database -->
   <?php
      $server = "HARSH";
@@ -62,7 +62,6 @@
       <div class="table-responsive">
         <table id="mytable" class="table table-bordred table-striped">
           <thead>
-            <th><input type="checkbox" id="checkall" /></th>
             <th>Name</th>
             <th>Employee No</th>
             <th>Edit</th>
@@ -73,7 +72,6 @@
           while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
           ?>
             <tr>
-            <td><input type="checkbox" class="checkthis" /></td>
             <td><?php echo $rows["Name"] ?></td>
             <td><?php echo $rows["EmpNo"]?></td>
             <!-- delete and edit -->
