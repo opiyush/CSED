@@ -19,8 +19,8 @@
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">About <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Faculty <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="Assignment1.php">Students Corner<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="Faculty.php">Faculty <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="Assignment1.php">Academic Corner<span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Infrastructure <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
