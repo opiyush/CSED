@@ -25,8 +25,7 @@
           <a class="nav-item nav-link" href="#">Infrastructure <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Placement <span class="sr-only">(current)</span></a>
-
-          <a  class="nav-item nav-link" data-toggle="modal" data-target="#myModal">Log In<span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal">Log In<span class="sr-only">(current)</span></a>
 
             <!-- Modal --> <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
