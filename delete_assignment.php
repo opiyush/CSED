@@ -1,8 +1,7 @@
 <html>
 <head>
+  <?php include 'connection.php'?>
   <?php
-     $server = "HARSH";
-     $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
      $assgid = $_POST['submit'];
      $stmt = sqlsrv_query( $conn, "DELETE from Assignment WHERE Assg_Id ='".$assgid."' ;",array());
      if($stmt==true)

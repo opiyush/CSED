@@ -1,10 +1,9 @@
 <html>
 <head>
+  <?php include 'connection.php'?>
   <?php
-     $server = "HARSH";
-     $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
      $empid = $_POST['submit'];
-     $stmt = sqlsrv_query( $conn, "DELETE from Admin_teachers_table WHERE EmpNo ='".$empid."' ;",array());
+     $stmt = sqlsrv_query( $conn, "DELETE from emp_details WHERE EmpNo ='".$empid."' ;",array());
      if($stmt==true)
      {
        ?>

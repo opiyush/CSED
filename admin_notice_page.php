@@ -40,10 +40,9 @@
 
 <body>
   <?php include 'header.php' ?>
+  <?php inclued 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $server = "HARSH";
-     $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
      $stmt = sqlsrv_query( $conn, "select * from Notice_table",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
