@@ -85,6 +85,8 @@
           ?>
           </tbody>
         </table>
+
+
       </div>
     </div>
   </div>
@@ -120,9 +122,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div style="padding:10px">
-          <button class="btn btn-primary" data-toggle="modal" data-target="#add_faculty" >Add Faculty</button>
-        </div>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#add_faculty" >Add Faculty</button>
         <!-- modal -->
 
         <div class="modal fade" id="add_faculty" role="dialog">

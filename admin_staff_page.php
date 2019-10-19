@@ -33,7 +33,7 @@
       <h4>List Of staff</h4>
       <div class="table-responsive">
         <table id="mytable" class="table table-bordred table-striped">
-          <thead>
+          <thead class="thead-dark">
             <th>Name</th>
             <th>Employee No</th>
             <th>Email</th>
@@ -130,8 +130,9 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Add The Details</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+
             </div>
             <form action="add_to_table.php" method="post">
             <!-- Modal body -->
