@@ -12,11 +12,10 @@
   </head>
 <body>
   <?php include 'header.php' ?>
+  <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $server = "HARSH";
-     $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
-     $stmt = sqlsrv_query( $conn, "select * from Admin_teachers_table",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "select * from emp_details",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
 
@@ -29,13 +28,22 @@
   ?>
   <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="table_layout">
       <h4>List Of Faculty</h4>
       <div class="table-responsive">
-        <table id="mytable" class="table table-bordred table-striped">
-          <thead>
+        <table id="mytable" class="table table-bordred table-striped" style="word-wrap: break-word;">
+          <thead class="thead-dark">
             <th>Name</th>
             <th>Employee No</th>
+            <th>Email</th>
+            <th>UserId</th>
+            <th>Password</th>
+            <th>Phn1</th>
+            <th>Phn2</th>
+            <th>Degree</th>
+            <th>CV Link</th>
+            <th>Photo Link</th>
+            <th>Designation</th>
             <th>Edit</th>
             <th>Delete</th>
           </thead>
@@ -46,19 +54,30 @@
             <tr>
             <td><?php echo $rows["Name"] ?></td>
             <td><?php echo $rows["EmpNo"]?></td>
+            <td><?php echo $rows["Email"]?></td>
+            <td><?php echo $rows["UserId"]?></td>
+            <td><?php echo $rows["Password"]?></td>
+            <td><?php echo $rows["phn1"]?></td>
+            <td><?php echo $rows["phn2"]?></td>
+            <td><?php echo $rows["Degree"]?></td>
+            <td><?php echo $rows["CVlink"]?></td>
+            <td><?php echo $rows["Photo"]?></td>
+            <td><?php echo $rows["Designation"]?></td>
             <!-- delete and edit -->
-            <td><p data-placement="top" data-toggle="tooltip" title="Edit">
+            <td><p data-placement="bottom" data-toggle="tooltip" title="Edit">
               <button class="btn btn-primary btn-xs"  >
                 <!-- <span class="btn-edit"></span> -->
               </button>
             </p></td>
-            <td><p data-placement="top" data-toggle="tooltip" title="Delete">
-              <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post">
+            <td>
+
+              <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post" data-placement='top' data-toggle='tooltip'>
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['EmpNo']?>" >
                 <!-- <span class="glyphicon glyphicon-trash"></span> -->
               </button>
             </form>
-            </p></td>
+
+          </td>
             </tr>
           <?php
           }
@@ -113,7 +132,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <button class="btn btn-primary" data-toggle="modal" data-target="#add_faculty" >Add Faculty</button>
+        <div style="padding:10px">
+          <button class="btn btn-primary" data-toggle="modal" data-target="#add_faculty" >Add Faculty</button>
+        </div>
         <!-- modal -->
 
         <div class="modal fade" id="add_faculty" role="dialog">
