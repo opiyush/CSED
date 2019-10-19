@@ -40,7 +40,7 @@
 
 <body>
   <?php include 'header.php' ?>
-  <?php inclued 'connection.php'?>
+  <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
      $stmt = sqlsrv_query( $conn, "select * from Notice_table",array()); //making query and storing it in stmt variable
