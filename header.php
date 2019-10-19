@@ -21,6 +21,7 @@
           <a class="nav-item nav-link" href="#">About <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="Faculty.php">Faculty <span class="sr-only">(current)</span></a>
           <li class="nav-item dropdown">
+<<<<<<< HEAD
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Academic Corner
           </a>
@@ -30,7 +31,20 @@
             <a class="dropdown-item" href="#">Schedule</a>
           </div>
         </li>  <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
+=======
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Academic Corner
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="Assignment1.php"><span class="sr-only">(current)</span>Assignment</a>
+            <a class="dropdown-item" href="Pre_paper.php"><span class="sr-only">(current)</span>Previous Paper</a>
+            <a class="dropdown-item" href="Scedule.php"><span class="sr-only">(current)</span>Schedule</a>
+          </div>
+        </li>
+          <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
+>>>>>>> c0c8076f7230f611eed932166b09dc59cccc5399
           <a class="nav-item nav-link" href="#">Infrastructure <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">Library <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Placement <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal">Log In<span class="sr-only">(current)</span></a>
