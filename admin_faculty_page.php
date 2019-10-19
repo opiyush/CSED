@@ -12,7 +12,7 @@
   </head>
 <body>
   <?php include 'header.php' ?>
-  <?php inclued 'connection.php'?>
+  <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
      $stmt = sqlsrv_query( $conn, "select * from emp_details",array()); //making query and storing it in stmt variable
