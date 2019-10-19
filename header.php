@@ -1,5 +1,4 @@
-
-  <div class="header">
+<div class="header">
     <div class="row">
       <div class="col-md-1">
         <a href="" class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/KNITlogo.png/220px-KNITlogo.png" alt="KNIT Logo" id="knitlogo"></a>
@@ -11,7 +10,6 @@
     </div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -21,26 +19,21 @@
           <a class="nav-item nav-link" href="#">About <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="Faculty.php">Faculty <span class="sr-only">(current)</span></a>
           <li class="nav-item dropdown">
-
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Academic Corner
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Assignment</a>
-            <a class="dropdown-item" href="#">Previous Paper</a>
-            <a class="dropdown-item" href="#">Schedule</a>
+            <a class="dropdown-item" href="Assignment1.php">Assignment</a>
+            <a class="dropdown-item" href="Pre_paper.php">Previous Paper</a>
+            <a class="dropdown-item" href="Schedule.php">Schedule</a>
           </div>
         </li>  <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
-
-
           <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
-
           <a class="nav-item nav-link" href="#">Infrastructure <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Library <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="Library.php">Library <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Placement <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal">Log In<span class="sr-only">(current)</span></a>
-
             <!-- Modal --> <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <!-- Modal content-->
