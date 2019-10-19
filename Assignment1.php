@@ -9,9 +9,7 @@
 <?php include 'connection.php' ;?>
 
 <?php
-$a=$_POST["subject"];
-$str="select Assg_Link, Heading, Published_date, Due_date from Assignment where Sub_Code='$a'";
-$stmt = sqlsrv_query( $conn, $str,array()); //making query and storing it in stmt variable
+$stmt = sqlsrv_query( $conn, "select Subject, Semester, Sub_Code from Subjects_table order by Semester",array());
 //echo starts for displaying the top of the page
 ?>
   <div id="fir" class="container">
