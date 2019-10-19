@@ -44,8 +44,8 @@ if ($stmt !== NULL) {
 
                 <tr>
                   <td><?php echo $rows["Heading"] ?></td>
-                  <td><?php $Date = $rows["Published_date"]->format('d/m/Y'); echo $Date;?></td>
-                  <td><?php $Date = $rows["Due_date"]->format('d/m/Y'); echo $Date; ?></td>
+                  <td><?php $Date = $rows["Published_date"]; echo $Date;?></td>
+                  <td><?php $Date = $rows["Due_date"]; echo $Date; ?></td>
                   <td><a href="<?php echo $rows["Assg_Link"]?>">Click</a></td>
                 </tr>
                 <?php
