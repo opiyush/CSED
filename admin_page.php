@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Admin </title>
+    <link rel="stylesheet" href="Login.css">
     <link rel="stylesheet" href="admin_page.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -11,12 +12,12 @@
   </head>
   <body>
 
-    <?php include 'header.php' ?>
+    <?php include 'header.php'?>
 
     <!-- main contents  -->
     <div class= "container-fluid main_contents">
       <div class = "row">
-        <div class = "col-sm-6 col-md-6 col-xl-6 py-2 first">
+        <div class = "col-sm-6 col-md-6 col-xl-6 py-2 Faculty">
           <div class="card img-fluid" >
           <a href="admin_faculty_page.php">
             Alter Faculty
@@ -24,21 +25,21 @@
           </div>
 
         </div>
-        <div class = "col-sm-6 col-md-6 col-xl-6 py-2 second">
+        <div class = "col-sm-6 col-md-6 col-xl-6 py-2 Technical_staff">
           <div class="card img-fluid">
             <a href="admin_staff_page.php">
               Alter Techninal Staff
             </a>
           </div>
         </div>
-        <div class = "col-sm-6 col-md-6 col-xl-6 py-2 third">
+        <div class = "col-sm-6 col-md-6 col-xl-6 py-2 News">
           <div class="card img-fluid">
             <a href="admin_notice_page.php">
             Alter NEWS and Information
           </a>
           </div>
         </div>
-        <div class = "col-sm-6 col-md-6 col-xl-6 py-2  fourth">
+        <div class = "col-sm-6 col-md-6 col-xl-6 py-2  Assignments">
           <div class="card img-fluid">
             <a href="admin_assignment_page.php">
               Alter Assignments and schedules
