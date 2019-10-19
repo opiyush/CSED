@@ -30,9 +30,7 @@
             <a class="dropdown-item" href="#">Previous Paper</a>
             <a class="dropdown-item" href="#">Schedule</a>
           </div>
-        </li>  <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
-
-
+        </li>  
           <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
 
           <a class="nav-item nav-link" href="#">Infrastructure <span class="sr-only">(current)</span></a>
