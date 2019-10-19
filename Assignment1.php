@@ -6,11 +6,12 @@
 </head>
 <body>
 <?php include 'header.php';?>
-<?php
-$server = "DESKTOP-HAF4GQB";
-$conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
+<?php include 'connection.php' ;?>
 
-$stmt = sqlsrv_query( $conn, "select Subject, Semester, Sub_Code from Subject order by Semester",array()); //making query and storing it in stmt variable
+<?php
+$a=$_POST["subject"];
+$str="select Assg_Link, Heading, Published_date, Due_date from Assignment where Sub_Code='$a'";
+$stmt = sqlsrv_query( $conn, $str,array()); //making query and storing it in stmt variable
 //echo starts for displaying the top of the page
 ?>
   <div id="fir" class="container">
