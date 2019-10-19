@@ -1,8 +1,4 @@
 
-<style>
-
-
-</style>
   <div class="header">
     <div class="row">
       <div class="col-md-1">
@@ -13,7 +9,7 @@
         <h2>KNIT Sultanpur</h2>
       </div>
     </div>
-    <hr>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,8 +20,16 @@
           <a class="nav-item nav-link active" href="Front_Page.php">Home <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">About <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="Faculty.php">Faculty <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="Assignment1.php">Academic Corner<span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Academic Corner
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Assignment</a>
+            <a class="dropdown-item" href="#">Previous Paper</a>
+            <a class="dropdown-item" href="#">Schedule</a>
+          </div>
+        </li>  <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Infrastructure <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Placement <span class="sr-only">(current)</span></a>
@@ -69,4 +73,3 @@
         </div>
       </div>
     </nav>
-  </div>

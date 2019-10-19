@@ -12,8 +12,7 @@
 <?php include 'header.php'?>
 
 	<?php
-	     $server = "DESKTOP-BOK28QQ";
-	     $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
+	    include 'connection.php';
 
 	     $stmt = sqlsrv_query( $conn, "select * from emp_details where Designation=2",array()); //making query and storing it in stmt variable
 
