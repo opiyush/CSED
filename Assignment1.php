@@ -6,12 +6,7 @@
 </head>
 <body>
 <?php include 'header.php';?>
-<?php
-$server = "DESKTOP-HAF4GQB";
-$conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
-
-$stmt = sqlsrv_query( $conn, "select Subject, Semester, Sub_Code from Subject order by Semester",array()); //making query and storing it in stmt variable
-//echo starts for displaying the top of the page
+<?php include 'connection.php'//echo starts for displaying the top of the page
 ?>
   <div id="fir" class="container">
     <div class="row mt-5">

@@ -6,13 +6,7 @@
 </head>
 <body>
 <?php include 'header.php';?>
-<?php
-$server = "DESKTOP-HAF4GQB";
-$conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
-$a=$_POST["subject"];
-$str="select Assg_Link, Heading, Published_date, Due_date from Assignment where Sub_Code='$a'";
-$stmt = sqlsrv_query( $conn, $str,array()); //making query and storing it in stmt variable
-//echo starts for displaying the top of the page
+<?php include 'connection.php'//echo starts for displaying the top of the page
 ?>
 <?php
 if ($stmt !== NULL) {
