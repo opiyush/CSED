@@ -27,7 +27,7 @@
             <a class="dropdown-item" href="Pre_paper.php">Previous Paper</a>
             <a class="dropdown-item" href="Schedule.php">Schedule</a>
           </div>
-        </li>  <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
+        </li>
           <a class="nav-item nav-link" href="#">Staff <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="#">Infrastructure <span class="sr-only">(current)</span></a>
           <a class="nav-item nav-link" href="Library.php">Library <span class="sr-only">(current)</span></a>
