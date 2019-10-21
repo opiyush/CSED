@@ -1,11 +1,7 @@
 <html>
 <head>
+  <?php include 'connection.php' ?>
   <?php
-     $server = "HARSH";
-     $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
-     if( $conn === false ) {
-     die( print_r( sqlsrv_errors(), true));
-   }
      $heading = $_POST['heading'];
      $link = $_POST['link'];
      $Published_date = date("d-m-Y");
