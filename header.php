@@ -48,7 +48,7 @@
                     <div class="container-fluid">
                       <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                          <form id="Login">
+                          <form id="Login" action="login_backend.php" method="post">
                             <br>
                             <input type="email" name="Email" placeholder="User Id" required class="form-control"><br><br>
                             <input type="password" name="Pss" placeholder="Password" required class="form-control"><br><br>
