@@ -54,10 +54,10 @@
                             <input type="password" name="Pss" placeholder="Password" required class="form-control"><br><br>
                             <select name="Role" id="role" class="form-control">
                                   <option value="" disabled selected hidden>Choose Role</option>
-                                  <option value="Admin">Admin</option>
-                                  <option value="HOD">HOD</option>
-                                  <option value="Faculty">Faculty</option>
-                                  <option value="TechStaff">Technical Staff</option>
+                                  <option value="0">Admin</option>
+                                  <option value="1" >HOD</option>
+                                  <option value="2" >Faculty</option>
+                                  <option value="3" >Technical Staff</option>
                             </select><br><br>
                             <input type="submit" name="Login" value="Login" class="btn-primary">
                           </form >
