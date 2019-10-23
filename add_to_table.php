@@ -7,7 +7,7 @@
      //$subject = $_POST['subject'];
      $sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
      $params = array($name,$empno);
-     $stmt = sqlsrv_query( $conn,"Insert into Admin_teachers_table (Name, EmpNo) VALUES (?,?);",$params);
+     $stmt = sqlsrv_query( $conn,"Insert into emp_details (Name, EmpNo) VALUES (?,?);",$params);
      echo '$stmt';
      if($stmt==true)
      {
