@@ -4,8 +4,10 @@
      $server = "HARSH";
      $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
      $empid = $_POST['submit'];
-     $stmt = sqlsrv_query( $conn, "DELETE from Admin_teachers_table WHERE EmpNo ='".$empid."' ;",array());
-     if($stmt==true)
+     $stmt = sqlsrv_query( $conn, "DELETE from emp_details WHERE EmpNo ='".$empid."' ;",array());
+     $param_2 =array($empid);
+     $stmt_make_null = sqlsrv_query($conn, "UPDATE Subjects_table SET Emp_Id =NULL WHERE Emp_Id=?",$param_2);
+     if($stmt and $stmt_make_null ==true)
      {
        ?>
        <form>
