@@ -3,9 +3,13 @@
   <?php
      $server = "HARSH";
      $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
-     $empid = $_POST['submit'];
-     $stmt = sqlsrv_query( $conn, "DELETE from emp_details WHERE EmpNo ='".$empid."' ;",array());
-     $param_2 =array($empid);
+     $email = $_POST['submit'];
+     $stmt = sqlsrv_query( $conn, "DELETE from emp_details WHERE Email ='".$email."' ;",array());
+     $param_2 =array($email);
+
+
+
+     //needed to be corrected for subjects
      $stmt_make_null = sqlsrv_query($conn, "UPDATE Subjects_table SET Emp_Id =NULL WHERE Emp_Id=?",$param_2);
      if($stmt and $stmt_make_null ==true)
      {
@@ -32,6 +36,6 @@
 
 </head>
 <body>
-  <h1><?php echo $empid ?></h1>
+  <h1><?php echo $email ?></h1>
 </body>
 </html>

@@ -79,7 +79,7 @@ if(isset($_SESSION["role"])){
             <td>
 
               <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post" data-placement='top' data-toggle='tooltip'>
-               <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['EmpNo']?>" >
+               <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Email']?>" >
                 <!-- <span class="glyphicon glyphicon-trash"></span> -->
               </button>
             </form>
@@ -148,8 +148,8 @@ if(isset($_SESSION["role"])){
                   <input type="name" class="form-control" name="name">
                 </div>
                 <div class="form-group">
-                  <label for="empno">Employee Number:</label>
-                  <input type="text" class="form-control" name="empno">
+                  <label for="email">Email:</label>
+                  <input type="text" class="form-control" name="email">
                 </div>
                 <div class="form-group">
                   <label for="sel1">Subject list:</label>
