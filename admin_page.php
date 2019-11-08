@@ -1,3 +1,11 @@
+<?php
+ session_start();
+//$_SESSION["role"]="Admin";
+//echo $_SESSION["role"];
+if(isset($_SESSION["role"])){
+  if($_SESSION["role"]=="Admin")
+  {
+  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -56,3 +64,12 @@
 
   </body>
 </html>
+<?php
+  }
+  else {
+    echo "access denied";
+  }
+  }
+  else {
+    echo "Login required";
+  } ?>

@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(isset($_SESSION["role"])){
+  if($_SESSION["role"]=="Admin")
+  { ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -152,3 +157,12 @@ function validate(form) {
 
 </body>
 </html>
+<?php
+  }
+  else {
+    echo "access denied";
+  }
+  }
+  else {
+    echo "Login required";
+  } ?>

@@ -1,3 +1,9 @@
+<?php
+ session_start();
+if(isset($_SESSION["role"])){
+  if($_SESSION["role"]=="Admin")
+  {
+  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -57,8 +63,8 @@
             <td><?php echo $rows["Email"]?></td>
             <td><?php echo $rows["UserId"]?></td>
             <td><?php echo $rows["Password"]?></td>
-            <td><?php echo $rows["phn1"]?></td>
-            <td><?php echo $rows["phn2"]?></td>
+            <td><?php echo $rows["Phn1"]?></td>
+            <td><?php echo $rows["Phn2"]?></td>
             <td><?php echo $rows["Degree"]?></td>
             <td><?php echo $rows["CVlink"]?></td>
             <td><?php echo $rows["Photo"]?></td>
@@ -172,3 +178,12 @@
 
 </body>
 </html>
+<?php
+  }
+  else {
+    echo "access denied";
+  }
+  }
+  else {
+    echo "Login required";
+  } ?>

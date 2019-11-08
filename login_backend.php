@@ -1,3 +1,6 @@
+<?php
+session_start();
+ ?>
 <?php include 'connection.php'?>
 
 <?php
@@ -11,20 +14,25 @@
      die( print_r( sqlsrv_errors(), true));
    }
    $valid = sqlsrv_get_field( $stmt, 0);
-   echo "$valid: ";
+   //echo "$valid: ";
   if($valid == 1)
   {
+    $_SESSION["email"]=$email; //assigning email to session variable
       if($role == 0)//0 for admin
       {
+        $_SESSION["role"]='Admin'; //assigning role to session variable
         header("Location: admin_page.php");
       }
       elseif ($role ==1) {// 1 for HOD
+        $_SESSION["role"]="HOD"; //assigning role to session variable
         header('Location: admin_page.php');
       }
       elseif ($role ==2) {//2 for Faculty
+        $_SESSION["role"]="Faculty";//assigning role to session variable
         echo 'the role is Faculty';
       }
       elseif ($role == 3) {//3 for Technical Staff
+        $_SESSION["role"]="TechStaff";//assigning role to session variable
         echo 'The role is TechStaff';
       }
   }
