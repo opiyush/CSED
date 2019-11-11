@@ -90,7 +90,6 @@
                            <input type="text" name="EmpNo" placeholder="Employe No" required class="form-control"><br><br>
                            <input type="text" name="Name" placeholder="Full Name" required class="form-control"><br><br>
                            <input type="email" name="Email" placeholder="Email Id" required class="form-control"><br><br>
-                           <input type="text" name="UserId" placeholder="User Id" required class="form-control"><br><br>
                            <input type="password" name="Password" placeholder="Password" required class="form-control"><br><br>
                            <input type="text" name="Phn1" placeholder="Contact No." required class="form-control"><br><br>
                            <input type="text" name="Phn2" placeholder="Alternate Contact No." class="form-control"><br><br>

@@ -4,7 +4,6 @@
     $EmpNo = $_POST['EmpNo'];
     $Name = $_POST['Name'];
     $Email = $_POST['Email'];
-    $UserId = $_POST['UserId'];
     $Password = $_POST['Password'];
     $Phn1 = $_POST['Phn1'];
     $Phn2 = $_POST['Phn2'];
@@ -13,20 +12,23 @@
     $Photo = $_POST['Photo'];
     $Designation = $_POST['Designation'];
     $params = array($Email,$Password,$Designation);
+
     $stmt = sqlsrv_query( $conn, "SELECT COUNT(Password) AS valid FROM emp_details WHERE Email=? and Password=? and Designation=?",$params);
     if( sqlsrv_fetch( $stmt ) === false)
     {
      die( print_r( sqlsrv_errors(), true));
     }
-
    $valid = sqlsrv_get_field( $stmt, 0);
-   echo "$valid: ";
+   //echo "$valid: ";
   if($valid == 1)
   {
-    $params = array($EmpNo,$Name,$UserId,$Phn1,$Phn2,$Degree,$CVlink,$Photo);
-    print_r($pararms);
-    $stmt = sqlsrv_query( $conn,"Insert into emp_details (EmpNo,Name, UserId, Phn1, Phn2, Degree, CVlink, Photo) VALUES (?,?,?,?,?,?,?,?);",$params);
-    echo $stmt;
+    $params = array($EmpNo,$Name,$Phn1,$Phn2,$Degree,$CVlink,$Photo);
+    //print_r($params);
+   $str="Update emp_details set EmpNo = ?,Name = ?, Phn1 = ?, Phn2 =?, Degree = ?, CVlink =?, Photo = ?";
+    $stmt = sqlsrv_query( $conn,$str,$params);
+    if(!$stmt){
+      die( print_r(sqlsrv_errors(),true));
+    }
       if($Designation== 0)//0 for admin
       {
         header("Location: admin_page.php");
@@ -37,7 +39,6 @@
       elseif ($Designation ==2) {//2 for Faculty
         echo 'the role is Faculty';
       }
-
       elseif ($Designation == 3) {//3 for Technical Staff
         echo "TechStaff";
       }
