@@ -77,7 +77,7 @@
                <div class="container-fluid">
                  <div class="tab-content" id="nav-tabContent">
                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                     <form id="Login" action="signup_backend.php" method="post">
+                     <form id="Login" action="signup_backend.php" method="post" enctype="multipart/form-data">
                        <br>
                        <input type="text" name="EmpNo" placeholder="Employe No" required class="form-control"><br><br>
                        <input type="text" name="Name" placeholder="Full Name" required class="form-control"><br><br>
@@ -87,7 +87,7 @@
                        <input type="text" name="Phn2" placeholder="Alternate Contact No." class="form-control"><br><br>
                        <input type="text" name="Degree" placeholder="Degree" required class="form-control"><br><br>
                        <input type="text" name="CVlink" placeholder="CV Link"  class="form-control"><br><br>
-                       <input type="text" name="Photo" placeholder="Photo Link"  class="form-control"><br><br>
+                       <input type="file" name="Photo" id="fileToUpload" class="form-control"><br><br>
                        <select name="Designation" id="role" class="form-control">
                              <option value="" disabled selected hidden>Choose Role</option>
                              <option value="2">Faculty</option>

@@ -1,6 +1,8 @@
 <?php session_start(); ?>
 <?php include 'connection.php'?>
 
+
+
 <?php
     $EmpNo = $_POST['EmpNo'];
     $Name = $_POST['Name'];
@@ -10,7 +12,7 @@
     $Phn2 = $_POST['Phn2'];
     $Degree = $_POST['Degree'];
     $CVlink = $_POST['CVlink'];
-    $Photo = $_POST['Photo'];
+    $Photo= $_FILES["Photo"]["name"];
     $Designation = $_POST['Designation'];
     $params = array($Email,$Password,$Designation);
 
@@ -24,9 +26,37 @@
   if($valid == 1)
   {
     $_SESSION["email"]=$Email; //assigning email to session variable
-    $params = array($EmpNo,$Name,$Phn1,$Phn2,$Degree,$CVlink,$Photo);
+    $params = array($EmpNo,$Name,$Phn1,$Phn2,$Degree,$CVlink,$Photo,$Email);
     //print_r($params);
-   $str="Update emp_details set EmpNo = ?,Name = ?, Phn1 = ?, Phn2 =?, Degree = ?, CVlink =?, Photo = ?";
+    //upload images
+    $target_dir = "Added_Image/";
+    echo $target_file = $target_dir . basename($_FILES["Photo"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    // Check if image file is a actual image or fake image
+    if(isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["Photo"]["tmp_name"]);
+        if($check !== false) {
+            $uploadOk = 1;
+        } else {
+            $uploadOk = 0;
+        }
+    }
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif" ) {
+          $uploadOk = 0;
+        }
+        if ($uploadOk == 0) {
+
+          // if everything is ok, try to upload file
+        } else {
+          if (move_uploaded_file($_FILES["Photo"]["tmp_name"], $target_file)) {
+          } else {
+
+    }
+}
+
+   $str="Update emp_details set EmpNo = ?,Name = ?, Phn1 = ?, Phn2 =?, Degree = ?, CVlink =?, Photo = ? where Email=?";
     $stmt = sqlsrv_query( $conn,$str,$params);
     if(!$stmt){
       die( print_r(sqlsrv_errors(),true));
