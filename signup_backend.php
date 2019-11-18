@@ -22,6 +22,7 @@
    //echo "$valid: ";
   if($valid == 1)
   {
+    $_SESSION["email"]=$Email; //assigning email to session variable
     $params = array($EmpNo,$Name,$Phn1,$Phn2,$Degree,$CVlink,$Photo);
     //print_r($params);
    $str="Update emp_details set EmpNo = ?,Name = ?, Phn1 = ?, Phn2 =?, Degree = ?, CVlink =?, Photo = ?";
@@ -31,13 +32,16 @@
     }
       if($Designation== 0)//0 for admin
       {
+        $_SESSION["role"]='Admin';
         header("Location: admin_page.php");
       }
       elseif ($Designation ==1) {// 1 for HOD
+        $_SESSION["role"]="HOD"; //assigning role to session variable
         header('Location: admin_page.php');
       }
       elseif ($Designation ==2) {//2 for Faculty
-        echo 'the role is Faculty';
+        $_SESSION["role"]="Faculty";//assigning role to session variable
+        header("Location: Faculty_login.php");
       }
       elseif ($Designation == 3) {//3 for Technical Staff
         echo "TechStaff";
