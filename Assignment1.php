@@ -6,10 +6,7 @@
 </head>
 <body>
 <?php include 'header.php';?>
-<?php include 'nav-bar.php';?>
-
 <?php include 'connection.php' ;?>
-
 <?php
 $stmt = sqlsrv_query( $conn, "select Subject, Semester, Sub_Code from Subjects_table order by Semester",array());
 //echo starts for displaying the top of the page

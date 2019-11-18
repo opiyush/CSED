@@ -9,3 +9,4 @@
       </div>
     </div>
     </div>
+<?php include 'nav-bar.php';?>
