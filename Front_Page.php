@@ -26,23 +26,23 @@ session_start();
       <div class="carousel-item active">
         <img src="http://www.knit.ac.in/images/administration_img.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h5>Administrative Blog</h5>
+          <p>Section handling all the behind the scene work</p>
         </div>
       </div>
       <div class="carousel-item">
         <img src="http://www.knit.ac.in/images/bui_09.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h5>Administrative Blog</h5>
+          <p>Section handling all the behind the scene work.</p>
         </div>
 
       </div>
       <div class="carousel-item">
         <img src="https://cdn.s3waas.gov.in/s38f53295a73878494e9bc8dd6c3c7104f/uploads/2018/03/2018031234.jpg" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h5>Administrative Blog</h5>
+          <p>Section handling all the behind the scene work.</p>
         </div>
       </div>
     </div>
@@ -100,7 +100,7 @@ session_start();
 </div>
 </div>
 <div class='space'>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>KNIT was established as the Faculty of Technology in Kamla Nehru Institute of Science and Technology, Lucknow, in 1976 by the Kamla Nehru Memorial Trust. It was taken over by the government of Uttar Pradesh in 1979 with a view to develop an engineering institute in the Eastern region of Uttar Pradesh. In 1983 it was registered as a separate society and was renamed as the Kamla Nehru Institute Of Technology.</p>
 </div>
 <div class="footer" >
   <a class="nav-item nav-link" href="#">Contact Us <span class="sr-only">(current)</span></a>
