@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<nav id="navi" class="navbar navbar-expand-lg " style="background-color: #01456600;color:#014566;">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,8 +23,10 @@
       <a class="nav-item nav-link" href="Library.php">Library <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Placement <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal">Log In<span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal2">Sign Up<span class="sr-only">(current)</span></a>
+      <form class="form-inline float-right">
+        <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal">Log In<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal2">Sign Up<span class="sr-only">(current)</span></a>
+      </form>
         <!-- Modal --> <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
