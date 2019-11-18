@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="Login.css">
+  <link rel="stylesheet" href="header.css">
 </head>
 <body>
 <?php include 'header.php';?>
@@ -21,7 +21,7 @@
         <h4>Schedule</h4>
         <div class="table-responsive">
    <table id="mytable" class="table table-bordred table-striped">
-            
+
 
             <tbody>
                 <?php
