@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,9 @@
     <?php include 'connection.php'?>
     <!-- php code for connecting to the database -->
     <?php
-       $stmt = sqlsrv_query( $conn, "select * from emp_details",array()); //making query and storing it in stmt variable
+      $email = $_SESSION["email"];
+      //$email="Harsh@gmail.com";
+       $stmt = sqlsrv_query( $conn, "select * from emp_details where Email=?",array($email)); //making query and storing it in stmt variable
     // for displaying the top of the page
     ?>
 
@@ -32,7 +35,7 @@
     </div>
     </div>
 
-      <form align="right" name="form1" method="post" action="Faculty.php">
+      <form align="right" name="form1" method="post" action="Front_Page.php">
        <label class="logoutLblPos">
        <input name="logout" type="submit" id="submit1" value="Sign Out">
        </label>
@@ -45,10 +48,10 @@
       <p><b>Name :</b>&nbsp;&nbsp;&nbsp;&nbsp;   <?php echo $rows["Name"] ?>  </p>
       <p><b>Employee No. :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["EmpNo"]?>  </p>
       <p><b>E-mail :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Email"]?> </p>
+      <p><b>Password :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Password"]?>  </p>
       <p><b>Phone No. :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Phn1"]?>  </p>
       <p><b>Alternate Phone No. :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Phn2"]?>  </p>
       <p><b>Degree :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Degree"]?>  </p>
-      <p><b>Designation :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Designation"]?>  </p>
       <br><br>
       <form class="CV" align="left" action="<?php echo $rows["CVlink"]?>" method="post">
         <input type="submit" id="cv" name="cvlink" value="CV">
