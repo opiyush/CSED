@@ -2,7 +2,6 @@
 session_start();
    ?>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
@@ -15,6 +14,7 @@ session_start();
 
 <body>
 <?php include 'header.php';?>
+<?php include 'connection.php' ?>
   <!-- Carousel -->
   <div id="carouselExampleFade" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -55,7 +55,9 @@ session_start();
       <span class="sr-only">Next</span>
     </a>
   </div>
-
+  <?php $stmt = sqlsrv_query( $conn, "select TOP 10 * from Notice_table ORDER BY Published_Date",array());
+    if ($stmt !== NULL) {
+   ?>
 
   <div class="container">
     <div class="row">
@@ -67,14 +69,18 @@ session_start();
             <div class="row">
               <div class="col-xs-12">
                 <ul class="demo1">
+                  <?php
+                  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                  ?>
                   <li class="news-item">
-                    <a href="">some news or announcements 1 </a>
+                    <a href=<?php echo $rows["Notice_Link"]?> >  <?php echo $rows["Heading"] ?> </a>
                     <!--<span></span>-->
                   </li>
-                  <li class="news-item">
-                    <a href="">some news or announcements 2 </a>
-                    <!--<span></span>-->
-                  </li>
+                <?php }
+              }
+              else{
+                echo "something went wrong";
+              } ?>
                 </ul>
               </div>
             </div>
