@@ -6,6 +6,8 @@
 </head>
 <body>
 <?php include 'header.php';?>
+<?php include 'nav-bar.php';?>
+
 <?php include 'connection.php' ;?>
 
 <?php
