@@ -57,7 +57,7 @@ if(isset($_SESSION["role"])){
               </button>
             </p></td>
             <td>
-              <form onsubmit="return validate(this);" action="delete_assignment.php" method="post" data-placement="top" data-toggle="tooltip">
+              <form onsubmit="return validate(this);" action="delete_subject.php" method="post" data-placement="top" data-toggle="tooltip">
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Sub_Code']?>" >
                 <span class="glyphicon glyphicon-trash"></span>
               </button>
