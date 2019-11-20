@@ -22,7 +22,7 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php' ?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select * from emp_details",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "select * from emp_details where Designation=3",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
 
@@ -151,7 +151,7 @@ if(isset($_SESSION["role"])){
                   <label for="email">Email:</label>
                   <input type="text" class="form-control" name="email">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="sel1">Subject list:</label>
                   <select class="form-control" id="sel1">
                     <option>1</option>
@@ -159,7 +159,8 @@ if(isset($_SESSION["role"])){
                     <option>3</option>
                     <option>4</option>
                   </select>
-                </div>
+                </div> -->
+                <input type="hidden" name="Designation" value="3"
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">

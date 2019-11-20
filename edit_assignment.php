@@ -8,10 +8,12 @@
      $Due_date = $_POST["Due_date"];
      $empid = $_POST["Emp_Id"];
      $sub_code =$_POST["Sub_Code"];
+     $old_Assg_Id = $_POST["old_Assg_Id"];
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
-     $params = array($link,$Published_date,$Due_date,$empid,$heading,$sub_code);
-     $stmt = sqlsrv_query( $conn,"Insert into Assignment (Assg_Link, Published_date, Due_date, Emp_Id, Heading, Sub_Code) VALUES (?,?,?,?,?,?);",$params);
+     $params = array($link,$Published_date,$Due_date,$empid,$heading,$sub_code,$old_Assg_Id);
+     echo $old_Assg_Id;
+     $stmt = sqlsrv_query( $conn,"Update Assignment set Assg_Link=?, Published_date=?, Due_date=?, Emp_Id=?, Heading=?, Sub_Code=? where Assg_Id=?;",$params);
      echo '$stmt';
      if($stmt!=NULL)
      {

@@ -3,8 +3,8 @@
   <?php
      $server = "HARSH";
      $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
-     $noticeid = $_POST['submit'];
-     $stmt = sqlsrv_query( $conn, "DELETE from Notice_table WHERE Notice_Id ='".$noticeid."' ;",array());
+     $Sub_Code = $_POST['submit'];
+     $stmt = sqlsrv_query( $conn, "DELETE from Subjects_table WHERE Sub_Code ='".$Sub_Code."' ;",array());
      if($stmt==true)
      {
        ?>
@@ -30,6 +30,6 @@
 
 </head>
 <body>
-  <h1><?php echo $noticeid ?></h1>
+  <h1><?php echo $Sub_Code ?></h1>
 </body>
 </html>
