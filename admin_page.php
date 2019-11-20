@@ -14,13 +14,13 @@ if(isset($_SESSION["role"])){
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="admin_page.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
 
   </head>
   <body>
 
-    <?php include 'header.php'?>
+    <?php include 'nav-bar.php'?>
 
     <!-- main contents  -->
     <div class= "container-fluid main_contents">
@@ -51,7 +51,14 @@ if(isset($_SESSION["role"])){
           <div class="card img-fluid">
             <a href="admin_assignment_page.php">
               Alter Assignments and schedules
-            <a/>
+            </a>
+          </div>
+        </div>
+        <div class = "col-sm-6 col-md-6 col-xl-6 py-2  Subjects">
+          <div class="card img-fluid">
+            <a href="admin_subject_page.php">
+              Manage Subjects
+            </a>
           </div>
         </div>
       </div>
