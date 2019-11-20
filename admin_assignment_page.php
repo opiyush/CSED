@@ -137,6 +137,14 @@ function validate(form) {
                   <label for="empno">Link:</label>
                   <input type="text" class="form-control" name="link">
                 </div>
+                <div class="form-group">
+                  <label for="empno">By Faculty</label>
+                  <input type="text" class="form-control" name="Emp_Id">
+                </div>
+                <div class="form-group">
+                  <label for="empno">Select Subject</label>
+                  <input type="text" class="form-control" name="Subject">
+                </div>
 
 
             </div>

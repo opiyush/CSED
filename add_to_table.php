@@ -4,7 +4,7 @@
   <?php
      $email = $_POST['email'];
      $name = $_POST['name'];
-     $desig = '2';
+     $desig = $_POST["Designation"];
      $pass = random_int(1000,9999);
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
