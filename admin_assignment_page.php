@@ -60,11 +60,10 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Sub_Code"]?></td>
 
             <!-- delete and edit -->
-            <td><p data-placement="top" data-toggle="tooltip" title="Edit">
-              <button class="btn btn-primary btn-xs"  >
-                <span class="glyphicon glyphicon-pencil"></span>
+            <td>
+              <button class="btn btn-primary btn-xs" onclick="show_edit_modal()" id="edit_assignment_btn" value="<?php echo $rows["Assg_Id"] ?>">
               </button>
-            </p></td>
+            </td>
             <td>
               <form onsubmit="return validate(this);" action="delete_assignment.php" method="post" data-placement="top" data-toggle="tooltip">
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Assg_Id']?>" >
@@ -106,8 +105,8 @@ function validate(form) {
 }
 </script>
   <!-- eding the php script and closing the connection -->
-  <?php sqlsrv_free_stmt($stmt);
-  sqlsrv_close($conn);
+  <?php //sqlsrv_free_stmt($stmt);
+  //sqlsrv_close($conn);
   ?>
 
   <!-- add faculty button and its modal -->
@@ -120,6 +119,9 @@ function validate(form) {
         <div class="modal-dialog">
           <div class="modal-content">
 
+            <?php $stmt=sqlsrv_query( $conn, "select * from Subjects_table",array());
+            if ($stmt !== NULL) {
+            ?>
             <!-- Modal Header -->
             <div class="modal-header">
               <h4 class="modal-title">Add The Assignment</h4>
@@ -130,20 +132,30 @@ function validate(form) {
             <div class="modal-body">
 
                 <div class="form-group">
-                  <label for="name">Heading:</label>
+                  <label for="heading">Heading:</label>
                   <input type="name" class="form-control" name="heading">
                 </div>
                 <div class="form-group">
-                  <label for="empno">Link:</label>
+                  <label for="link">Link:</label>
                   <input type="text" class="form-control" name="link">
                 </div>
                 <div class="form-group">
-                  <label for="empno">By Faculty</label>
+                  <label for="Emp_Id">By Faculty</label>
                   <input type="text" class="form-control" name="Emp_Id">
                 </div>
                 <div class="form-group">
-                  <label for="empno">Select Subject</label>
-                  <input type="text" class="form-control" name="Subject">
+                  <label for="Subject">Select Subject</label>
+                  <select class="form-control" id="Subject" name="Sub_Code">
+                    <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                     ?>
+                    <option value="<?php echo $rows["Sub_Code"] ?>"><?php echo $rows["Subject"] ?></option>
+                  <?php }
+                } ?>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="empno">Select Due Date</label>
+                  <input type="date" class="form-control" name="Due_date">
                 </div>
 
 
@@ -159,9 +171,75 @@ function validate(form) {
           </div>
           </div>
 
+
+          <!-- modal to edit Assignment -->
+          <div class="modal fade" id="edit_assignment_modal" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <?php $stmt=sqlsrv_query( $conn, "select * from Subjects_table",array());
+              if ($stmt !== NULL) {
+              ?>
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Edit This Assignment</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <form action="edit_assignment.php" method="post">
+              <!-- Modal body -->
+              <div class="modal-body">
+
+                  <div class="form-group">
+                    <label for="heading">Heading:</label>
+                    <input type="name" class="form-control" name="heading">
+                  </div>
+                  <div class="form-group">
+                    <label for="link">Link:</label>
+                    <input type="text" class="form-control" name="link">
+                  </div>
+                  <div class="form-group">
+                    <label for="Emp_Id">By Faculty</label>
+                    <input type="text" class="form-control" name="Emp_Id">
+                  </div>
+                  <input type="hidden" id="old_Assg_Id_id" name="old_Assg_Id">
+                  <div class="form-group">
+                    <label for="Subject">Select Subject</label>
+                    <select class="form-control" id="Subject" name="Sub_Code">
+                      <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                       ?>
+                      <option value="<?php echo $rows["Sub_Code"] ?>"><?php echo $rows["Subject"] ?></option>
+                    <?php }
+                  } ?>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="empno">Select Due Date</label>
+                    <input type="date" class="form-control" name="Due_date">
+                  </div>
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button id="submit_modal" type="submit" class="btn btn-success">Submit</input>
+                <button id="close_modal" type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+              </form>
+
+            </div>
+            </div>
+            </div>
+
   </div>
   </div>
   </div>
+
+  <script>
+  function show_edit_modal() {
+    var sub_c = document.getElementById("edit_assignment_btn").value;
+    document.getElementById("old_Assg_Id_id").value = sub_c;
+    $("#edit_assignment_modal").modal();
+  }
+
+  </script>
 
 </body>
 </html>
@@ -173,4 +251,8 @@ function validate(form) {
   }
   else {
     echo "Login required";
-  } ?>
+  }
+?>
+  <?php sqlsrv_free_stmt($stmt);
+  sqlsrv_close($conn);
+ ?>
