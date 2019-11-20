@@ -2,7 +2,8 @@
 session_start();
 if(isset($_SESSION["role"])){
   if($_SESSION["role"]=="Admin")
-  { ?>
+  {
+    ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -61,7 +62,7 @@ if(isset($_SESSION["role"])){
 
             <!-- delete and edit -->
             <td>
-              <button class="btn btn-primary btn-xs" onclick="show_edit_modal()" id="edit_assignment_btn" value="<?php echo $rows["Assg_Id"] ?>">
+              <button class="btn btn-primary btn-xs" onclick="show_edit_modal()" id="edit_assignment_btn" value="<?php echo $rows['Assg_Id'] ?>">
               </button>
             </td>
             <td>
@@ -213,7 +214,7 @@ function validate(form) {
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="empno">Select Due Date</label>
+                    <label for="Due_date">Select Due Date</label>
                     <input type="date" class="form-control" name="Due_date">
                   </div>
               </div>
