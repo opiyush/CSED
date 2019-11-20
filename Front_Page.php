@@ -85,14 +85,14 @@ session_start();
               </div>
             </div>
           </div>
-          <div class="panel-footer"><a href="" class="btn btn-primary">All News</a></div>
-          <!--    <ul class="pagination pull-right" style="margin: 0px;">
-          <li><a href="#" class="prev"><span class="glyphicon glyphicon-chevron-down"></span></a>
-        </li>
-        <li><a href="#" class="next"><span class="glyphicon glyphicon-chevron-up"></span></a>
-      </li>
-    </ul> -->
-    <div class="clearfix"></div>
+        <div class="panel-footer"><a href="" class="btn">All News</a></div>
+        <button type="button" class="btn btn-default" aria-label="Up">
+  <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+</button>
+<button type="button" class="btn btn-defaul" aria-label="down">
+  <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+</button>
+    <!--<div class="clearfix"></div>-->
   </div>
 </div>
 
