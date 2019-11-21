@@ -15,7 +15,7 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <a class="dropdown-item" href="Assignment1.php">Assignment</a>
         <a class="dropdown-item" href="Pre_paper.php">Previous Paper</a>
-        <a class="dropdown-item" href="Schedule.php">Schedule</a>
+        <a class="dropdown-item" href="Scedule.php">Schedule</a>
       </div>
     </li>
       <a class="nav-item nav-link" href="Staff.php">Staff <span class="sr-only">(current)</span></a>
