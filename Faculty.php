@@ -32,11 +32,18 @@
 		<div class="col-md-6 mb-5">
 			<div class="card" >
 				<div class="card-body">
+					<div class="row">
+					<div class="col-md-6">
 					<h5 class="card-title"><?php echo $rows["Name"] ?></h5>
 					<h6 class="card-subtitle mb-2 text-muted"><?php echo $rows["Degree"] ?></h6>
 					<p class="card-text"><?php echo $rows["Email"] ?></p>
 					<p class="card-text"><?php echo $rows["Phn1"] ?></p>
 					<p class="card-text"><?php echo $rows["Phn2"] ?></p>
+				</div>
+				<div class="col-md-6">
+				 <img id="propic" src="Added_Image/<?php echo $rows["Photo"]?>" alt="Profile Picture" height="130" width="130">&nbsp;&nbsp;&nbsp;&nbsp;
+			 </div>
+		 </div>
 					<button type="button" class="btn btn-info">Details</button>
 				</div>
 			</div>
