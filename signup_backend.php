@@ -75,7 +75,8 @@
         header("Location: Faculty_login.php");
       }
       elseif ($Designation == 3) {//3 for Technical Staff
-        echo "TechStaff";
+        $_SESSION["role"]="TechStaff";
+        header("Location: Techstaff_login.php");
       }
   }
   else {

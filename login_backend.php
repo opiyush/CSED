@@ -32,8 +32,10 @@ session_start();
         header("Location: Faculty_login.php");
       }
       elseif ($role == 3) {//3 for Technical Staff
-        $_SESSION["role"]="TechStaff";//assigning role to session variable
-        echo 'The role is TechStaff';
+        $_SESSION["role"]="TechStaff";
+        header("Location: Techstaff_login.php");
+        //assigning role to session variable
+        ;
       }
   }
   else {

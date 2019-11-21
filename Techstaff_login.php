@@ -1,6 +1,6 @@
 <?php session_start();
 if(isset($_SESSION["role"])){
-  if($_SESSION["role"]=="Faculty")
+  if($_SESSION["role"]=="TechStaff")
   {
   ?>
 <!DOCTYPE html>
