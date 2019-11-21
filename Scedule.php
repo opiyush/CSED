@@ -32,7 +32,7 @@
           </tbody>
 
         </table>
-        <form method="get" action="l12deadlocks.pdf">
+        <form method="get" action="Schedule.jpeg">
          <button type="submit">Download</button>
       </form>
       </div>
