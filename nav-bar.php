@@ -24,8 +24,8 @@
       <a class="nav-item nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Placement <span class="sr-only">(current)</span></a>
       <form class="form-inline float-right">
-        <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal">Log In<span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal2">Sign Up<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal" style="color:red" >Log In<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal2" style="color: red">Sign Up<span class="sr-only">(current)</span></a>
       </form>
         <!-- Modal --> <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
