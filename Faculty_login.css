@@ -1,14 +1,18 @@
 /* The side navigation menu */
 .sidebar {
   margin: 0;
-  padding: 0;
+  padding: 2%;
   width: 20%;
-  background-color: #00bceb;
+  background-color: #014566;
   position: fixed;
   height: 100%;
   overflow: auto;
 }
-
+div.content1{
+  margin-left:30%;
+  margin-right:15%;
+  padding:5%;
+}
 #propic {
   align-content: center;
   text-align: center;
@@ -20,21 +24,11 @@
 /* Sidebar links */
 .sidebar a {
   display: block;
-  color: black;
+  color: white;
   padding: 16px;
   text-decoration: none;
 }
 
-/* Active/current link */
-.sidebar .selectonly a.active {
-  background-color: #ffffff;
-  color: black;
-  text-decoration-style: solid;
-}
-.selectonly{
-  border-right: 5px solid #00bceb;
-  border-left: 5px solid #00bceb;
-}
 
 /* Links on mouse-over */
 .sidebar .selectonly a:hover:not(.active) {
