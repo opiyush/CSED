@@ -15,8 +15,8 @@
      $oldEmail = $_POST["old_Email"];
      //$pass = random_int(1000,9999);
      //$subject = $_POST['subject'];
-     $params = array($name,$Password,$desig,$EmpNo,$Phn1,$Phn2,$Degree,$oldEmail);
-     $stmt = sqlsrv_query( $conn,"Update emp_details set Name=?, Password=?, Designation=?, EmpNo=?, Phn1=?, Phn2=?, Degree=? WHERE Email=?;",$params);
+     $params = array($name,$Password,$EmpNo,$Phn1,$Phn2,$Degree,$oldEmail,$desig);
+     $stmt = sqlsrv_query( $conn,"Update emp_details set Name=?, Password=?, EmpNo=?, Phn1=?, Phn2=?, Degree=? WHERE Email=? and Designation=?;",$params);
      echo '$stmt';
     //  if($CVLink!=NULL)
     //  {

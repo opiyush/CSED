@@ -55,7 +55,7 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Notice_Link"]?></td>
             <!-- delete and edit -->
             <td>
-              <button class="btn btn-primary btn-xs" onclick="show_edit_modal(<?php echo $rows["Notice_Id"] ?>)" id="edit_notice_btn" value="<?php echo $rows['Notice_Id'] ?>">
+              <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows["Notice_Id"] ?>')" id="edit_notice_btn" value="<?php echo $rows['Notice_Id'] ?>">
               </button>
             </td>
             <td>
@@ -188,9 +188,10 @@ function validate(form) {
   </div>
 
   <script>
+  old_id = document.getElementById("old_Notice_Id_id");
   function show_edit_modal(sub) {
     //var sub = document.getElementById("edit_Notice_btn").value;
-    document.getElementById("old_Notice_Id_id").value = sub;
+    old_id.value = sub;
     // document.getElementById("display").value = sub;
     $("#edit_notice_modal").modal();
   }

@@ -62,7 +62,7 @@ if(isset($_SESSION["role"])){
 
             <!-- delete and edit -->
             <td>
-              <button class="btn btn-primary btn-xs" onclick="show_edit_modal()" id="edit_assignment_btn" value="<?php echo $rows['Assg_Id'] ?>">
+              <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows['Assg_Id'] ?>')" id="edit_assignment_btn" value="<?php echo $rows['Assg_Id'] ?>">
               </button>
             </td>
             <td>
@@ -234,9 +234,10 @@ function validate(form) {
   </div>
 
   <script>
-  function show_edit_modal() {
-    var sub_c = document.getElementById("edit_assignment_btn").value;
-    document.getElementById("old_Assg_Id_id").value = sub_c;
+  old_id = document.getElementById("old_Assg_Id_id");
+  function show_edit_modal(sub) {
+    //var sub_c = document.getElementById("edit_assignment_btn").value;
+    old_id.value = sub;
     $("#edit_assignment_modal").modal();
   }
 

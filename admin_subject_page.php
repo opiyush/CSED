@@ -54,7 +54,7 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Semester"]?></td>
             <!-- delete and edit -->
             <td>
-              <button class="btn btn-primary btn-xs" onclick="show_edit_modal()" id="edit_subject_btn" value="<?php echo $rows["Sub_Code"] ?>">
+              <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows["Sub_Code"] ?>');" id="edit_subject_btn" value="<?php echo $rows["Sub_Code"] ?>">
               </button>
             </td>
             <td>
@@ -207,9 +207,10 @@ function validate(form) {
 
   </script>
   <script>
-  function show_edit_modal() {
-    var sub_c = document.getElementById("edit_subject_btn").value;
-    document.getElementById("old_Sub_Code_id").value = sub_c;
+  old_id = document.getElementById("old_Sub_Code_id");
+  function show_edit_modal(sub) {
+    //var sub_c = document.getElementById("edit_subject_btn").value;
+    old_id.value = sub;
     $("#edit_subject_modal").modal();
   }
 
