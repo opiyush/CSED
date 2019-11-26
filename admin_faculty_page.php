@@ -183,17 +183,17 @@ if(isset($_SESSION["role"])){
                 <h4 class="modal-title">Edit Faculty's Details</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
-              <form action="edit_employee.php" method="post">
+              <form action="edit_employee.php" method="post" enctype="multipart/form-data">
               <!-- Modal body -->
               <div class="modal-body">
                   <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="name" class="form-control" name="name">
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="text" class="form-control" name="email">
-                  </div>
+                  </div> -->
                   <div class="form-group">
                     <label for="EmpNo">Employe No:</label>
                     <input type="text" name="EmpNo" placeholder="Employe No" required class="form-control">
@@ -216,10 +216,10 @@ if(isset($_SESSION["role"])){
                   </div>
                   <div class="form-group">
                     <label for="CVlink">Upload CV:</label>
-                    <input type="file" name="CVlink" id="cvToUpload" class="">
+                    <input type="file" name="CVLink" id="cvToUpload" class="">
                   </div>
 
-                  <div class="input-group">
+                  <!-- <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                     </div>
@@ -228,7 +228,7 @@ if(isset($_SESSION["role"])){
                         aria-describedby="inputGroupFileAddon01">
                       <label class="custom-file-label" for="cvToUpload">Choose CV</label>
                     </div>
-                  </div>
+                  </div> -->
                   <br>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -240,7 +240,6 @@ if(isset($_SESSION["role"])){
                       <label class="custom-file-label" for="fileToUpload">Choose Photo</label>
                     </div>
                   </div>
-
                   <!-- continue eduiting -->
                   <input type="hidden" name="Designation" value="2">
                   <input type="hidden" id="old_Email_id" name="old_Email">
