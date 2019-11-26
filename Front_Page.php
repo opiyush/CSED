@@ -1,6 +1,6 @@
 <?php
 session_start();
-   ?>
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -8,12 +8,12 @@ session_start();
   <title>Computer Science and Engineering</title>
   <link rel="stylesheet" href="Front_Page_CSS.css">
   <link rel="stylesheet" href="header.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-<?php include 'header.php';?>
-<?php include 'connection.php' ?>
+  <?php include 'header.php';?>
+  <?php include 'connection.php' ?>
   <!-- Carousel -->
   <div id="carouselExampleFade" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -54,66 +54,92 @@ session_start();
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <?php $stmt = sqlsrv_query( $conn, "select TOP 10 * from Notice_table ORDER BY Published_Date",array());
-    if ($stmt !== NULL) {
-   ?>
 
-  <div class="container">
-    <div class="row">
-      <!--News Section Start-->
-      <div class="col-lg-6 col-md-6 news_header">
-        <h3>Announcements</h3>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-xs-12">
-                <ul class="demo1">
-                  <?php
-                  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
-                  ?>
-                  <li class="news-item">
-                    <a href=<?php echo $rows["Notice_Link"]?> >  <?php echo $rows["Heading"] ?> </a>
-                    <!--<span></span>-->
-                  </li>
-                <?php }
-              }
-              else{
-                echo "something went wrong";
-              } ?>
+
+
+
+
+
+  <?php $stmt = sqlsrv_query( $conn, "select TOP 10 * from Notice_table ORDER BY Published_Date",array());
+  if ($stmt !== NULL) {
+    ?>
+
+    <div class="content">
+      <div class="row">
+        <!--News Section Start-->
+
+        <div class=" col-md-8">
+
+          <div class="welcome">
+            <h2>Welcome!</h2>
+            <p class="text-justify">Computer Science & Engineering Department is the largest department of the Institute. It offers B.Tech.
+              (Computer Science. & Engineering), B.Tech. (Information Technology) and MCA programmes. The Department is well equipped
+              with high end computers, latest software & state of the art IT infrastructure. All computing resources are interconnected
+              with high speed internet. The campus wide Networking facility is also managed by the department. The Department has a well
+              qualified faculty and several well equipped laboratories catering to the needs of not only the CSE, IT and MCA students but
+              also students from other departments. The present infrastructure is sufficient enough to carry out research and other academic
+              work by UG and PG students. The Department has following Computing facilities/Laboratories.</p>
+              <h3>Our Vision</h3>
+              <p class="text-justify">To be the center of excellence in the field of computer science and engineering and to produce competent, ethical
+                 professionals empowered with high impact research leading to sustainable innovation and entrepreneurship inculcating
+                 moral values and societal concern.</p>
+              <h3>Our Mission</h3>
+              <p class="text-justify">M1: To provide a learning ambience to enhance problem solving skills, communication skills and leadership quality with
+                 team spirit.<br>
+                 M2: To provide exposure for the theoretical and practical concepts, with the latest tools and technologies in area of
+                 computer science and engineering.<br>
+                 M3: To encourage industry and research based projects / activities in the emerging area of computer science and provide
+                 a platform for the implementation of innovative ideas and entrepreneurial concept.<br>
+                 M4: To inculcate professional behavior and strong ethical values.</p>
+            </div>
+        </div>
+        <div class=" col-md-4 news_header">
+          <h3>Announcements</h3>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12">
+                  <ul class="demo1">
+                    <?php
+                    while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC))
+                    {
+                      ?>
+                      <li class="news-item">
+                        <a href=<?php echo $rows["Notice_Link"]?> >  <?php echo $rows["Heading"] ?> </a>
+                        <!--<span></span>-->
+                      </li>
+                    <?php }
+                  }
+                  else{
+                    echo "something went wrong";
+                  } ?>
                 </ul>
               </div>
             </div>
           </div>
-        <div class="panel-footer"><a href="" class="btn">All News</a></div>
-        <button type="button" class="btn btn-default" aria-label="Up">
-  <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-</button>
-<button type="button" class="btn btn-defaul" aria-label="down">
-  <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-</button>
-    <!--<div class="clearfix"></div>-->
-  </div>
-</div>
+          <div class="panel-footer"><a href="" class="btn">All News</a></div>
+          <button type="button" class="btn btn-default" aria-label="Up">
+            <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="btn btn-defaul" aria-label="down">
+            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+          </button>
+          <!--<div class="clearfix"></div>-->
+        </div>
+        </div>
 
-<!--News Section End-->
-<div class="welcome">
-  <h2>Welcome!</h2>
-  <h3>Our Vision</h3>
-  <p>here is the vision of cse department of knit Sultanpur.</p>
-  <h3>Our Mission</h3>
-  <p>here is the mission of cse department of knit Sultanpur.</p>
-</div>
-</div>
-<div class='space'>
-  <p>KNIT was established as the Faculty of Technology in Kamla Nehru Institute of Science and Technology, Lucknow, in 1976 by the Kamla Nehru Memorial Trust. It was taken over by the government of Uttar Pradesh in 1979 with a view to develop an engineering institute in the Eastern region of Uttar Pradesh. In 1983 it was registered as a separate society and was renamed as the Kamla Nehru Institute Of Technology.</p>
-</div>
-<div class="footer" >
-  <a class="nav-item nav-link" href="#">Contact Us <span class="sr-only">(current)</span></a>
-</div>
+      </div>
+      <!--News Section End-->
+    </div>
+      <div class="footer" >
+        <div class="container">
+          <p class="lead">Contact Us</p>
+        </div>
+      </div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
 
-</html>
+    </html>
