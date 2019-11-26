@@ -10,15 +10,12 @@ if(isset($_SESSION["role"])){
     <meta charset="utf-8">
     <title>Admin->staff </title>
     <link rel="stylesheet" href="header.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
 
 <body>
-  <?php include 'header.php' ?>
+  <?php include 'nav-bar.php' ?>
   <?php include 'connection.php' ?>
   <!-- php code for connecting to the database -->
   <?php
@@ -71,11 +68,10 @@ if(isset($_SESSION["role"])){
               <td><?php echo $rows["Photo"]?></td>
               <td><?php echo $rows["Designation"]?></td>
             <!-- delete and edit -->
-            <td><p data-placement="bottom" data-toggle="tooltip" title="Edit">
-              <button class="btn btn-primary btn-xs"  >
-                <!-- <span class="btn-edit"></span> -->
+            <td>
+              <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows["Email"] ?>');" id="edit_faculty_btn" value="<?php echo $rows['Email'] ?>">
               </button>
-            </p></td>
+            </td>
             <td>
 
               <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post" data-placement='top' data-toggle='tooltip'>
@@ -160,7 +156,7 @@ if(isset($_SESSION["role"])){
                     <option>4</option>
                   </select>
                 </div> -->
-                <input type="hidden" name="Designation" value="3"
+                <input type="hidden" name="Designation" value="3">
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
@@ -173,9 +169,105 @@ if(isset($_SESSION["role"])){
           </div>
           </div>
 
-  </div>
-  </div>
-  </div>
+      </div>
+      </div>
+      </div>
+
+          <!-- modal to edit faculty details -->
+          <div class="modal fade" id="edit_faculty_modal" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Edit Faculty's Details</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <form action="edit_employee.php" method="post" enctype="multipart/form-data">
+              <!-- Modal body -->
+              <div class="modal-body">
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="name" class="form-control" name="name">
+                  </div>
+                  <!-- <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" name="email">
+                  </div> -->
+                  <div class="form-group">
+                    <label for="EmpNo">Employe No:</label>
+                    <input type="text" name="EmpNo" placeholder="Employe No" required class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="Password">Password:</label>
+                    <input type="password" name="Password" placeholder="Password" required class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="Phn1">Phone Primary(10 digits):</label>
+                    <input type="text" name="Phn1" placeholder="Contact No." required class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="Phn2">Phone Secondary(10 digits):</label>
+                    <input type="text" name="Phn2" placeholder="Alternate Contact No." class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="Degree">Degree:</label>
+                    <input type="text" name="Degree" placeholder="Degree" required class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="CVlink">Upload CV:</label>
+                    <input type="file" name="CVLink" id="cvToUpload" class="">
+                  </div>
+
+                  <!-- <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="cvToUpload" name="CVlink"
+                        aria-describedby="inputGroupFileAddon01">
+                      <label class="custom-file-label" for="cvToUpload">Choose CV</label>
+                    </div>
+                  </div> -->
+                  <br>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="fileToUpload" name="Photo"
+                        aria-describedby="inputGroupFileAddon01">
+                      <label class="custom-file-label" for="fileToUpload">Choose Photo</label>
+                    </div>
+                  </div>
+                  <!-- continue eduiting -->
+                  <input type="hidden" name="Designation" value="3">
+                  <input type="hidden" id="old_Email_id" name="old_Email">
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Submit</input>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+              </form>
+
+            </div>
+            </div>
+            </div>
+
+
+
+  <script>
+  old_id = document.getElementById("old_Email_id");
+  function show_edit_modal(sub_c) {
+    old_id.value = sub_c;
+    $("#edit_faculty_modal").modal();
+  }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+
 
 </body>
 </html>
