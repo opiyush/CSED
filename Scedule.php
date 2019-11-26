@@ -32,7 +32,7 @@
           </tbody>
 
         </table>
-        <form method="get" action="Schedule.jpeg">
+        <form method="get" action="image/Schedule.jpeg">
          <button type="submit">Download</button>
       </form>
       </div>

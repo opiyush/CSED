@@ -16,18 +16,9 @@ if(isset($_SESSION["role"])){
     <?php include 'connection.php'?>
     <?php include 'nav-bar.php'?>
     <!-- php code for connecting to the database -->
-    <?php
-      $email = $_SESSION["email"];
-      //$email="Harsh@gmail.com";
-       $stmt = sqlsrv_query( $conn, "select * from emp_details where Email=?",array($email)); //making query and storing it in stmt variable
-    // for displaying the top of the page
-    ?>
 
-    <?php
-    $rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)
-    ?>
 
-    <<?php include 'Sidebar.php' ?>
+    <?php include 'Sidebar.php' ?>
 
       <form align="right" name="form1" method="post" action="Front_Page.php">
        <label class="logoutLblPos">
