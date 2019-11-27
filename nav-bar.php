@@ -102,23 +102,24 @@
            </div>
          </div>
        </div>
-       <form onsubmit="return clear_session(this);" align="right" name="form1" method="post" action="Front_Page.php">
+     </div>
+       <form onsubmit="return clear_session(this);" align="right" name="signout" method="post" action="Signout_backend.php">
         <label class="logoutLblPos">
-        <input name="logout" type="submit" id="submit1" value="Sign Out">
+        <input name="logout" type="submit" id="submit1" value="Sign Out" class="btn-primary">
         </label>
       </form>
       <script>
       function clear_session(form) {
 
           // validation code here ...
-          sessionStorage.clear();
+
 
           if(false) {
               alert('Please correct the errors in the form!');
               return false;
           }
           else {
-              return confirm('Do you really want to submit the form?');
+              return confirm('Confirm to Logout?');
           }
       }
       </script>
