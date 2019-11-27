@@ -16,7 +16,7 @@
     $Designation = $_POST['Designation'];
     $params = array($Email,$Password,$Designation);
 
-    $stmt = sqlsrv_query( $conn, "SELECT COUNT(Password) AS valid FROM emp_details WHERE Email=? and Password=? and Designation=?",$params);
+    $stmt = sqlsrv_query( $conn, "SELECT COUNT(Password) AS valid FROM emp_details WHERE Email=? and Password=? and Designation=? and Active='0';",$params);
     if( sqlsrv_fetch( $stmt ) === false)
     {
      die( print_r( sqlsrv_errors(), true));
@@ -56,7 +56,7 @@
     }
 }
 
-   $str="Update emp_details set EmpNo = ?,Name = ?, Phn1 = ?, Phn2 =?, Degree = ?, CVlink =?, Photo = ? where Email=?";
+   $str="Update emp_details set EmpNo = ?,Name = ?, Phn1 = ?, Phn2 =?, Degree = ?, CVlink =?, Photo = ?,Active='1' where Email=?";
     $stmt = sqlsrv_query( $conn,$str,$params);
     if(!$stmt){
       die( print_r(sqlsrv_errors(),true));
