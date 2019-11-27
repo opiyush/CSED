@@ -1,4 +1,3 @@
-
 <nav id="navi" class="navbar navbar-expand-lg " style="background-color: #01456600;color:#014566;">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -23,11 +22,28 @@
       <a class="nav-item nav-link" href="Library.php">Library <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Placement <span class="sr-only">(current)</span></a>
+      <?php
+      if(isset($_SESSION["role"]))
+      {
+        if(!($_SESSION["role"]=="Admin" or $_SESSION["role"]=="HOD" or $_SESSION["role"]=="Faculty" or $_SESSION["role"]=="TechStaff"))
+          {?>
       <form class="form-inline float-right">
         <a class="nav-item nav-link" data-toggle="modal"  data-target="#myModal" style="color:red;cursor:pointer;" >Log In<span class="sr-only">(current)</span></a>
-        <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal2" style="color: red;cursor:pointer;">Sign Up<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal2" style="color: red;cursor:pointer;">Sign Up<span class="sr-only"></span></a>
       </form>
-        <!-- Modal --> <div id="myModal" class="modal fade" role="dialog">
+    <?php }
+       }
+       else
+       {?>
+         <form class="form-inline float-right">
+           <a class="nav-item nav-link" data-toggle="modal"  data-target="#myModal" style="color:red;cursor:pointer;" >Log In<span class="sr-only">(current)</span></a>
+           <a class="nav-item nav-link" data-toggle="modal" data-target="#myModal2" style="color: red;cursor:pointer;">Sign Up<span class="sr-only"></span></a>
+         </form>
+         <?php
+       } ?>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
@@ -63,7 +79,8 @@
         </div>
       </div>
 
-       <!-- Modal --> <div id="myModal2" class="modal fade" role="dialog">
+       <!-- Modal -->
+       <div id="myModal2" class="modal fade" role="dialog">
        <div class="modal-dialog">
          <!-- Modal content-->
          <div class="modal-content">
@@ -103,11 +120,15 @@
          </div>
        </div>
      </div>
-       <form onsubmit="return clear_session(this);" align="right" name="signout" method="post" action="Signout_backend.php">
+
+       <?php
+       if(isset($_SESSION["role"])){?>
+         <form onsubmit="return clear_session(this);" align="right" name="signout" method="post" action="Signout_backend.php">
         <label class="logoutLblPos">
         <input name="logout" type="submit" id="submit1" value="Sign Out" class="btn-primary">
         </label>
       </form>
+      <?php } ?>
       <script>
       function clear_session(form) {
 
