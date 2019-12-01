@@ -18,7 +18,7 @@ if(isset($_SESSION["role"])){
     <!-- php code for connecting to the database -->
 
 
-    <?php include 'Sidebar.php' ?>
+    <?php include 'Sidebar_Faculty.php' ?>
      <div class="Details">
        <h3>Hello, <?php echo $rows["Name"] ?></h3>
        <br><br>

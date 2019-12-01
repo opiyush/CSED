@@ -26,7 +26,7 @@ if(isset($_SESSION["role"])){
   <?php include 'nav-bar.php' ?>
 
 
-  <?php include 'Sidebar.php' ?>
+  <?php include 'Sidebar_Faculty.php' ?>
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
