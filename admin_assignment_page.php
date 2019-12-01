@@ -18,7 +18,7 @@ if(isset($_SESSION["role"])){
     </head>
 
 <body>
-  <?php include 'header.php' ?>
+  <?php include 'nav-bar.php' ?>
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
