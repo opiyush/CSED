@@ -128,7 +128,7 @@
        {
          if($_SESSION["role"]=="Admin" or $_SESSION["role"]=="HOD" or $_SESSION["role"]=="Faculty" or $_SESSION["role"]=="TechStaff")
          {?>
-         <form onsubmit="return clear_session(this);" align="right" name="signout" method="post" action="Signout_backend.php">
+         <form onsubmit="return clear_session(this);" align="right" name="signout" method="post" action="Signout_backend.php" style="float: right">
         <label class="logoutLblPos">
         <input name="logout" type="submit" id="submit1" value="Sign Out" class="btn-primary">
         </label>

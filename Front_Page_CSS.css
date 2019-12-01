@@ -8,6 +8,8 @@ div.content {
 .news_header{
   padding-top: 8px;
   padding-bottom: 8px;
+  overflow: scroll;
+  height: 300px;
 }
 .news_header h3 {
   border-radius: 5px;
