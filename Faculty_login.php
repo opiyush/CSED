@@ -31,7 +31,7 @@ if(isset($_SESSION["role"])){
       <p><b>Alternate Phone No. :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Phn2"]?>  </p>
       <p><b>Degree :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Degree"]?>  </p>
       <br><br>
-      <form class="CV" align="left" action="<?php echo $rows["CVlink"]?>" method="post">
+      <form class="CV" align="left" action="Added_CV/<?php echo $rows["CVlink"]?>" method="post">
         <input type="submit" id="cv" name="cvlink" value="CV">
       </form>
      </div>
