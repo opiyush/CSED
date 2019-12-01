@@ -8,7 +8,7 @@
   ?>
 
   <?php
-  $rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)
+  $rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
   ?>
 
   <a href=""><img id="propic" src="Added_Image/<?php echo $rows["Photo"]?>" alt="Profile Picture" height="130" width="130">&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
