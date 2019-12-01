@@ -103,8 +103,10 @@
                        <input type="text" name="Phn1" placeholder="Contact No." required class="form-control"><br><br>
                        <input type="text" name="Phn2" placeholder="Alternate Contact No." class="form-control"><br><br>
                        <input type="text" name="Degree" placeholder="Degree" required class="form-control"><br><br>
-                       <input type="text" name="CVlink" placeholder="CV Link"  class="form-control"><br><br>
-                       <input type="file" name="Photo" id="fileToUpload" class="form-control"><br><br>
+                       <label for="CVlink">Upload CV:</label><br>
+                       <input type="file" name="CVlink" placeholder="CV Link" id="CvToUpload" class=""><br><br>
+                       <label for="PhotoToUpload">Upload Photo:</label><br>
+                       <input type="file" name="Photo" id="PhotoToUpload" class=""><br><br>
                        <select name="Designation" id="role" class="form-control">
                              <option value="" disabled selected hidden>Choose Role</option>
                              <option value="2">Faculty</option>

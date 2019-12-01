@@ -1,8 +1,6 @@
 <?php session_start(); ?>
 <?php include 'connection.php'?>
 
-
-
 <?php
     $EmpNo = $_POST['EmpNo'];
     $Name = $_POST['Name'];
@@ -11,7 +9,7 @@
     $Phn1 = $_POST['Phn1'];
     $Phn2 = $_POST['Phn2'];
     $Degree = $_POST['Degree'];
-    $CVlink = $_POST['CVlink'];
+    $CVlink = $_FILES["CVlink"]["name"];
     $Photo= $_FILES["Photo"]["name"];
     $Designation = $_POST['Designation'];
     $params = array($Email,$Password,$Designation);
@@ -28,38 +26,76 @@
     $_SESSION["email"]=$Email; //assigning email to session variable
     //print_r($params);
 
-    //upload images
-    $target_dir = "Added_Image/";
-    $ext = end(explode('.',$_FILES["Photo"]["name"]));
-    $Photo = $Email . "Photo." . $ext;
-    echo $target_file = $target_dir . $Photo;
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    // Check if image file is a actual image or fake image
-    if(isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["Photo"]["tmp_name"]);
-        if($check !== false) {
-            $uploadOk = 1;
-        } else {
-            $uploadOk = 0;
-        }
-    }
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" )
-        {
-          $uploadOk = 0;
-        }
-    if ($uploadOk == 0) {
-
-          // if everything is ok, try to upload file in else block
+    if(!empty($_FILES["Photo"]["name"]))
+    {//upload images
+      $target_dir = "Added_Image/";
+      $ext = end(explode('.',$_FILES["Photo"]["name"]));
+      $Photo = $Email . "Photo." . $ext;
+      echo $target_file = $target_dir . $Photo;
+      $uploadOk = 1;
+      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+      // Check if image file is a actual image or fake image
+      if(isset($_POST["submit"])) {
+          $check = getimagesize($_FILES["Photo"]["tmp_name"]);
+          if($check !== false) {
+              $uploadOk = 1;
+          } else {
+              $uploadOk = 0;
+          }
       }
-    else
-     {
+      if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+          && $imageFileType != "gif" )
+          {
+            $uploadOk = 0;
+          }
+      if ($uploadOk == 0) {
+
+            // if everything is ok, try to upload file in else block
+        }
+      else
+      {
         if (move_uploaded_file($_FILES["Photo"]["tmp_name"], $target_file)) {
           }
         else {
-
           }
+        }
+      }
+
+      if(!empty($_FILES["CVlink"]["name"])){
+        //upload cv
+        $target_dir_cv = "Added_CV/";
+        $ext_cv = end(explode('.',$_FILES["CVlink"]["name"]));
+        $CVlink = $Email . "CV." . $ext_cv;
+        echo $target_file_cv = $target_dir_cv . $CVlink;
+        $uploadOk_cv = 1;
+        //$docFileType = strtolower(pathinfo($target_file_cv,PATHINFO_EXTENSION));
+        //$docFileType = $_FILES["CVlink"]["Type"];
+
+        // Check if image file is a actual image or fake image
+        // if(isset($_POST["submit"])) {
+        //     $check = getimagesize($_FILES["CVlink"]["tmp_name"]);
+        //     if($check !== false) {
+        //         $uploadOk_cv = 1;
+        //     } else {
+        //         $uploadOk_cv = 0;
+        //     }
+        // }
+        if(strtolower($ext_cv)!= "pdf")//checking whether pdf or not
+            {
+              $uploadOk_cv = 0;
+            }
+        //$uploadOk_cv = 1;
+        if ($uploadOk_cv == 0) {
+
+              // if everything is ok, try to upload file in else block
+          }
+        else
+        {
+          if (move_uploaded_file($_FILES["CVlink"]["tmp_name"], $target_file_cv)) {
+          }
+          else {
+          }
+        }
       }
 
     $params = array($EmpNo,$Name,$Phn1,$Phn2,$Degree,$CVlink,$Photo,$Email);
