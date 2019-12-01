@@ -217,31 +217,11 @@ if(isset($_SESSION["role"])){
                     <input type="text" name="Degree" placeholder="Degree" required class="form-control">
                   </div>
                   <div class="form-group">
-                    <label for="CVlink">Upload CV:</label>
+                    <label for="CVlink">Upload CV:</label><br>
                     <input type="file" name="CVLink" id="cvToUpload" class="">
                   </div>
-
-                  <!-- <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                    </div>
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="cvToUpload" name="CVlink"
-                        aria-describedby="inputGroupFileAddon01">
-                      <label class="custom-file-label" for="cvToUpload">Choose CV</label>
-                    </div>
-                  </div> -->
-                  <br>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
-                    </div>
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="fileToUpload" name="Photo"
-                        aria-describedby="inputGroupFileAddon01">
-                      <label class="custom-file-label" for="fileToUpload">Choose Photo</label>
-                    </div>
-                  </div>
+                  <label for="PhotoToUpload">Upload Photo:</label><br>
+                  <input type="file" name="Photo" id="PhotoToUpload" class=""><br>
                   <!-- continue eduiting -->
                   <input type="hidden" name="Designation" value="3">
                   <input type="hidden" id="old_Email_id" name="old_Email">
