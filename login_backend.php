@@ -8,11 +8,11 @@ session_start();
     $pass = $_POST['Pss'];
     $role = $_POST['Role'];
     $params = array($email,$pass,$role);
-    $stmt = sqlsrv_query( $conn, "SELECT COUNT(Password) AS valid FROM emp_details WHERE Email=? and Password=? and Designation=?",$params);
+    $stmt = sqlsrv_query( $conn, "SELECT COUNT(Password) AS valid FROM emp_details WHERE Email=? and Password=? and Designation=? and Active=1",$params);
     if( sqlsrv_fetch( $stmt ) === false)
     {
      die( print_r( sqlsrv_errors(), true));
-   }
+    }
    $valid = sqlsrv_get_field( $stmt, 0);
    //echo "$valid: ";
   if($valid == 1)

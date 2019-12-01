@@ -17,7 +17,7 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select * from emp_details where Designation=2",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "select * from emp_details where Designation=2 OR Designation=0 OR Designation=1;",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
 
@@ -46,6 +46,7 @@ if(isset($_SESSION["role"])){
             <th>CV Link</th>
             <th>Photo Link</th>
             <th>Designation</th>
+            <th>Active</th>
             <th>Edit</th>
             <th>Delete</th>
           </thead>
@@ -65,19 +66,18 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["CVlink"]?></td>
             <td><?php echo $rows["Photo"]?></td>
             <td><?php echo $rows["Designation"]?></td>
+            <td><?php echo $rows["Active"]?></td>
             <!-- delete and edit -->
             <td>
               <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows["Email"] ?>');" id="edit_faculty_btn" value="<?php echo $rows['Email'] ?>">
               </button>
             </td>
             <td>
-
-              <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post" data-placement='top' data-toggle='tooltip'>
+            <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post" data-placement='top' data-toggle='tooltip'>
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Email']?>" >
                 <!-- <span class="glyphicon glyphicon-trash"></span> -->
               </button>
             </form>
-
           </td>
             </tr>
           <?php

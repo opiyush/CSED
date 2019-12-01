@@ -26,11 +26,13 @@
   if($valid == 1)
   {
     $_SESSION["email"]=$Email; //assigning email to session variable
-    $params = array($EmpNo,$Name,$Phn1,$Phn2,$Degree,$CVlink,$Photo,$Email);
     //print_r($params);
+
     //upload images
     $target_dir = "Added_Image/";
-    echo $target_file = $target_dir . basename($_FILES["Photo"]["name"]);
+    $ext = end(explode('.',$_FILES["Photo"]["name"]));
+    $Photo = $Email . "Photo." . $ext;
+    echo $target_file = $target_dir . $Photo;
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     // Check if image file is a actual image or fake image
@@ -43,41 +45,46 @@
         }
     }
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" ) {
+        && $imageFileType != "gif" )
+        {
           $uploadOk = 0;
         }
-        if ($uploadOk == 0) {
+    if ($uploadOk == 0) {
 
-          // if everything is ok, try to upload file
-        } else {
-          if (move_uploaded_file($_FILES["Photo"]["tmp_name"], $target_file)) {
-          } else {
+          // if everything is ok, try to upload file in else block
+      }
+    else
+     {
+        if (move_uploaded_file($_FILES["Photo"]["tmp_name"], $target_file)) {
+          }
+        else {
 
-    }
-}
+          }
+      }
 
-   $str="Update emp_details set EmpNo = ?,Name = ?, Phn1 = ?, Phn2 =?, Degree = ?, CVlink =?, Photo = ?,Active='1' where Email=?";
+    $params = array($EmpNo,$Name,$Phn1,$Phn2,$Degree,$CVlink,$Photo,$Email);
+    $str="Update emp_details set EmpNo = ?,Name = ?, Phn1 = ?, Phn2 =?, Degree = ?, CVlink =?, Photo = ?,Active='1' where Email=?";
     $stmt = sqlsrv_query( $conn,$str,$params);
     if(!$stmt){
       die( print_r(sqlsrv_errors(),true));
     }
-      if($Designation== 0)//0 for admin
-      {
-        $_SESSION["role"]='Admin';
-        header("Location: admin_page.php");
-      }
-      elseif ($Designation ==1) {// 1 for HOD
-        $_SESSION["role"]="HOD"; //assigning role to session variable
-        header('Location: admin_page.php');
-      }
-      elseif ($Designation ==2) {//2 for Faculty
-        $_SESSION["role"]="Faculty";//assigning role to session variable
-        header("Location: Faculty_login.php");
-      }
-      elseif ($Designation == 3) {//3 for Technical Staff
-        $_SESSION["role"]="TechStaff";
-        header("Location: Techstaff_login.php");
-      }
+    if($Designation== 0)//0 for admin
+    {
+      $_SESSION["role"]='Admin';
+      header("Location: admin_page.php");
+    }
+    elseif ($Designation ==1) {// 1 for HOD
+      $_SESSION["role"]="HOD"; //assigning role to session variable
+      header('Location: admin_page.php');
+    }
+    elseif ($Designation ==2) {//2 for Faculty
+      $_SESSION["role"]="Faculty";//assigning role to session variable
+      header("Location: Faculty_login.php");
+    }
+    elseif ($Designation == 3) {//3 for Technical Staff
+      $_SESSION["role"]="TechStaff";
+      header("Location: Techstaff_login.php");
+    }
   }
   else {
     echo '<h2>invalid User ID or Password</h2>';
