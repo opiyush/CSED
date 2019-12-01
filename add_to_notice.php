@@ -61,7 +61,7 @@
 
 
   <script type="text/javascript">
-  //document.getElementById("return_back").click();
+  document.getElementById("return_back").click();
   </script>
 
 </head>

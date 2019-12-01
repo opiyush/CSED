@@ -104,7 +104,7 @@ session_start();
                     {
                       ?>
                       <li class="news-item">
-                        <a target="_blank" href=<?php echo "Added_Notices/" . $rows["Notice_Link"]?> >  <?php echo $rows["Heading"] ?> </a>
+                        <a title="<?php echo $rows["Heading"] ?>" target="_blank" href=<?php echo "Added_Notices/" . $rows["Notice_Link"]?> >  <?php echo $rows["Heading"] ?> </a>
                         <!--<span></span>-->
                       </li>
                     <?php }

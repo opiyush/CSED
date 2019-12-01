@@ -34,7 +34,16 @@ div.content {
     overflow-x: hidden;
     width: 28rem;
 }
-
+.panel-body a{
+  color: #007bff;
+}
+.panel-body a:hover{
+  color: #014566;
+  text-decoration: none;
+}
+.panel-body a:visited{
+  color: #7600bf;
+}
 .panel-footer {
     padding-bottom: 0;
     background-color: white;
@@ -55,4 +64,23 @@ div.footer {
     background-color: #2f3542;
     color: white;
 
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #014566;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4b6d9c;
 }
