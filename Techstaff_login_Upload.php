@@ -37,10 +37,12 @@ if(isset($_SESSION["role"])){
         </label>
       </form>
       <div class="content1">
-      <form>
+      <form action="Data_Upload.php" method="post">
         <div class="form-group">
           <label for="New Arrival Details">New Arrival Details</label>
-          <textarea class="form-control" id="New_Arrival" rows="15"></textarea><br>
+          <textarea class="form-control" name="Heading" rows="2" placeholder="Heading"></textarea><br>
+          <textarea class="form-control" name="Data" rows="15" placeholder="Details of Arrival"></textarea><br>
+          <input type="hidden"  name="Uploaded_By" value='<?php echo $email ?>'>
           <button type="submit" class="btn btn-outline-primary">Upload</button>
         </div>
       </form>
