@@ -3,8 +3,8 @@
   <?php include 'connection.php' ?>
   <?php
      $heading = $_POST['heading'];
-     $link = $_POST['link'];
-     $Published_date = date("d-m-Y");
+     $AssgLink = $_FILES['AssgFile']["name"];
+     $Published_date = date("Y-m-d/H:i");
      $uniqueId = date("His") . date("dmY");
      $Due_date = $_POST["Due_date"];
      $empid = $_POST["Emp_Id"];
