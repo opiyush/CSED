@@ -18,7 +18,7 @@
   <div class="selectonly">
     <a href="Faculty_login.php">My Profile<span class="sr-only">(current)</span></a>
     <a href="Faculty_login_notice.php">Add/Remove Notice</a>
-    <a href="Faculty_sidebar_assignment.php">Assignment</a>
+    <a href="Faculty_login_assignment.php">Assignment</a>
 
   </div>
 </div>
