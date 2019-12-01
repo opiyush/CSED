@@ -60,7 +60,7 @@ session_start();
 
 
 
-  <?php $stmt = sqlsrv_query( $conn, "select TOP 10 * from Notice_table ORDER BY Published_Date",array());
+  <?php $stmt = sqlsrv_query( $conn, "select * from Notice_table ORDER BY Published_Date desc",array());
   if ($stmt !== NULL) {
     ?>
 
@@ -95,17 +95,16 @@ session_start();
         </div>
         <div class=" col-md-4 news_header">
           <h3>Announcements</h3>
-          <div class="panel panel-default">
+          <div id="ann_banner"class="col-md-4 panel" style="padding:0px 0px 5px 0px; ">
             <div class="panel-body">
-              <div class="row">
                 <div class="col-xs-12">
-                  <ul class="demo1">
+                  <ul class="">
                     <?php
                     while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC))
                     {
                       ?>
                       <li class="news-item">
-                        <a href=<?php echo $rows["Notice_Link"]?> >  <?php echo $rows["Heading"] ?> </a>
+                        <a target="_blank" href=<?php echo "Added_Notices/" . $rows["Notice_Link"]?> >  <?php echo $rows["Heading"] ?> </a>
                         <!--<span></span>-->
                       </li>
                     <?php }
@@ -115,18 +114,11 @@ session_start();
                   } ?>
                 </ul>
               </div>
-            </div>
           </div>
+          </div>
+
           <div class="panel-footer"><a href="" class="btn">All News</a></div>
-          <button type="button" class="btn btn-default" aria-label="Up">
-            <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
-          </button>
-          <button type="button" class="btn btn-defaul" aria-label="down">
-            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-          </button>
-          <!--<div class="clearfix"></div>-->
-        </div>
-        </div>
+</div>
 
       </div>
       <!--News Section End-->

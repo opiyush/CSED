@@ -1,10 +1,11 @@
 <html>
 <head>
   <?php
-     $server = "HARSH";
-     $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
+  include "connection.php" ?>
+  <?php
+
      $noticeid = $_POST['submit'];
-     $stmt = sqlsrv_query( $conn, "DELETE from Notice_table WHERE Notice_Id ='".$noticeid."' ;",array());
+     $stmt = sqlsrv_query( $conn, "DELETE from Notice_table WHERE Notice_Id =?;",array($noticeid));
      if($stmt==true)
      {
        ?>

@@ -30,7 +30,7 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select N.Heading,N.Published_By,N.Published_Date,N.Notice_Link from emp_details E inner join Notice_table N on E.EmpNo=N.Published_By where E.designation=2",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "select N.Notice_Id,N.Heading,N.Published_By,N.Published_Date,N.Notice_Link from emp_details E inner join Notice_table N on E.EmpNo=N.Published_By where E.designation=2",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
 
@@ -72,7 +72,7 @@ if(isset($_SESSION["role"])){
             </td>
             <td>
               <form onsubmit="return validate(this);" action="delete_notice.php" method="post" data-placement='top' data-toggle='tooltip'>
-               <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Notice_Id']?>" >
+               <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Notice_Id'] ?>" >
                 <!-- <span class="glyphicon glyphicon-trash"></span> -->
               </button>
             </form>
@@ -131,7 +131,7 @@ function validate(form) {
               <button type="button" class="close" data-dismiss="modal">&times;</button>
 
             </div>
-            <form action="add_to_notice.php" method="post">
+            <form action="add_to_notice.php" method="post" enctype="multipart/form-data">
             <!-- Modal body -->
             <div class="modal-body">
 
@@ -140,8 +140,8 @@ function validate(form) {
                   <input type="name" class="form-control" name="heading">
                 </div>
                 <div class="form-group">
-                  <label for="empno">Link:</label>
-                  <input type="text" class="form-control" name="link">
+                  <label for="empno">Upload Notice:</label><br>
+                  <input type="file" class="" name="NoticeFile">
                 </div>
                 <div class="form-group">
                   <label for="empno">Published By:</label>

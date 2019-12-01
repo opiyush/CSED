@@ -3,13 +3,40 @@
   <?php include 'connection.php' ?>
   <?php
      $heading = $_POST['heading'];
-     $link = $_POST['link'];
-     $Published_date = date("d-m-Y");
-
+     $NoticeLink = $_FILES['NoticeFile']["name"];
+     $Published_date = date("Y-m-d/H:i");
+     $uniqueId = date("His") . date("dmY");
      $published_by = $_POST['published_by'];
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
-     $params = array($link,$Published_date,$published_by,$heading);
+
+     if(!empty($_FILES["NoticeFile"]["name"])){
+       //upload cv
+       $target_dir_n = "Added_Notices/";
+       $temp = explode('.',$_FILES["NoticeFile"]["name"]);
+       $ext_n = end($temp);
+       $NoticeLink = $uniqueId . "Notice." . $ext_n;
+       echo $target_file_n = $target_dir_n . $NoticeLink;
+       $uploadOk_n = 1;
+       if(strtolower($ext_n)!= "pdf")//checking whether pdf or not
+           {
+             $uploadOk_n = 0;
+           }
+       //$uploadOk_cv = 1;
+       if ($uploadOk_n == 0) {
+
+             // if everything is ok, try to upload file in else block
+         }
+       else
+       {
+         if (move_uploaded_file($_FILES["NoticeFile"]["tmp_name"], $target_file_n)) {
+         }
+         else {
+         }
+       }
+     }
+
+     $params = array($NoticeLink,$Published_date,$published_by,$heading);
      $stmt = sqlsrv_query( $conn,"Insert into Notice_table (Notice_Link, Published_Date, Published_By, Heading) VALUES (?,?,?,?);",$params);
      echo '$stmt';
      if($stmt!=NULL)
@@ -34,7 +61,7 @@
 
 
   <script type="text/javascript">
-  document.getElementById("return_back").click();
+  //document.getElementById("return_back").click();
   </script>
 
 </head>
