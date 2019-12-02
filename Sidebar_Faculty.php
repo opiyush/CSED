@@ -22,7 +22,7 @@
     <a href="Faculty_login_publication.php">Publication</a>
     <a href="Faculty_login_project.php">Project</a>
     <a href="Faculty_login_thesis.php">Research Thesis</a>
-    <a href="Faculty_login_workshop.php">Workshop</a>
+    <a href="Faculty_login_event.php">Event</a>
 
   </div>
 </div>

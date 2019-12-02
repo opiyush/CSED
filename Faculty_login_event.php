@@ -36,13 +36,25 @@ if(isset($_SESSION["role"])){
       </form>
 
       <div class="content1">
-        <form action="Faculty_Upload_Backend.php" method="post">
+        <form action="Faculty_Upload_Backend_2.php" method="post">
           <div class="form-group">
-            <label for="Workshop Details">Workshop Details</label><br><br>
+            <label for="Events">Events</label><br><br>
+            <select name="Events">
+              <option value="Workshop">Workshop</option>
+              <option value="FDP">FDP</option>
+              <option value="Summer School">Summer School</option>
+              <option value="Winter School">Winter School</option>
+              <option value="Training Program">Training Program</option>
+              <option value="International Conference">International Conference</option>
+              <option value="National Conference">National Conference</option>
+              <option value="International Conference">International Conference</option>
+            </select><br>
+
             <select name="Type">
               <option value="Organized">Organized</option>
               <option value="Attended">Attended</option>
             </select><br>
+
             <textarea class="form-control" name="Heading" rows="2" placeholder="Heading"></textarea><br>
             <textarea class="form-control" name="Data" rows="15" placeholder="Details"></textarea><br>
             <input type="hidden"  name="Uploaded_By" value='<?php echo $email ?>'>
@@ -52,7 +64,7 @@ if(isset($_SESSION["role"])){
       </div>
 
       <<?php
-      $stmt = sqlsrv_query( $conn, "select * from Thesis_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
+      $stmt = sqlsrv_query( $conn, "select * from Event_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
       ?>
 
       <?php
@@ -68,6 +80,7 @@ if(isset($_SESSION["role"])){
                 <table id="mytable" class="table table-bordred table-striped">
                   <thead>
                     <th>Serial No.</th>
+                    <th>Event</th>
                     <th>Type</th>
                     <th>Heading</th>
                     <th>Publised Date</th>
@@ -81,6 +94,7 @@ if(isset($_SESSION["role"])){
 
                       <tr>
                         <td><?php echo $rows["Serial No."] ?></td>
+                        <td><?php echo $rows["Event"] ?></td>
                         <td><?php echo $rows["Type"] ?></td>
                         <td><?php echo $rows["Heading"] ?></td>
                         <td><?php $Date = $rows["Date"]->format('d/m/Y'); echo $Date;?></td>
