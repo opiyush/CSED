@@ -23,6 +23,10 @@
     <a href="Faculty_login_project.php">Project</a>
     <a href="Faculty_login_thesis.php">Research Thesis</a>
     <a href="Faculty_login_event.php">Event</a>
-
+    <a href="Faculty_login_professionalbodies.php">Professional Bodies</a>
+    <a href="Faculty_login_adminrespon.php">Adminstrative Responsibilty at Institute Level</a>
+    <a href="Faculty_login_academicrespon.php">Academic Responsibilty</a>
+    <a href="Faculty_login_awards.php">Awards, Honors and Achievements</a>
+    <a href="Faculty_login_countryvis.php">Country Visited</a>
   </div>
 </div>
