@@ -2,15 +2,15 @@
 <head>
   <?php include 'connection.php' ?>
   <?php
-     $Publication = $_POST['Publication'];
+     $Type = $_POST['Type'];
      $Heading = $_POST['Heading'];
      $Data = $_POST['Data'];
      $Date = date("d-m-Y");
      $Uploaded_By = $_POST['Uploaded_By'];
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
-     $params = array($Publication,$Heading,$Data,$Date,$Uploaded_By);
-     $stmt = sqlsrv_query( $conn,"Insert into Publication_Upload (Publication,Heading, Data, Date, Uploaded_By) VALUES (?,?,?,?,?);",$params);
+     $params = array($Type,$Heading,$Data,$Date,$Uploaded_By);
+     $stmt = sqlsrv_query( $conn,"Insert into Publication_Upload (Type, Heading, Data, Date, Uploaded_By) VALUES (?,?,?,?,?);",$params);
      if($stmt!=NULL)
      {
        echo "true"
