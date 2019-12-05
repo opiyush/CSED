@@ -49,7 +49,8 @@
     {
 
       $target_dir = "Added_Image/";
-      $ext = end(explode('.',$_FILES["Photo"]["name"]));
+      $temp = explode('.',$_FILES["Photo"]["name"]);
+      $ext = end($temp);
       $Photo = $oldEmail . "Photo." . $ext;
       echo $target_file = $target_dir . $Photo;
       $uploadOk = 1;
@@ -105,7 +106,7 @@
 
 
   <script type="text/javascript">
-   //document.getElementById("return_back").click();
+   document.getElementById("return_back").click();
   </script>
 
 </head>

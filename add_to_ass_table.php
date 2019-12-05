@@ -3,7 +3,7 @@
   <?php include 'connection.php' ?>
   <?php
      $heading = $_POST['heading'];
-     $AssgLink = $_FILES['AssgFile']["name"];
+     $AssgLink = $_FILES["AssgFile"]["name"];
      $Published_date = date("Y-m-d/H:i");
      $uniqueId = date("His") . date("dmY");
      $Due_date = $_POST["Due_date"];
@@ -11,7 +11,8 @@
      $sub_code =$_POST["Sub_Code"];
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
-
+     echo $AssgLink ." = This is the name\n";
+     $AssgLink = "";//initially set to null
      if(!empty($_FILES["AssgFile"]["name"])){
        //upload cv
        $target_dir_a = "Added_Assignment/";
@@ -58,9 +59,6 @@
         </h1>
        <?php     }
   ?>
-
-
-
 
   <script type="text/javascript">
   document.getElementById("return_back").click();

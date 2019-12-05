@@ -40,7 +40,7 @@ if(isset($_SESSION["role"])){
             <th>Published On</th>
             <th>Published By</th>
             <th>Link</th>
-            <th>Edit</th>
+            <!-- <th>Edit</th> -->
             <th>Delete</th>
           </thead>
           <tbody>
@@ -54,12 +54,12 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Published_By"]?></td>
             <td><?php echo $rows["Notice_Link"]?></td>
             <!-- delete and edit -->
-            <td>
+            <!-- <td>
               <button class="btn btn-primary btn-xs"
               onclick='show_edit_modal("<?php echo $rows["Notice_Id"];?>","<?php echo $rows["Heading"];?>","<?php echo $rows["Published_By"];?>")'
                  id="edit_notice_btn" value="<?php echo $rows['Notice_Id'] ?>">
               </button>
-            </td>
+            </td> -->
             <td>
               <form onsubmit="return validate(this);" action="delete_notice.php" method="post" data-placement='top' data-toggle='tooltip'>
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Notice_Id']?>" >
@@ -135,7 +135,17 @@ function validate(form) {
                 </div>
                 <div class="form-group">
                   <label for="Published_By_add">Published By:</label>
-                  <input id="Published_By_add" type="text" class="form-control" name="published_by">
+                  <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details",array());
+                  if ($stmt != NULL) {
+                  ?>
+                  <select class="form-control" id="emp" name="published_by">
+                    <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                     ?>
+                    <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
+                  <?php }
+                } ?>
+                  </select>
+                  <!-- <input id="Published_By_add" type="text" class="form-control" name="published_by"> -->
                 </div>
             </div>
             <!-- Modal footer -->
@@ -167,7 +177,7 @@ function validate(form) {
                     <input id="heading_edit" type="name" class="form-control" name="heading">
                   </div>
                   <div class="form-group">
-                    <label for="link">Link:</label>
+                    <label for="link">link:</label>
                     <input id="link_edit" type="text" class="form-control" name="link">
                   </div>
                   <div class="form-group">
@@ -188,7 +198,8 @@ function validate(form) {
   </div>
   </div>
   </div>
-
+  <!-- was of edit notice -->
+<!--
   <script>
   old_id = document.getElementById("old_Notice_Id_id");
   heading_id = document.getElementById("heading_edit");
@@ -199,7 +210,7 @@ function validate(form) {
     Published_By_id.value = pub_by;
     $("#edit_notice_modal").modal();
   }
-  </script>
+  </script> -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>

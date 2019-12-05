@@ -44,7 +44,7 @@ if(isset($_SESSION["role"])){
             <th>Published By</th>
             <th>Link</th>
             <th>Subject</th>
-            <th>Edit</th>
+            <!-- <th>Edit</th> -->
             <th>Delete</th>
           </thead>
           <tbody>
@@ -61,12 +61,12 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Sub_Code"]?></td>
 
             <!-- delete and edit -->
-            <td>
+            <!-- <td>
               <button class="btn btn-primary btn-xs"
               onclick='show_edit_modal("<?php echo $rows['Assg_Id'];?>","<?php echo $rows["Heading"];?>","<?php echo $rows["Due_date"];?>","<?php echo $rows["Sub_Code"];?>","<?php echo $rows["Emp_Id"] ?>")'
                  id="edit_assignment_btn" value="<?php echo $rows['Assg_Id'] ?>">
               </button>
-            </td>
+            </td> -->
             <td>
               <form onsubmit="return validate(this);" action="delete_assignment.php" method="post" data-placement="top" data-toggle="tooltip">
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Assg_Id']?>" >
@@ -122,15 +122,13 @@ function validate(form) {
         <div class="modal-dialog">
           <div class="modal-content">
 
-            <?php $stmt=sqlsrv_query( $conn, "select * from Subjects_table",array());
-            if ($stmt !== NULL) {
-            ?>
+
             <!-- Modal Header -->
             <div class="modal-header">
               <h4 class="modal-title">Add The Assignment</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <form action="add_to_ass_table.php" method="post">
+            <form action="add_to_ass_table.php" method="post" enctype="multipart/form-data">
             <!-- Modal body -->
             <div class="modal-body">
 
@@ -138,16 +136,29 @@ function validate(form) {
                   <label for="heading">Heading:</label>
                   <input type="name" class="form-control" name="heading">
                 </div>
-                <div class="form-group">
-                  <label for="link">Link:</label>
-                  <input type="text" class="form-control" name="link">
-                </div>
+                <div class="">
+                  <label for="link">Upload Assignment:</label><br>
+                  <input id="link" type="file" class="" name="AssgFile">
+                </div><br>
                 <div class="form-group">
                   <label for="Emp_Id">By Faculty</label>
-                  <input type="text" class="form-control" name="Emp_Id">
+                  <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details",array());
+                  if ($stmt != NULL) {
+                  ?>
+                  <select class="form-control" id="emp" name="Emp_Id">
+                  <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                   ?>
+                   <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
+                  <?php }
+                  } ?>
+                  </select>
+                  <!-- <input type="text" class="form-control" name="Emp_Id"> -->
                 </div>
                 <div class="form-group">
                   <label for="Subject">Select Subject</label>
+                  <?php $stmt=sqlsrv_query( $conn, "select * from Subjects_table",array());
+                  if ($stmt !== NULL) {
+                  ?>
                   <select class="form-control" id="Subject" name="Sub_Code">
                     <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
                      ?>
@@ -157,8 +168,8 @@ function validate(form) {
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="empno">Select Due Date</label>
-                  <input type="date" class="form-control" name="Due_date">
+                  <label for="duedate">Select Due Date</label>
+                  <input id="duedate" type="date" class="form-control" name="Due_date">
                 </div>
 
 
@@ -234,7 +245,8 @@ function validate(form) {
   </div>
   </div>
   </div>
-
+  <!-- was of edit Assignment  -->
+<!--
   <script>
   old_id = document.getElementById("old_Assg_Id_id");
   heading_id = document.getElementById("heading_edit");
@@ -252,7 +264,7 @@ function validate(form) {
     $("#edit_assignment_modal").modal();
   }
 
-  </script>
+  </script> -->
 
 </body>
 </html>
