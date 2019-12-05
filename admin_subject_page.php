@@ -54,7 +54,9 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Semester"]?></td>
             <!-- delete and edit -->
             <td>
-              <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows["Sub_Code"] ?>');" id="edit_subject_btn" value="<?php echo $rows["Sub_Code"] ?>">
+              <button class="btn btn-primary btn-xs"
+              onclick='show_edit_modal("<?php echo $rows["Sub_Code"];?>","<?php echo $rows["Subject"];?>","<?php echo $rows["Emp_Id"];?>","<?php echo $rows["Semester"];?>");'
+                 id="edit_subject_btn" value="<?php echo $rows["Sub_Code"] ?>">
               </button>
             </td>
             <td>
@@ -98,10 +100,6 @@ function validate(form) {
 }
 </script>
   <!-- eding the php script and closing the connection -->
-  <?php sqlsrv_free_stmt($stmt);
-  sqlsrv_close($conn);
-  ?>
-
   <!-- add subject button and its modal -->
   <div class="container">
     <div class="row">
@@ -135,7 +133,19 @@ function validate(form) {
                 </div>
                 <div class="form-group">
                   <label for="empno">Employee Id</label>
-                  <input type="text" class="form-control" name="Emp_Id">
+
+                  <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details",array());
+                  if ($stmt != NULL) {
+                  ?>
+                  <select id="emp_add" class="form-control" id="emp" name="Emp_Id">
+                    <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                     ?>
+                    <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
+                  <?php }
+                } ?>
+                  </select>
+
+                  <!-- <input type="text" class="form-control" name="Emp_Id"> -->
                 </div>
 
             </div>
@@ -165,20 +175,31 @@ function validate(form) {
               <div class="modal-body">
 
                   <div class="form-group">
-                    <label for="name">Subject Code (eg KCS-103)</label>
-                    <input type="name" class="form-control" name="Sub_Code">
+                    <label for="sub_code_edit">Subject Code (eg KCS-103)</label>
+                    <input id="sub_code_edit" type="name" class="form-control" name="Sub_Code">
                   </div>
                   <div class="form-group">
-                    <label for="empno">Subject Name</label>
-                    <input type="text" class="form-control" name="Subject">
+                    <label for="subject_edit">Subject Name</label>
+                    <input id="subject_edit" type="text" class="form-control" name="Subject">
                   </div>
                   <div class="form-group">
-                    <label for="empno">Semester</label>
-                    <input type="text" class="form-control" name="Semester">
+                    <label for="semester_edit">Semester</label>
+                    <input id="semester_edit" type="text" class="form-control" name="Semester">
                   </div>
                   <div class="form-group">
-                    <label for="empno">Employee Id</label>
-                    <input type="text" class="form-control" name="Emp_Id">
+                    <label for="emp_edit">Employee Id</label>
+
+                    <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details",array());
+                    if ($stmt != NULL) {
+                    ?>
+                    <select id="emp_edit" class="form-control" id="emp" name="Emp_Id">
+                      <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                       ?>
+                      <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
+                    <?php }
+                  } ?>
+                    </select>
+                    <!-- <input id="emp_edit" type="text" class="form-control" name="Emp_Id"> -->
                   </div>
                   <input type="hidden" id="old_Sub_Code_id" name="old_Sub_Code">
 
@@ -208,9 +229,17 @@ function validate(form) {
   </script>
   <script>
   old_id = document.getElementById("old_Sub_Code_id");
-  function show_edit_modal(sub) {
+  sub_code_id = document.getElementById("sub_code_edit");
+  subject_id = document.getElementById("subject_edit");
+  semester_id = document.getElementById("semester_edit");
+  emp_id = document.getElementById("emp_edit");
+  function show_edit_modal(sub,subj,emp,sem) {
     //var sub_c = document.getElementById("edit_subject_btn").value;
     old_id.value = sub;
+    sub_code_id.value = sub;
+    subject_id.value = subj;
+    emp_id.value = emp;
+    semester_id.value = sem;
     $("#edit_subject_modal").modal();
   }
 
@@ -220,6 +249,9 @@ function validate(form) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
+  <?php sqlsrv_free_stmt($stmt);
+  sqlsrv_close($conn);
+  ?>
 
 </body>
 </html>
