@@ -54,7 +54,7 @@ if(isset($_SESSION["role"])){
             <th>Published By</th>
             <th>Link</th>
             <th>Subject</th>
-            <th>Edit</th>
+            <!-- <th>Edit</th> -->
             <th>Delete</th>
           </thead>
           <tbody>
@@ -71,10 +71,10 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Sub_Code"]?></td>
 
             <!-- delete and edit -->
-            <td>
-              <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows['Assg_Id'] ?>')" id="edit_assignment_btn" value="<?php echo $rows['Assg_Id'] ?>">
+            <!-- <td>
+              <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?//php echo $rows['Assg_Id'] ?>')" id="edit_assignment_btn" value="<?//php echo $rows['Assg_Id'] ?>">
               </button>
-            </td>
+            </td> -->
             <td>
               <form onsubmit="return validate(this);" action="delete_assignment.php" method="post" data-placement="top" data-toggle="tooltip">
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Assg_Id']?>" >
@@ -242,8 +242,8 @@ function validate(form) {
   </div>
   </div>
   </div>
-
-  <script>
+<!-- was for edit assg -->
+  <!-- <script>
   old_id = document.getElementById("old_Assg_Id_id");
   function show_edit_modal(sub) {
     //var sub_c = document.getElementById("edit_assignment_btn").value;
@@ -251,7 +251,7 @@ function validate(form) {
     $("#edit_assignment_modal").modal();
   }
 
-  </script>
+  </script> -->
 
 </body>
 </html>

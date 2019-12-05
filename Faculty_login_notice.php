@@ -30,15 +30,13 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select N.Notice_Id,N.Heading,N.Published_By,N.Published_Date,N.Notice_Link from emp_details E inner join Notice_table N on E.EmpNo=N.Published_By where E.designation=2",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "select N.Notice_Id,N.Heading,N.Published_By,N.Published_Date,N.Notice_Link from emp_details E inner join Notice_table N on E.EmpNo=N.Published_By where E.Designation=2",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
-
   <!-- scripts were here -->
-
   <?php
   //checking the result of fetching the contents
-    if ($stmt !== NULL) {
+    if ($stmt != NULL) {
       //echo "printing the table\n";
   ?>
   <div class="container">
@@ -52,7 +50,7 @@ if(isset($_SESSION["role"])){
             <th>Published On</th>
             <th>Published By</th>
             <th>Link</th>
-            <th>Edit</th>
+            <!-- <th>Edit</th> -->
             <th>Delete</th>
           </thead>
           <tbody>
@@ -60,16 +58,15 @@ if(isset($_SESSION["role"])){
           while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
           ?>
             <tr>
-
             <td><?php echo $rows["Heading"] ?></td>
             <td><?php echo $rows["Published_Date"]?></td>
             <td><?php echo $rows["Published_By"]?></td>
             <td><?php echo $rows["Notice_Link"]?></td>
             <!-- delete and edit -->
-            <td>
+            <!-- <td>
               <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows["Notice_Id"] ?>')" id="edit_notice_btn" value="<?php echo $rows['Notice_Id'] ?>">
               </button>
-            </td>
+            </td> -->
             <td>
               <form onsubmit="return validate(this);" action="delete_notice.php" method="post" data-placement='top' data-toggle='tooltip'>
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Notice_Id'] ?>" >
@@ -198,8 +195,8 @@ function validate(form) {
   </div>
   </div>
   </div>
-
-  <script>
+<!-- was for edit notice -->
+  <!-- <script>
   old_id = document.getElementById("old_Notice_Id_id");
   function show_edit_modal(sub) {
     //var sub = document.getElementById("edit_Notice_btn").value;
@@ -207,7 +204,7 @@ function validate(form) {
     // document.getElementById("display").value = sub;
     $("#edit_notice_modal").modal();
   }
-  </script>
+  </script> -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
