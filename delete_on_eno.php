@@ -1,8 +1,9 @@
 <html>
 <head>
+
   <?php
-     $server = "HARSH";
-     $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
+  include "connection.php" ?>
+  <?php
      $email = $_POST['submit'];
      $stmt = sqlsrv_query( $conn, "DELETE from emp_details WHERE Email ='".$email."' ;",array());
 

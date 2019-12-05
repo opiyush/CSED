@@ -1,8 +1,9 @@
 <html>
 <head>
+
   <?php
-     $server = "HARSH";
-     $conn = sqlsrv_connect( $server, array( 'Database' => 'KNITCSE' ) );
+  include "connection.php" ?>
+  <?php
      $Sub_Code = $_POST['submit'];
      $stmt = sqlsrv_query( $conn, "DELETE from Subjects_table WHERE Sub_Code ='".$Sub_Code."' ;",array());
      if($stmt==true)
