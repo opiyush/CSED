@@ -24,7 +24,7 @@ if(isset($_SESSION["role"])){
       ?>
 
       <?php
-      $rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)
+      $rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
       ?>
 
       <?php include 'Sidebar_Faculty.php' ?>
@@ -58,12 +58,12 @@ if(isset($_SESSION["role"])){
         </form>
       </div>
 
-      <<?php
+      <?php
       $stmt = sqlsrv_query( $conn, "select * from Publication_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
       ?>
 
       <?php
-      if ($stmt !== NULL) {
+      if ($stmt != NULL) {
         //echo "printing the table\n";
         ?>
 

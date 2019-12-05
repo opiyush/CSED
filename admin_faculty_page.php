@@ -33,7 +33,7 @@ if(isset($_SESSION["role"])){
     <div class="table_layout">
       <h4>List Of Faculty</h4>
       <div class="table-responsive">
-        <table id="mytable" class="table table-bordred table-striped" style="word-wrap: break-word;">
+        <table id="mytable" class="table table-bordred table-striped" style="">
           <thead class="thead-dark">
             <th>Name</th>
             <th>Employee No</th>
@@ -55,24 +55,26 @@ if(isset($_SESSION["role"])){
           while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
           ?>
             <tr>
-            <td><?php echo $rows["Name"] ?></td>
-            <td><?php echo $rows["EmpNo"]?></td>
-            <td><?php echo $rows["Email"]?></td>
-            <td><?php echo $rows["UserId"]?></td>
-            <td><?php echo $rows["Password"]?></td>
-            <td><?php echo $rows["Phn1"]?></td>
-            <td><?php echo $rows["Phn2"]?></td>
-            <td><?php echo $rows["Degree"]?></td>
-            <td><?php echo $rows["CVlink"]?></td>
-            <td><?php echo $rows["Photo"]?></td>
-            <td><?php echo $rows["Designation"]?></td>
-            <td><?php echo $rows["Active"]?></td>
+            <td style="width: 10%"><?php echo $rows["Name"] ?></td>
+            <td style="width: 5%"><?php echo $rows["EmpNo"]?></td>
+            <td style="width: 10%"><?php echo $rows["Email"]?></td>
+            <td style="width: 7%"><?php echo $rows["UserId"]?></td>
+            <td style="width: 10%"><?php echo $rows["Password"]?></td>
+            <td style="width: 10%"><?php echo $rows["Phn1"]?></td>
+            <td style="width: 10%"><?php echo $rows["Phn2"]?></td>
+            <td style="width: 5%"><?php echo $rows["Degree"]?></td>
+            <td style="width: 10%"><?php echo $rows["CVlink"]?></td>
+            <td style="width: 10%"><?php echo $rows["Photo"]?></td>
+            <td style="width: 2%"><?php echo $rows["Designation"]?></td>
+            <td style="width: 2%"><?php echo $rows["Active"]?></td>
             <!-- delete and edit -->
-            <td>
-              <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows["Email"] ?>');" id="edit_faculty_btn" value="<?php echo $rows['Email'] ?>">
+            <td style="width: 2%">
+              <button class="btn btn-primary btn-xs"
+              onclick='show_edit_modal("<?php echo $rows["Email"];?>","<?php echo $rows["Name"];?>","<?php echo $rows["Password"];?>","<?php echo $rows["Phn1"];?>","<?php echo $rows["Phn2"];?>","<?php echo $rows["Degree"];?>","<?php echo $rows["EmpNo"];?>");'
+               id="edit_faculty_btn" value="<?php echo $rows['Email'] ?>">
               </button>
             </td>
-            <td>
+            <td style="width: 2%">
             <form onsubmit="return validate(this);" action="delete_on_eno.php" method="post" data-placement='top' data-toggle='tooltip'>
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Email']?>" >
                 <!-- <span class="glyphicon glyphicon-trash"></span> -->
@@ -184,7 +186,7 @@ if(isset($_SESSION["role"])){
               <div class="modal-body">
                   <div class="form-group">
                     <label for="name">Name:</label>
-                    <input type="name" class="form-control" name="name">
+                    <input id="name_edit" type="name" class="form-control" name="name">
                   </div>
                   <!-- <div class="form-group">
                     <label for="email">Email:</label>
@@ -192,30 +194,30 @@ if(isset($_SESSION["role"])){
                   </div> -->
                   <div class="form-group">
                     <label for="EmpNo">Employe No:</label>
-                    <input type="text" name="EmpNo" placeholder="Employe No" required class="form-control">
+                    <input id="EmpNo_edit" type="text" name="EmpNo" placeholder="Employe No" required class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="Password">Password:</label>
-                    <input type="password" name="Password" placeholder="Password" required class="form-control">
+                    <input id="Password_edit" type="text" name="Password" placeholder="Password" required class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="Phn1">Phone Primary(10 digits):</label>
-                    <input type="text" name="Phn1" placeholder="Contact No." required class="form-control">
+                    <input id="Phn1_edit" type="text" name="Phn1" placeholder="Contact No." required class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="Phn2">Phone Secondary(10 digits):</label>
-                    <input type="text" name="Phn2" placeholder="Alternate Contact No." class="form-control">
+                    <input id="Phn2_edit" type="text" name="Phn2" placeholder="Alternate Contact No." class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="Degree">Degree:</label>
-                    <input type="text" name="Degree" placeholder="Degree" required class="form-control">
+                    <input id="Degree_edit" type="text" name="Degree" placeholder="Degree" required class="form-control">
                   </div>
                   <div class="form-group">
                     <label for="CVlink">Upload CV:</label><br>
-                    <input type="file" name="CVLink" id="cvToUpload" class="">
+                    <input id="CVlink_edit" type="file" name="CVLink" id="cvToUpload" class="">
                   </div>
                   <label for="PhotoToUpload">Upload Photo:</label><br>
-                  <input type="file" name="Photo" id="PhotoToUpload" class=""><br>
+                  <input id="Photo_edit" type="file" name="Photo" id="PhotoToUpload" class=""><br>
                   <!-- continue eduiting -->
                   <input type="hidden" name="Designation" value="2">
                   <input type="hidden" id="old_Email_id" name="old_Email">
@@ -237,8 +239,20 @@ if(isset($_SESSION["role"])){
 
   <script>
   old_id = document.getElementById("old_Email_id");
-  function show_edit_modal(sub_c) {
+  name_id = document.getElementById("name_edit");
+  EmpNo_id = document.getElementById("EmpNo_edit");
+  Phn1_id = document.getElementById("Phn1_edit");
+  Phn2_id = document.getElementById("Phn2_edit");
+  Degree_id = document.getElementById("Degree_edit");
+  Password_id = document.getElementById("Password_edit");
+  function show_edit_modal(sub_c,name,Pass,Phn1,Phn2,Degree,Emp) {
     old_id.value = sub_c;
+    name_id.value=name;
+    EmpNo_id.value = Emp;
+    Phn1_id.value = Phn1;
+    Phn2_id.value = Phn2;
+    Degree_id.value = Degree;
+    Password_id.value = Pass;
     $("#edit_faculty_modal").modal();
   }
   </script>
