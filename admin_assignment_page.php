@@ -62,7 +62,9 @@ if(isset($_SESSION["role"])){
 
             <!-- delete and edit -->
             <td>
-              <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows['Assg_Id'] ?>')" id="edit_assignment_btn" value="<?php echo $rows['Assg_Id'] ?>">
+              <button class="btn btn-primary btn-xs"
+              onclick='show_edit_modal("<?php echo $rows['Assg_Id'];?>","<?php echo $rows["Heading"];?>","<?php echo $rows["Due_date"];?>","<?php echo $rows["Sub_Code"];?>","<?php echo $rows["Emp_Id"] ?>")'
+                 id="edit_assignment_btn" value="<?php echo $rows['Assg_Id'] ?>">
               </button>
             </td>
             <td>
@@ -192,20 +194,20 @@ function validate(form) {
 
                   <div class="form-group">
                     <label for="heading">Heading:</label>
-                    <input type="name" class="form-control" name="heading">
+                    <input id="heading_edit" type="name" class="form-control" name="heading">
                   </div>
                   <div class="form-group">
                     <label for="link">Link:</label>
-                    <input type="text" class="form-control" name="link">
+                    <input id="Link_edit" type="text" class="form-control" name="link">
                   </div>
                   <div class="form-group">
                     <label for="Emp_Id">By Faculty</label>
-                    <input type="text" class="form-control" name="Emp_Id">
+                    <input id="Emp_Id_edit" type="text" class="form-control" name="Emp_Id">
                   </div>
                   <input type="hidden" id="old_Assg_Id_id" name="old_Assg_Id">
                   <div class="form-group">
                     <label for="Subject">Select Subject</label>
-                    <select class="form-control" id="Subject" name="Sub_Code">
+                    <select class="form-control" id="Subject_edit" name="Sub_Code">
                       <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
                        ?>
                       <option value="<?php echo $rows["Sub_Code"] ?>"><?php echo $rows["Subject"] ?></option>
@@ -215,7 +217,7 @@ function validate(form) {
                   </div>
                   <div class="form-group">
                     <label for="Due_date">Select Due Date</label>
-                    <input type="date" class="form-control" name="Due_date">
+                    <input id="Due_date_edit" type="date" class="form-control" name="Due_date">
                   </div>
               </div>
               <!-- Modal footer -->
@@ -235,9 +237,18 @@ function validate(form) {
 
   <script>
   old_id = document.getElementById("old_Assg_Id_id");
-  function show_edit_modal(sub) {
+  heading_id = document.getElementById("heading_edit");
+  Subject_id = document.getElementById("Subject_edit");
+  Due_date_id = document.getElementById("Due_date_edit");
+  Emp_id = document.getElementById("Emp_Id_edit");
+  //heading_id = document.getElementById("heading_edit");
+  function show_edit_modal(sub,head,dueDate,sub,Emp) {
     //var sub_c = document.getElementById("edit_assignment_btn").value;
     old_id.value = sub;
+    heading_id.value = head;
+    Subject_id.value = sub;
+    Due_date_id.value = dueDate;
+    Emp_id.value = Emp;
     $("#edit_assignment_modal").modal();
   }
 

@@ -55,7 +55,9 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Notice_Link"]?></td>
             <!-- delete and edit -->
             <td>
-              <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows["Notice_Id"] ?>')" id="edit_notice_btn" value="<?php echo $rows['Notice_Id'] ?>">
+              <button class="btn btn-primary btn-xs"
+              onclick='show_edit_modal("<?php echo $rows["Notice_Id"];?>","<?php echo $rows["Heading"];?>","<?php echo $rows["Published_By"];?>")'
+                 id="edit_notice_btn" value="<?php echo $rows['Notice_Id'] ?>">
               </button>
             </td>
             <td>
@@ -119,7 +121,7 @@ function validate(form) {
               <button type="button" class="close" data-dismiss="modal">&times;</button>
 
             </div>
-            <form action="add_to_notice.php" method="post">
+            <form action="add_to_notice.php" method="post" enctype="multipart/form-data">
             <!-- Modal body -->
             <div class="modal-body">
 
@@ -128,12 +130,12 @@ function validate(form) {
                   <input type="name" class="form-control" name="heading">
                 </div>
                 <div class="form-group">
-                  <label for="empno">Link:</label>
-                  <input type="text" class="form-control" name="link">
+                  <label for="link">Upload Notice:</label><br>
+                  <input id="link" type="file" class="" name="NoticeFile">
                 </div>
                 <div class="form-group">
-                  <label for="empno">Published By:</label>
-                  <input type="text" class="form-control" name="published_by">
+                  <label for="Published_By_add">Published By:</label>
+                  <input id="Published_By_add" type="text" class="form-control" name="published_by">
                 </div>
             </div>
             <!-- Modal footer -->
@@ -162,15 +164,15 @@ function validate(form) {
 
                   <div class="form-group">
                     <label for="name">Heading:</label>
-                    <input type="name" class="form-control" name="heading">
+                    <input id="heading_edit" type="name" class="form-control" name="heading">
                   </div>
                   <div class="form-group">
-                    <label for="empno">Link:</label>
-                    <input type="text" class="form-control" name="link">
+                    <label for="link">Link:</label>
+                    <input id="link_edit" type="text" class="form-control" name="link">
                   </div>
                   <div class="form-group">
                     <label for="empno">Published By:</label>
-                    <input type="text" class="form-control" name="published_by">
+                    <input id="Published_By_edit" type="text" class="form-control" name="published_by">
                   </div>
                   <input type="hidden" id="old_Notice_Id_id" name="old_Notice_Id">
               </div>
@@ -189,18 +191,18 @@ function validate(form) {
 
   <script>
   old_id = document.getElementById("old_Notice_Id_id");
-  function show_edit_modal(sub) {
-    //var sub = document.getElementById("edit_Notice_btn").value;
+  heading_id = document.getElementById("heading_edit");
+  Published_By_id = document.getElementById("Published_By_edit");
+  function show_edit_modal(sub,head,pub_by) {
     old_id.value = sub;
-    // document.getElementById("display").value = sub;
+    heading_id.value = head;
+    Published_By_id.value = pub_by;
     $("#edit_notice_modal").modal();
   }
   </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
-
-  <!-- <input type="text" name="display" value="hello" id="display"> -->
 
 </body>
 </html>

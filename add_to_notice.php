@@ -56,14 +56,9 @@
         </h1>
        <?php     }
   ?>
-
-
-
-
   <script type="text/javascript">
   document.getElementById("return_back").click();
   </script>
-
 </head>
 <body>
   <h1></h1>
