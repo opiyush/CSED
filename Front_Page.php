@@ -3,6 +3,8 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <head>
   <meta charset="utf-8">
   <title>Computer Science and Engineering</title>
@@ -117,7 +119,7 @@ session_start();
           </div>
           </div>
 
-          <div class="panel-footer"><a href="" class="btn">All News</a></div>
+          <div class="panel-footer"><a href="All_News.php" class="btn">All News</a></div>
 </div>
 
       </div>
