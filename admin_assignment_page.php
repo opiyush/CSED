@@ -44,7 +44,7 @@ if(isset($_SESSION["role"])){
             <th>Published By</th>
             <th>Link</th>
             <th>Subject</th>
-            <!-- <th>Edit</th> -->
+            <th>Edit</th>
             <th>Delete</th>
           </thead>
           <tbody>
@@ -61,12 +61,12 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Sub_Code"]?></td>
 
             <!-- delete and edit -->
-            <!-- <td>
+            <td>
               <button class="btn btn-primary btn-xs"
               onclick='show_edit_modal("<?php echo $rows['Assg_Id'];?>","<?php echo $rows["Heading"];?>","<?php echo $rows["Due_date"];?>","<?php echo $rows["Sub_Code"];?>","<?php echo $rows["Emp_Id"] ?>")'
                  id="edit_assignment_btn" value="<?php echo $rows['Assg_Id'] ?>">
               </button>
-            </td> -->
+            </td>
             <td>
               <form onsubmit="return validate(this);" action="delete_assignment.php" method="post" data-placement="top" data-toggle="tooltip">
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Assg_Id']?>" >
@@ -207,10 +207,10 @@ function validate(form) {
                     <label for="heading">Heading:</label>
                     <input id="heading_edit" type="name" class="form-control" name="heading">
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label for="link">Link:</label>
                     <input id="Link_edit" type="text" class="form-control" name="link">
-                  </div>
+                  </div> -->
                   <div class="form-group">
                     <label for="Emp_Id">By Faculty</label>
                     <input id="Emp_Id_edit" type="text" class="form-control" name="Emp_Id">
@@ -245,8 +245,8 @@ function validate(form) {
   </div>
   </div>
   </div>
-  <!-- was of edit Assignment  -->
-<!--
+  <!-- is of edit Assignment  -->
+
   <script>
   old_id = document.getElementById("old_Assg_Id_id");
   heading_id = document.getElementById("heading_edit");
@@ -254,9 +254,9 @@ function validate(form) {
   Due_date_id = document.getElementById("Due_date_edit");
   Emp_id = document.getElementById("Emp_Id_edit");
   //heading_id = document.getElementById("heading_edit");
-  function show_edit_modal(sub,head,dueDate,sub,Emp) {
+  function show_edit_modal(asg,head,dueDate,sub,Emp) {
     //var sub_c = document.getElementById("edit_assignment_btn").value;
-    old_id.value = sub;
+    old_id.value = asg;
     heading_id.value = head;
     Subject_id.value = sub;
     Due_date_id.value = dueDate;
@@ -264,7 +264,7 @@ function validate(form) {
     $("#edit_assignment_modal").modal();
   }
 
-  </script> -->
+  </script>
 
 </body>
 </html>
