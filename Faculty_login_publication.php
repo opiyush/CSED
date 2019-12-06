@@ -53,6 +53,7 @@ if(isset($_SESSION["role"])){
             <textarea class="form-control" name="Heading" rows="2" placeholder="Heading"></textarea><br>
             <textarea class="form-control" name="Data" rows="15" placeholder="Details"></textarea><br>
             <input type="hidden"  name="Uploaded_By" value='<?php echo $email ?>'>
+            <input type="hidden"  name="Table" value='Publication_Upload'>
             <button type="submit" class="btn btn-outline-primary">Upload</button>
           </div>
         </form>

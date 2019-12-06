@@ -7,10 +7,12 @@
      $Data = $_POST['Data'];
      $Date = date("d-m-Y");
      $Uploaded_By = $_POST['Uploaded_By'];
+     $Table_name = $_POST['Table'];
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
      $params = array($Type,$Heading,$Data,$Date,$Uploaded_By);
-     $stmt = sqlsrv_query( $conn,"Insert into Publication_Upload (Type, Heading, Data, Date, Uploaded_By) VALUES (?,?,?,?,?);",$params);
+     $stmt = sqlsrv_query( $conn,"Insert into ".$Table_name." (Type, Heading, Data, Date, Uploaded_By) VALUES (?,?,?,?,?);",$params);
+
      if($stmt!=NULL)
      {
        echo "true"
