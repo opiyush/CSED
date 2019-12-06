@@ -30,7 +30,7 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select N.Notice_Id,N.Heading,N.Published_By,N.Published_Date,N.Notice_Link from emp_details E inner join Notice_table N on E.EmpNo=N.Published_By where E.Designation=2",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "select N.Notice_Id,N.Heading,N.Published_By,N.Published_Date,N.Notice_Link from emp_details E inner join Notice_table N on E.EmpNo=N.Published_By where E.Designation=2 and E.Email=?",array($_SESSION["email"])); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
   <!-- scripts were here -->
