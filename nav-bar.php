@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-black bg-white">
+<nav id="navbar_id" class="navbar navbar-expand-md navbar-black bg-white">
   <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target=".dual-collapse2" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -183,6 +183,21 @@ if(isset($_SESSION["role"]))
 <!-- modals end -->
 
 <script>
+// for nav bar to get fixed while scrolling
+window.onscroll = function func() {scrollcontrol()};
+// Get the navbar
+var navbar_var = document.getElementById("navbar_id");
+// Get the offset position of the navbar
+var sticky = navbar_var.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function scrollcontrol() {
+  if (window.pageYOffset >= sticky) {
+    navbar_var.classList.add("sticky")
+  } else {
+    navbar_var.classList.remove("sticky");
+  }
+}
 function clear_session(form) {
 
   // validation code here ...
@@ -196,4 +211,6 @@ function clear_session(form) {
     return confirm('Confirm to Logout?');
   }
 }
+
+
 </script>

@@ -8,12 +8,14 @@ if(isset($_SESSION["role"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <head>
-      <link rel="stylesheet" href="Faculty_login.css">
+      <!-- <link rel="stylesheet" href="Faculty_login.css"> -->
+        <link rel="stylesheet" href="Faculty_login.css">
       <link rel="stylesheet" href="header.css">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <title>Faculty</title>
     </head>
     <body>
+      <!-- one more connection.php is there in sidebar_faculty.php so need to remove one -->
       <?php include 'connection.php'?>
       <?php include 'nav-bar.php'?>
       <!-- php code for connecting to the database -->

@@ -1,39 +1,7 @@
-/* The side navigation menu */
-.sidebar {
-  margin: 0;
-  padding: 2%;
-  width: 20%;
-  background-color: #014566;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
 div.content1{
   margin-left:30%;
   margin-right:15%;
   padding:5%;
-}
-#propic {
-  align-content: center;
-  text-align: center;
-  text-decoration-style: solid;
-  border: 0px solid black;
-  border-radius: 50%;
-}
-
-/* Sidebar links */
-.sidebar a {
-  display: block;
-  color: white;
-  padding: 16px;
-  text-decoration: none;
-}
-
-
-/* Links on mouse-over */
-.sidebar .selectonly a:hover:not(.active) {
-  background-color: #555;
-  color: white;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
@@ -62,12 +30,6 @@ div.content {
   }
 }
 
-.logoutLblPos{
-   position:fixed;
-   right:35px;
-   top:15px;
-}
-
 #submit1{
   background-color: #00bceb;
   color: #ffffff;
@@ -89,4 +51,51 @@ div.Details {
   padding-right: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+/* contents of sidebar */
+
+.sidebar {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 0;
+  background-color: #014566;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding-bottom: 50px;
+}
+.sidebar a {
+  padding: 16px 10px 10px 32px;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+/* Links on mouse-over */
+.sidebar .selectonly a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+#propic {
+  align-content: center;
+  text-align: center;
+  text-decoration-style: solid;
+  border: 2px solid white;
+  border-radius: 50%;
 }
