@@ -70,7 +70,7 @@ if(isset($_SESSION["role"])){
             <!-- delete and edit -->
             <td style="width: 2%">
               <button class="btn btn-primary btn-xs"
-              onclick='show_edit_modal("<?php echo $rows["Email"];?>","<?php echo $rows["Name"];?>","<?php echo $rows["Password"];?>","<?php echo $rows["Phn1"];?>","<?php echo $rows["Phn2"];?>","<?php echo $rows["Degree"];?>","<?php echo $rows["EmpNo"];?>");'
+              onclick='show_edit_modal("<?php echo $rows["Email"];?>","<?php echo $rows["Name"];?>","<?php echo $rows["Password"];?>","<?php echo $rows["Phn1"];?>","<?php echo $rows["Phn2"];?>","<?php echo $rows["Degree"];?>","<?php echo $rows["EmpNo"];?>","<?php echo $rows["Designation"];?>");'
                id="edit_faculty_btn" value="<?php echo $rows['Email'] ?>">
               </button>
             </td>
@@ -219,7 +219,7 @@ if(isset($_SESSION["role"])){
                   <label for="PhotoToUpload">Upload Photo:</label><br>
                   <input id="Photo_edit" type="file" name="Photo" id="PhotoToUpload" class=""><br>
                   <!-- continue eduiting -->
-                  <input type="hidden" name="Designation" value="2">
+                  <input type="hidden" name="Designation" id="desig_edit">
                   <input type="hidden" id="old_Email_id" name="old_Email">
               </div>
               <!-- Modal footer -->
@@ -245,7 +245,8 @@ if(isset($_SESSION["role"])){
   Phn2_id = document.getElementById("Phn2_edit");
   Degree_id = document.getElementById("Degree_edit");
   Password_id = document.getElementById("Password_edit");
-  function show_edit_modal(sub_c,name,Pass,Phn1,Phn2,Degree,Emp) {
+  Desig_id = document.getElementById("desig_edit");
+  function show_edit_modal(sub_c,name,Pass,Phn1,Phn2,Degree,Emp,desig) {
     old_id.value = sub_c;
     name_id.value=name;
     EmpNo_id.value = Emp;
@@ -253,6 +254,7 @@ if(isset($_SESSION["role"])){
     Phn2_id.value = Phn2;
     Degree_id.value = Degree;
     Password_id.value = Pass;
+    Desig_id.value = desig;
     $("#edit_faculty_modal").modal();
   }
   </script>

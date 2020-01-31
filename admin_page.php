@@ -28,7 +28,7 @@ if(isset($_SESSION["role"])){
         <div class = "col-sm-6 col-md-6 col-xl-6 py-2 Faculty">
           <div class="card img-fluid" >
           <a href="admin_faculty_page.php">
-            Alter Faculty
+            Manage Faculty
           </a>
           </div>
 
@@ -36,21 +36,21 @@ if(isset($_SESSION["role"])){
         <div class = "col-sm-6 col-md-6 col-xl-6 py-2 Technical_staff">
           <div class="card img-fluid">
             <a href="admin_staff_page.php">
-              Alter Techninal Staff
+              Manage Techninal Staff
             </a>
           </div>
         </div>
         <div class = "col-sm-6 col-md-6 col-xl-6 py-2 News">
           <div class="card img-fluid">
             <a href="admin_notice_page.php">
-            Alter NEWS and Information
+            Manage NEWS and Information
           </a>
           </div>
         </div>
         <div class = "col-sm-6 col-md-6 col-xl-6 py-2  Assignments">
           <div class="card img-fluid">
             <a href="admin_assignment_page.php">
-              Alter Assignments and schedules
+              Manage Assignments and schedules
             </a>
           </div>
         </div>

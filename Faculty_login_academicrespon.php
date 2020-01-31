@@ -9,6 +9,7 @@ if(isset($_SESSION["role"])){
 
     <head>
       <link rel="stylesheet" href="Faculty_login.css">
+      <link rel="stylesheet" href="header.css">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <title>Faculty</title>
     </head>
@@ -22,18 +23,10 @@ if(isset($_SESSION["role"])){
       $stmt = sqlsrv_query( $conn, "select * from emp_details where Email=?",array($email)); //making query and storing it in stmt variable
       // for displaying the top of the page
       ?>
-
       <?php
       $rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)
       ?>
-
       <?php include 'Sidebar_Faculty.php' ?>
-
-      <form align="right" name="form1" method="post" action="Front_Page.php">
-        <label class="logoutLblPos">
-          <input name="logout" type="submit" id="submit1" value="Sign Out">
-        </label>
-      </form>
 
       <div class="content1">
         <form action="Faculty_Upload_Backend_3.php" method="post">

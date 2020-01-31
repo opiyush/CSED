@@ -8,6 +8,7 @@ if(isset($_SESSION["role"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <head>
+      <link rel="stylesheet" href="header.css">
       <link rel="stylesheet" href="Faculty_login.css">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <title>Faculty</title>
@@ -28,13 +29,6 @@ if(isset($_SESSION["role"])){
       ?>
 
       <?php include 'Sidebar_Faculty.php' ?>
-
-      <form align="right" name="form1" method="post" action="Front_Page.php">
-        <label class="logoutLblPos">
-          <input name="logout" type="submit" id="submit1" value="Sign Out">
-        </label>
-      </form>
-
       <div class="content1">
         <form action="Faculty_Upload_Backend_3.php" method="post">
           <div class="form-group">
