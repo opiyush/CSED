@@ -32,8 +32,9 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select * from Assignment where Email=?",array($_SESSION["email"])); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "select * from Assignment A inner join emp_details E on A.Emp_Id = E.EmpNo where E.Designation=2 and E.Email = ? ",array($_SESSION['email'])); //making query and storing it in stmt variable
   // for displaying the top of the page
+
   ?>
 
   <?php

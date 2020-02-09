@@ -13,9 +13,7 @@
   <li class="nav-item">
     <a class="nav-link active" href="Front_Page.php">Home <span class="sr-only">(current)</span></a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
-  </li>
+  
   <li class="nav-item">
     <a class="nav-link" href="Faculty.php">Faculty</a>
   </li>
