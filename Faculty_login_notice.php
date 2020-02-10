@@ -145,7 +145,7 @@ function validate(form) {
                   <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details where Designation = 2" ,array());
                   if ($stmt != NULL) {
                   ?>
-                  <select class="form-control" id="emp" name="Emp_Id">
+                  <select class="form-control" id="emp" name="published_by">
                   <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
                    ?>
                    <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
