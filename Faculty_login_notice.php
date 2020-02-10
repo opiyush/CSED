@@ -141,8 +141,18 @@ function validate(form) {
                   <input type="file" class="" name="NoticeFile">
                 </div>
                 <div class="form-group">
-                  <label for="empno">Published By:</label>
-                  <input type="text" class="form-control" name="published_by">
+                  <label for="Emp_Id">Published_By:</label>
+                  <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details where Designation = 2" ,array());
+                  if ($stmt != NULL) {
+                  ?>
+                  <select class="form-control" id="emp" name="Emp_Id">
+                  <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+                   ?>
+                   <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
+                  <?php }
+                  } ?>
+                  </select>
+                  <!-- <input type="text" class="form-control" name="Emp_Id"> -->
                 </div>
             </div>
             <!-- Modal footer -->
