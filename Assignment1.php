@@ -17,6 +17,7 @@ $stmt = sqlsrv_query( $conn, "select Subject, Semester, Sub_Code from Subjects_t
     <div class="row mt-5">
 
       <?php
+      $rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);//don't remove if no subject in semester one then error could occour
 for ($x = 1; $x <=4; $x++) {
     ?>
       <div class="col-md-3  mb-5">
@@ -27,13 +28,18 @@ for ($x = 1; $x <=4; $x++) {
               <form action="Assignment.php" method="post">
                 <label for="SUBJECT">SUBJECT</label>
                 <select name="subject" class="form-control">
-                  <?php
-                  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC) and $rows["Semester"] == $x){
+                <?php
+                if($rows["Semester"]==$x)
+                {
+                  do{
                     ?>
-                  <option value="<?php echo $rows["Sub_Code"]?>"> <?php echo $rows["Subject"]?></option>
-                  <<?php } ?>
+                    <option value="<?php echo $rows["Sub_Code"]?>"> <?php echo $rows["Subject"]?></option>
+                    <?php
+                   }
+                  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC) and $rows["Semester"] == $x);
+                }?>
                 </select>
-                <button type="submit" class="btn">FIND</button>
+                <button type="submit" class="btn-primary" style="margin:2px">FIND</button>
               </form>
             </div>
           </div>
@@ -55,12 +61,17 @@ for ($x = 1; $x <=4; $x++) {
                 <label for="SUBJECT">SUBJECT</label>
                 <select name="subject" class="form-control">
                   <?php
-                  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC) and  $rows["Semester"]==$x){
-                    ?>
-                  <option value="<?php $rows["Sub_Code"]?>"><?php echo $rows["Subject"]?></option>
-                  <<?php } ?>
+                  if($rows["Semester"]==$x)
+                  {
+                    do{
+                      ?>
+                      <option value="<?php echo $rows["Sub_Code"]?>"> <?php echo $rows["Subject"]?></option>
+                      <?php
+                     }
+                    while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC) and $rows["Semester"] == $x);
+                  }?>
                 </select>
-                <button type="submit" class="btn">FIND</button>
+                <button type="submit" class="btn-primary" style="margin:2px">FIND</button>
               </form>
             </div>
           </div>
