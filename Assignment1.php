@@ -7,6 +7,16 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+  <style media="screen">
+    #find_1{
+      margin: 10px 0px 0px 0px;
+      border-radius: 5px;
+    }
+    #find_2{
+      margin: 10px 0px 0px 0px;
+      border-radius: 5px;
+    }
+  </style>
 <?php include 'header.php';?>
 <?php include 'connection.php' ;?>
 <?php
@@ -33,13 +43,13 @@ for ($x = 1; $x <=4; $x++) {
                 {
                   do{
                     ?>
-                    <option value="<?php echo $rows["Sub_Code"]?>"> <?php echo $rows["Subject"]?></option>
+                    <option value="<?php echo $rows["Sub_Code"]?>"> <?php echo $rows["Subject"]." (".$rows["Sub_Code"].")"?></option>
                     <?php
                    }
                   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC) and $rows["Semester"] == $x);
                 }?>
                 </select>
-                <button type="submit" class="btn-primary" style="margin:2px">FIND</button>
+                <button type="submit" class="btn-primary" id="find_1">FIND</button>
               </form>
             </div>
           </div>
@@ -65,13 +75,13 @@ for ($x = 1; $x <=4; $x++) {
                   {
                     do{
                       ?>
-                      <option value="<?php echo $rows["Sub_Code"]?>"> <?php echo $rows["Subject"]?></option>
+                      <option value="<?php echo $rows["Sub_Code"]?>"> <?php echo $rows["Subject"]." (".$rows["Sub_Code"].")"?></option>
                       <?php
                      }
                     while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC) and $rows["Semester"] == $x);
                   }?>
                 </select>
-                <button type="submit" class="btn-primary" style="margin:2px">FIND</button>
+                <button type="submit" class="btn-primary" id="find_2">FIND</button>
               </form>
             </div>
           </div>
