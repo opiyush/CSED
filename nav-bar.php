@@ -1,4 +1,14 @@
-<nav id="navbar_id" class="navbar navbar-expand-md navbar-black bg-white">
+<style>
+.sticky{
+position: fixed;
+top: 0;
+width: 100%;
+padding-top:0px;
+background-color: black;
+z-index: 1;
+}
+</style>
+  <nav id="navbar_id" class="navbar navbar-expand-md navbar-black bg-white">
   <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target=".dual-collapse2" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -13,7 +23,7 @@
   <li class="nav-item">
     <a class="nav-link active" href="Front_Page.php">Home <span class="sr-only">(current)</span></a>
   </li>
-  
+
   <li class="nav-item">
     <a class="nav-link" href="Faculty.php">Faculty</a>
   </li>
@@ -182,7 +192,7 @@ if(isset($_SESSION["role"]))
 
 <script>
 // for nav bar to get fixed while scrolling
-window.onscroll = function func() {scrollcontrol()};
+window.onscroll = function() {scrollcontrol()};
 // Get the navbar
 var navbar_var = document.getElementById("navbar_id");
 // Get the offset position of the navbar
