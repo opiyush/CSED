@@ -48,7 +48,7 @@ if ($stmt !== NULL) {
                   <td><?php echo $rows["Heading"] ?></td>
                   <td><?php $Date = $rows["Published_date"]; echo $Date;?></td>
                   <td><?php $Date = $rows["Due_date"]; echo $Date; ?></td>
-                  <td><a href="<?php echo $rows["Assg_Link"]?>">Click</a></td>
+                  <td><a target="_blank" href=<?php echo "Added_Assignment/" . $rows["Assg_Link"]?>>Click</a></td>
                 </tr>
                 <?php
               }
