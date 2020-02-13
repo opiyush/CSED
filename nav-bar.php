@@ -1,13 +1,19 @@
 <style>
 .sticky{
-position: fixed;
-top: 0;
-width: 100%;
-padding-top:0px;
-background-color: black;
-z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 10000;
+}
+.nav-wrapper_sticky{
+  height: 56px;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
 }
 </style>
+<div id="navbar_wrapper_id" class=""><!-- height of it should be same as that of nav bar, for holding the position-->
   <nav id="navbar_id" class="navbar navbar-expand-md navbar-black bg-white">
   <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target=".dual-collapse2" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -108,6 +114,7 @@ if(isset($_SESSION["role"]))
 </ul>
 </div>
 </nav>
+</div>
 <!-- modals -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -195,15 +202,18 @@ if(isset($_SESSION["role"]))
 window.onscroll = function() {scrollcontrol()};
 // Get the navbar
 var navbar_var = document.getElementById("navbar_id");
+var navbar_wrapper_var = document.getElementById("navbar_wrapper_id");
 // Get the offset position of the navbar
 var sticky = navbar_var.offsetTop;
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function scrollcontrol() {
   if (window.pageYOffset >= sticky) {
-    navbar_var.classList.add("sticky")
+    navbar_var.classList.add("sticky");
+    navbar_wrapper_var.classList.add("nav-wrapper_sticky");
   } else {
     navbar_var.classList.remove("sticky");
+    navbar_wrapper_var.classList.remove("nav-wrapper_sticky");
   }
 }
 function clear_session(form) {

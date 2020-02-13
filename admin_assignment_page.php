@@ -22,7 +22,7 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select * from Assignment",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "EXEC GetAllAssignment;",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
 
@@ -142,7 +142,7 @@ function validate(form) {
                 </div><br>
                 <div class="form-group">
                   <label for="Emp_Id">By Faculty</label>
-                  <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details",array());
+                  <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllEmp_name_eid;",array());
                   if ($stmt != NULL) {
                   ?>
                   <select class="form-control" id="emp" name="Emp_Id">
@@ -156,7 +156,7 @@ function validate(form) {
                 </div>
                 <div class="form-group">
                   <label for="Subject">Select Subject</label>
-                  <?php $stmt=sqlsrv_query( $conn, "select * from Subjects_table",array());
+                  <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllSubjects;",array());
                   if ($stmt !== NULL) {
                   ?>
                   <select class="form-control" id="Subject" name="Sub_Code">
@@ -191,7 +191,7 @@ function validate(form) {
           <div class="modal-dialog">
             <div class="modal-content">
 
-              <?php $stmt=sqlsrv_query( $conn, "select * from Subjects_table",array());
+              <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllSubjects;",array());
               if ($stmt !== NULL) {
               ?>
               <!-- Modal Header -->

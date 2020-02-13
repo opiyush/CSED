@@ -18,7 +18,7 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select * from Notice_table order by Published_Date desc",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "EXEC GetAllNotice_by_pub_date;",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
 
@@ -56,8 +56,8 @@ if(isset($_SESSION["role"])){
             <!-- delete and edit -->
             <!-- <td>
               <button class="btn btn-primary btn-xs"
-              onclick='show_edit_modal("<?php echo $rows["Notice_Id"];?>","<?php echo $rows["Heading"];?>","<?php echo $rows["Published_By"];?>")'
-                 id="edit_notice_btn" value="<?php echo $rows['Notice_Id'] ?>">
+              onclick='show_edit_modal("<?php// echo $rows["Notice_Id"];?>","<?php //echo $rows["Heading"];?>","<?php //echo $rows["Published_By"];?>")'
+                 id="edit_notice_btn" value="<?php //echo $rows['Notice_Id'] ?>">
               </button>
             </td> -->
             <td>
@@ -135,7 +135,7 @@ function validate(form) {
                 </div>
                 <div class="form-group">
                   <label for="Published_By_add">Published By:</label>
-                  <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details",array());
+                  <?php $stmt=sqlsrv_query( $conn, "exec GetAllEmp_name_eid",array());
                   if ($stmt != NULL) {
                   ?>
                   <select class="form-control" id="emp" name="published_by">

@@ -9,9 +9,11 @@ if(isset($_SESSION["role"])){
     <meta charset="utf-8">
     <title>Admin->Manage Subject </title>
     <link rel="stylesheet" href="header.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
- <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
 
 <body>
@@ -19,7 +21,7 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select * from Subjects_table",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "EXEC GetAllSubjects;",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
 
@@ -134,7 +136,7 @@ function validate(form) {
                 <div class="form-group">
                   <label for="empno">Employee Id</label>
 
-                  <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details",array());
+                  <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllEmp_name_eid;",array());
                   if ($stmt != NULL) {
                   ?>
                   <select id="emp_add" class="form-control" id="emp" name="Emp_Id">
@@ -189,10 +191,10 @@ function validate(form) {
                   <div class="form-group">
                     <label for="emp_edit">Employee Id</label>
 
-                    <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details",array());
+                    <?php $stmt=sqlsrv_query( $conn,"EXEC GetAllEmp_name_eid;",array());
                     if ($stmt != NULL) {
                     ?>
-                    <select id="emp_edit" class="form-control" id="emp" name="Emp_Id">
+                    <select id="emp_edit" class="form-control" name="Emp_Id"> <!-- removed id="emp"-->
                       <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
                        ?>
                       <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
@@ -244,15 +246,6 @@ function validate(form) {
   }
 
   </script>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-
-  <?php sqlsrv_free_stmt($stmt);
-  sqlsrv_close($conn);
-  ?>
-
 </body>
 </html>
 <?php
@@ -264,3 +257,7 @@ function validate(form) {
   else {
     echo "Login required";
   } ?>
+
+  <?php sqlsrv_free_stmt($stmt);
+  sqlsrv_close($conn);
+  ?>

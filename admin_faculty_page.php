@@ -17,7 +17,8 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select * from emp_details where Designation=2 OR Designation=0 OR Designation=1;",array()); //making query and storing it in stmt variable
+     //$stmt = sqlsrv_query( $conn, "select * from emp_details where Designation=2 OR Designation=0 OR Designation=1;",array()); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn,"exec GetAllFaculty;",array()); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
 
