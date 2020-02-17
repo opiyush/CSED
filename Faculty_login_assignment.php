@@ -19,7 +19,7 @@ if(isset($_SESSION["role"])){
     </head>
     <style media="screen">
       .container{
-        margin-left: 20%;
+        margin-left: 16%;
       }
       .row{
         margin-left: 3rem;
