@@ -4,7 +4,8 @@
   include "connection.php" ?>
   <?php
      $assgid = $_POST['submit'];
-     $stmt = sqlsrv_query( $conn, "DELETE from Assignment WHERE Assg_Id ='".$assgid."' ;",array());
+     // $stmt = sqlsrv_query( $conn, "DELETE from Assignment WHERE Assg_Id ='".$assgid."' ;",array());
+     $stmt = sqlsrv_query( $conn, "EXEC DeleteAssg_by_id @assg_id='".$assgid."' ;",array()); 
      if($stmt==true)
      {
        ?>

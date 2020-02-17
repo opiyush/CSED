@@ -5,7 +5,8 @@
   include "connection.php" ?>
   <?php
      $Sub_Code = $_POST['submit'];
-     $stmt = sqlsrv_query( $conn, "DELETE from Subjects_table WHERE Sub_Code ='".$Sub_Code."' ;",array());
+     //$stmt = sqlsrv_query( $conn, "DELETE from Subjects_table WHERE Sub_Code ='".$Sub_Code."' ;",array());
+     $stmt = sqlsrv_query( $conn, "EXEC DeleteSubject_by_code @sub_code='".$Sub_Code."';",array());
      if($stmt==true)
      {
        ?>

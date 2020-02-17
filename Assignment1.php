@@ -20,7 +20,8 @@
 <?php include 'header.php';?>
 <?php include 'connection.php' ;?>
 <?php
-$stmt = sqlsrv_query( $conn, "select Subject, Semester, Sub_Code from Subjects_table order by Semester",array());
+// $stmt = sqlsrv_query( $conn, "select Subject, Semester, Sub_Code from Subjects_table order by Semester",array());
+$stmt = sqlsrv_query( $conn, "EXEC GetAllSubjects_order_by_Sem;",array());
 //echo starts for displaying the top of the page
 ?>
   <div id="fir" class="container">

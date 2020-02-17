@@ -5,7 +5,8 @@
   <?php
 
      $noticeid = $_POST['submit'];
-     $stmt = sqlsrv_query( $conn, "DELETE from Notice_table WHERE Notice_Id =?;",array($noticeid));
+     // $stmt = sqlsrv_query( $conn, "DELETE from Notice_table WHERE Notice_Id =?;",array($noticeid));
+     $stmt = sqlsrv_query( $conn, "EXEC DeleteNotice_by_id @notice_id=?;",array($noticeid));
      if($stmt==true)
      {
        ?>

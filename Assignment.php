@@ -13,7 +13,7 @@
 
 <?php
 $a=$_POST["subject"];
-$str="select Assg_Link, Heading, Published_date, Due_date from Assignment where Sub_Code='$a'";
+$str="EXEC assign_from_sub_code @sub_code = '$a'";
 $stmt = sqlsrv_query( $conn, $str,array()); //making query and storing it in stmt variable
 //echo starts for displaying the top of the page
 ?>

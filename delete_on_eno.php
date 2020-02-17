@@ -5,7 +5,8 @@
   include "connection.php" ?>
   <?php
      $email = $_POST['submit'];
-     $stmt = sqlsrv_query( $conn, "DELETE from emp_details WHERE Email ='".$email."' ;",array());
+     // $stmt = sqlsrv_query( $conn, "DELETE from emp_details WHERE Email ='".$email."' ;",array());
+     $stmt = sqlsrv_query( $conn, "EXEC DeleteEmp_by_id @emp_id='".$email."' ;",array());
 
      //for deleting the files after a faculty is deleted
      // $stmt_p_c = sqlsrv_query( $conn, "Select Photo, CVlink from emp_details WHERE Email ='".$email."' ;",array());
@@ -18,7 +19,20 @@
 
      $param_2 =array($email);
      //needed to be corrected for subjects
-     $stmt_make_null = sqlsrv_query($conn, "UPDATE Subjects_table SET Emp_Id =NULL WHERE Emp_Id=?",$param_2);
+
+     // $stmt_make_null = sqlsrv_query($conn, "UPDATE Subjects_table SET Emp_Id =NULL WHERE Emp_Id=?",$param_2);
+
+
+
+
+
+
+     $stmt_make_null = sqlsrv_query($conn, "EXEC MakeSubjectNull_by_email @emp_id=?",$param_2);
+     //not checked byt should be working
+
+
+
+
      if($stmt and $stmt_make_null ==true)
      {
        ?>

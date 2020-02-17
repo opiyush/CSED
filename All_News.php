@@ -38,7 +38,7 @@
     <?php
   	    include 'connection.php';
 
-        $stmt = sqlsrv_query( $conn, "select * from Notice_table ORDER BY Published_Date desc",array());
+        $stmt = sqlsrv_query( $conn, "EXEC GetAllNotice_by_pub_date;",array());
         if ($stmt !== NULL) {
           while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC))
           {
