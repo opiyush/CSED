@@ -8,6 +8,7 @@
 }
 .nav-wrapper_sticky{
   height: 56px;
+  margin-top: 56px;
   position: fixed;
   top: 0;
   z-index: 10000;
