@@ -3,7 +3,7 @@
   <?php
     $email = $_SESSION["email"];
     //$email="Harsh@gmail.com";
-     $stmt = sqlsrv_query( $conn, "select * from emp_details where Email=?",array($email)); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "EXEC GetEmp_by_email @email=?;",array($email)); //making query and storing it in stmt variable
   // for displaying the top of the page
   ?>
 

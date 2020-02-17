@@ -62,7 +62,8 @@ session_start();
 
 
 
-  <?php $stmt = sqlsrv_query( $conn, "select * from Notice_table ORDER BY Published_Date desc",array());
+  <?php //$stmt = sqlsrv_query( $conn, "select * from Notice_table ORDER BY Published_Date desc",array());
+  $stmt = sqlsrv_query( $conn, "EXEC GetAllNotice_by_pub_date;",array());
   if ($stmt !== NULL) {
     ?>
 

@@ -16,7 +16,9 @@
      //$pass = random_int(1000,9999);
      //$subject = $_POST['subject'];
      $params = array($name,$Password,$EmpNo,$Phn1,$Phn2,$Degree,$oldEmail,$desig);
-     $stmt = sqlsrv_query( $conn,"Update emp_details set Name=?, Password=?, EmpNo=?, Phn1=?, Phn2=?, Degree=? WHERE Email=? and Designation=?;",$params);
+     //$stmt = sqlsrv_query( $conn,"Update emp_details set Name=?, Password=?, EmpNo=?, Phn1=?, Phn2=?, Degree=? WHERE Email=? and Designation=?;",$params);
+     $stmt = sqlsrv_query( $conn,"EXEC UpdateEmp_on_id @name=?, @pass=?, @emp_no=?, @phn1=?, @phn2=?, @degree=?, @email=?, @desig=?;",$params);
+
      echo '$stmt';
      if($CVLink!=NULL && $CVLink!="")
      {
@@ -43,7 +45,9 @@
          }
        }
        $params = array($CVLink,$oldEmail);//CV link should be eg- harsh@gamil.comCV
-       $stmt = sqlsrv_query( $conn,"Update emp_details set CVlink=? WHERE Email=?;",$params);
+       //$stmt = sqlsrv_query( $conn,"Update emp_details set CVlink=? WHERE Email=?;",$params);
+       $stmt = sqlsrv_query( $conn,"UpdateEmp_cv_on_id @cv_link=?, @email=?;",$params);
+
      }
     if($Photo!=NULL && $Photo!="")
     {
@@ -82,7 +86,9 @@
       }
 
       $params = array($Photo,$oldEmail); //eg-if email = harsh@gmail.com so photo will be saved at harsh@gamil.comPhoto
-      $stmt = sqlsrv_query( $conn,"Update emp_details set Photo=? WHERE Email=?;",$params);
+      //$stmt = sqlsrv_query( $conn,"Update emp_details set Photo=? WHERE Email=?;",$params);
+      $stmt = sqlsrv_query( $conn,"EXEC UpdateEmp_photo_on_id @photo_link=?, @email=?;",$params);
+
     }
      if($stmt==true)
      {
@@ -106,7 +112,7 @@
 
 
   <script type="text/javascript">
-   document.getElementById("return_back").click();
+   // document.getElementById("return_back").click();
   </script>
 
 </head>

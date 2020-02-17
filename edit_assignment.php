@@ -13,8 +13,9 @@
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
      $params = array($Published_date,$Due_date,$empid,$heading,$sub_code,$old_Assg_Id);
      echo $old_Assg_Id;
-     $stmt = sqlsrv_query( $conn,"Update Assignment set Published_date=?, Due_date=?, Emp_Id=?, Heading=?, Sub_Code=? where Assg_Id=?;",$params);
-     echo '$stmt';
+     //$stmt = sqlsrv_query( $conn,"Update Assignment set Published_date=?, Due_date=?, Emp_Id=?, Heading=?, Sub_Code=? where Assg_Id=?;",$params);
+     $stmt = sqlsrv_query( $conn,"EXEC UpdateAssg_on_id @pub_d = ?, @due_d = ?, @emp_id = ?, @head = ?, @sub_c = ?, @assg_id = ?;",$params);
+     //echo $params[4];
      if($stmt!=NULL)
      {
        echo "true"

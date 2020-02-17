@@ -10,7 +10,8 @@
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
      $params = array($link,$Published_date,$published_by,$heading,$old_Notice_Id);
-     $stmt = sqlsrv_query( $conn,"Update Notice_table set Notice_Link=?, Published_Date=?, Published_By=?, Heading=? where Notice_Id=?;",$params);
+     //$stmt = sqlsrv_query( $conn,"Update Notice_table set Notice_Link=?, Published_Date=?, Published_By=?, Heading=? where Notice_Id=?;",$params);
+     $stmt = sqlsrv_query( $conn,"UpdateNotice_on_id @link=?, @pub_d=?, @pub_by=?, @head=?, @notice_id=?;",$params);
 
 //file selected for notice then update link and ipload file
 

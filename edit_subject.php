@@ -13,7 +13,9 @@
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
      $params = array($Sub_Code,$Subject,$Semester,$Emp_Id,$old_Sub_Code);
-     $stmt = sqlsrv_query( $conn,"Update Subjects_table set Sub_Code=?, Subject=?, Semester=?, Emp_Id=? where Sub_Code=?;",$params);
+     //$stmt = sqlsrv_query( $conn,"Update Subjects_table set Sub_Code=?, Subject=?, Semester=?, Emp_Id=? where Sub_Code=?;",$params);
+     $stmt = sqlsrv_query( $conn,"EXEC UpdateSub_on_id @sub_code=?, @sub=?, @sem=?, @emp_id=?, @sub_code_old=?;",$params);
+
      //echo '$stmt';
      if($stmt!=NULL)
      {

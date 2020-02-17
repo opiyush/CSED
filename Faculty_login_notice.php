@@ -30,7 +30,9 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select N.Notice_Id,N.Heading,N.Published_By,N.Published_Date,N.Notice_Link from emp_details E inner join Notice_table N on E.EmpNo=N.Published_By where E.Designation=2 and E.Email=?",array($_SESSION["email"])); //making query and storing it in stmt variable
+     //$stmt = sqlsrv_query( $conn, "select N.Notice_Id,N.Heading,N.Published_By,N.Published_Date,N.Notice_Link from emp_details E inner join Notice_table N on E.EmpNo=N.Published_By where E.Email=?",array($_SESSION["email"])); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "EXEC GetNotice_of_emp @email=?",array($_SESSION["email"])); //making query and storing it in stmt variable
+
   // for displaying the top of the page
   ?>
   <!-- scripts were here -->
@@ -142,7 +144,7 @@ function validate(form) {
                 </div>
                 <div class="form-group">
                   <label for="Emp_Id">Published_By:</label>
-                  <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details where Designation = 2" ,array());
+                  <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllFaculty;" ,array());
                   if ($stmt != NULL) {
                   ?>
                   <select class="form-control" id="emp" name="published_by">

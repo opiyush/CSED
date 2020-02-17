@@ -32,7 +32,8 @@ if(isset($_SESSION["role"])){
   <?php include 'connection.php'?>
   <!-- php code for connecting to the database -->
   <?php
-     $stmt = sqlsrv_query( $conn, "select * from Assignment A inner join emp_details E on A.Emp_Id = E.EmpNo where E.Designation=2 and E.Email = ? ",array($_SESSION['email'])); //making query and storing it in stmt variable
+     //$stmt = sqlsrv_query( $conn, "select * from Assignment A inner join emp_details E on A.Emp_Id = E.EmpNo where E.Designation=2 and E.Email = ? ",array($_SESSION['email'])); //making query and storing it in stmt variable
+     $stmt = sqlsrv_query( $conn, "EXEC GetAssg_of_faculty @email=?;",array($_SESSION['email']));
   // for displaying the top of the page
 
   ?>
@@ -151,7 +152,7 @@ function validate(form) {
                 </div>
                 <div class="form-group">
                   <label for="Emp_Id">Published_By:</label>
-                  <?php $stmt=sqlsrv_query( $conn, "select EmpNo, Name from emp_details where Designation = 2" ,array());
+                  <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllFaculty;" ,array());
                   if ($stmt != NULL) {
                   ?>
                   <select class="form-control" id="emp" name="Emp_Id">
@@ -165,7 +166,7 @@ function validate(form) {
                 </div>
                 <div class="form-group">
                   <label for="Subject">Select Subject</label>
-                  <?php $stmt=sqlsrv_query( $conn, "select * from Subjects_table",array());
+                  <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllSubjects;",array());
                   if ($stmt !== NULL) {
                   ?>
                   <select class="form-control" id="Subject" name="Sub_Code">
@@ -225,7 +226,7 @@ function validate(form) {
                   <input type="hidden" id="old_Assg_Id_id" name="old_Assg_Id">
                   <div class="form-group">
                     <label for="Subject">Select Subject</label>
-                    <?php $stmt=sqlsrv_query( $conn, "select * from Subjects_table",array());
+                    <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllSubjects;",array());
                     if ($stmt !== NULL) {
                     ?>
                     <select class="form-control" id="Subject" name="Sub_Code">

@@ -15,8 +15,8 @@
 	<?php
 	    include 'connection.php';
 
-	     $stmt = sqlsrv_query( $conn, "select * from emp_details where Designation=2",array()); //making query and storing it in stmt variable
-
+	     //$stmt = sqlsrv_query( $conn, "select * from emp_details where Designation=2",array()); //making query and storing it in stmt variable
+			 $stmt = sqlsrv_query( $conn, "EXEC GetAllFaculty;",array()); //making query and storing it in stmt variable
 
 	  //echo starts for displaying the top of the page
 	  ?>
