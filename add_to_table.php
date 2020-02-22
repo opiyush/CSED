@@ -19,7 +19,10 @@
 
 
 
-     $stmt = sqlsrv_query( $conn,"Insert into emp_details (Name, Email, Password, Designation, Active) VALUES (?,?,?,?,0);",$params);
+     //$stmt = sqlsrv_query( $conn,"Insert into emp_details (Name, Email, Password, Designation, Active) VALUES (?,?,?,?,0);",$params);
+
+     $stmt = sqlsrv_query( $conn,"EXEC AddEmp @name=?, @email=?, @pass=?, @desig=?, @act=0",$params);
+
      echo '$stmt';
      if($stmt==true)
      {

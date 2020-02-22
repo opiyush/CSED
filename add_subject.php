@@ -12,7 +12,11 @@
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
      $params = array($Sub_Code,$Subject,$Semester,$Emp_Id);
-     $stmt = sqlsrv_query( $conn,"Insert into Subjects_table (Sub_Code, Subject, Semester, Emp_Id) VALUES (?,?,?,?);",$params);
+     //$stmt = sqlsrv_query( $conn,"Insert into Subjects_table (Sub_Code, Subject, Semester, Emp_Id) VALUES (?,?,?,?);",$params);
+
+     $stmt = sqlsrv_query( $conn,"EXEC AddSub @sub_c=?, @sub=?, @emp_id=?, @sem=?;",$params);
+
+
      //echo '$stmt';
      if($stmt!=NULL)
      {

@@ -40,7 +40,9 @@
      }
 
      $params = array($AssgLink,$Published_date,$Due_date,$empid,$heading,$sub_code);
-     $stmt = sqlsrv_query( $conn,"Insert into Assignment (Assg_Link, Published_date, Due_date, Emp_Id, Heading, Sub_Code) VALUES (?,?,?,?,?,?);",$params);
+     //$stmt = sqlsrv_query( $conn,"Insert into Assignment (Assg_Link, Published_date, Due_date, Emp_Id, Heading, Sub_Code) VALUES (?,?,?,?,?,?);",$params);
+     $stmt = sqlsrv_query( $conn,"EXEC AddAssg @Assg_l=?, @pub_d=?, @due_d=?, @emp_id=?, @head=?, @sub_c=?;",$params);
+
      echo '$stmt';
      if($stmt!=NULL)
      {

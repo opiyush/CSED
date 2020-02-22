@@ -37,7 +37,9 @@
      }
 
      $params = array($NoticeLink,$Published_date,$published_by,$heading);
-     $stmt = sqlsrv_query( $conn,"Insert into Notice_table (Notice_Link, Published_Date, Published_By, Heading) VALUES (?,?,?,?);",$params);
+//     $stmt = sqlsrv_query( $conn,"Insert into Notice_table (Notice_Link, Published_Date, Published_By, Heading) VALUES (?,?,?,?);",$params);
+     $stmt = sqlsrv_query( $conn,"EXEC AddNotice @Notice_l=?, @pub_d=?, @pub_b=?, @head=?;",$params);
+
      echo '$stmt';
      if($stmt!=NULL)
      {
