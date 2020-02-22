@@ -3,7 +3,7 @@
 //$_SESSION["role"]="Admin";
 //echo $_SESSION["role"];
 if(isset($_SESSION["role"])){
-  if($_SESSION["role"]=="Admin")
+  if($_SESSION["role"]=="Admin" or $_SESSION["role"]=="HOD")
   {
   ?>
 <!DOCTYPE html>
