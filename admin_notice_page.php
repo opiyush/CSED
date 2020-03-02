@@ -49,10 +49,10 @@ if(isset($_SESSION["role"])){
           ?>
             <tr>
 
-            <td><?php echo $rows["Heading"] ?></td>
+            <td><?php echo substr($rows["Heading"], 0 ,8).".." ?></td>
             <td><?php echo $rows["Published_Date"]?></td>
             <td><?php echo $rows["Published_By"]?></td>
-            <td><?php echo $rows["Notice_Link"]?></td>
+            <td><?php echo substr($rows["Notice_Link"],0,8).".."?></td>
             <!-- delete and edit -->
             <!-- <td>
               <button class="btn btn-primary btn-xs"
