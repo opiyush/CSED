@@ -56,19 +56,19 @@ if(isset($_SESSION["role"])){
           <?php
           while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
           ?>
-            <tr>
-              <td><?php echo $rows["Name"] ?></td>
-              <td><?php echo $rows["EmpNo"]?></td>
-              <td><?php echo $rows["Email"]?></td>
-              <td><?php echo $rows["UserId"]?></td>
-              <td><?php echo $rows["Password"]?></td>
-              <td><?php echo $rows["Phn1"]?></td>
-              <td><?php echo $rows["Phn2"]?></td>
-              <td><?php echo $rows["Degree"]?></td>
-              <td><?php echo $rows["CVlink"]?></td>
-              <td><?php echo $rows["Photo"]?></td>
-              <td><?php echo $rows["Designation"]?></td>
-              <td><?php echo $rows["Active"]?></td>
+          <tr>
+          <td style="width: 10%"><?php echo substr($rows["Name"],0,6).".." ?></td>
+          <td style="width: 5%"><?php echo substr($rows["EmpNo"],0,6) ?></td>
+          <td style="width: 10%"><?php echo substr($rows["Email"],0,6).".."?></td>
+          <td style="width: 7%"><?php echo substr($rows["UserId"],0,6).".." ?></td>
+          <td style="width: 10%"><?php echo substr($rows["Password"],0,6).".." ?></td>
+          <td style="width: 10%"><?php echo $rows["Phn1"]?></td>
+          <td style="width: 10%"><?php echo $rows["Phn2"]?></td>
+          <td style="width: 5%"><?php echo substr($rows["Degree"],0,6).".."?></td>
+          <td style="width: 10%"><?php echo substr($rows["CVlink"], 0 ,6).".."?></td>
+          <td style="width: 10%"><?php echo substr($rows["Photo"],0,6).".."?></td>
+          <td style="width: 2%"><?php echo $rows["Designation"]?></td>
+          <td style="width: 2%"><?php echo $rows["Active"]?></td>
             <!-- delete and edit -->
             <td>
               <button class="btn btn-primary btn-xs"
