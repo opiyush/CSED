@@ -32,7 +32,7 @@ if(isset($_SESSION["role"])){
     <?php include 'Sidebar_Techstaff.php' ?>
 
      <div class="Details">
-       <h3>Hello, <?php echo $rows["Name"] ?></h3>
+       <h2>Hello, <?php echo $rows["Name"] ?></h2>
        <br><br>
 
       <p><b>Name :</b>&nbsp;&nbsp;&nbsp;&nbsp;   <?php echo $rows["Name"] ?>  </p>
