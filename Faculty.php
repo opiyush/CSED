@@ -10,56 +10,62 @@
 	<link rel="stylesheet" href="header.css">
 </head>
 <body>
-<?php include 'header.php'?>
+	<?php include 'header.php'?>
 
 	<?php
-	    include 'connection.php';
+	include 'connection.php';
 
-	     //$stmt = sqlsrv_query( $conn, "select * from emp_details where Designation=2",array()); //making query and storing it in stmt variable
-			 $stmt = sqlsrv_query( $conn, "EXEC GetAllFaculty;",array()); //making query and storing it in stmt variable
+	//$stmt = sqlsrv_query( $conn, "select * from emp_details where Designation=2",array()); //making query and storing it in stmt variable
+	$stmt = sqlsrv_query( $conn, "EXEC GetAllFaculty;",array()); //making query and storing it in stmt variable
 
-	  //echo starts for displaying the top of the page
-	  ?>
-
-
-
-
-<div id="fir" class="container">
-	<div class="row mt-5">
-		<?php
-		while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
-
-		?>
-		<div class="col-md-6 mb-5">
-			<div class="card" >
-				<div class="card-body">
-					<div class="row">
-					<div class="col-md-6">
-					<h5 class="card-title"><?php echo $rows["Name"] ?></h5>
-					<h6 class="card-subtitle mb-2 text-muted"><?php echo $rows["Degree"] ?></h6>
-					<p class="card-text"><?php echo $rows["Email"] ?></p>
-					<p class="card-text"><?php echo $rows["Phn1"] ?></p>
-					<p class="card-text"><?php echo $rows["Phn2"] ?></p>
-				</div>
-				<div class="col-md-6">
-				 <img id="propic" src="Added_Image/<?php echo $rows["Photo"]?>" alt="Profile Picture" height="130" width="130">&nbsp;&nbsp;&nbsp;&nbsp;
-			 </div>
-		 </div>
-					<button type="button" class="btn btn-info">Details</button>
-				</div>
-			</div>
-    </div>
-<?php
-}
-?>
-
-	</div>
-	</div>
-	<?php sqlsrv_free_stmt($stmt);
-	sqlsrv_close($conn);
+	//echo starts for displaying the top of the page
 	?>
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-</html>
+
+
+
+
+	<div id="fir" class="container">
+		<div class="row mt-5">
+			<?php
+			while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+				?>
+				<div class="col-md-6 mb-5">
+					<div class="card" >
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-6">
+									<h5 class="card-title"><?php echo $rows["Name"] ?></h5>
+									<h6 class="card-subtitle mb-2 text-muted"><?php echo $rows["Degree"] ?></h6>
+									<p class="card-text"><?php echo $rows["Email"] ?></p>
+									<p class="card-text"><?php echo $rows["Phn1"]." " , $rows["Phn2"] ?></p>
+								</div>
+
+								<div class="col-md-6">
+									<?php $photo_name=$rows["Photo"]?>
+									<?php if(is_null($photo_name))
+									{
+										$photo_name="images.png";
+									}
+										?>
+									<img id="propic" src="Added_Image/<?php echo $photo_name?>" alt="Profile Picture" height="130" width="130">&nbsp;&nbsp;&nbsp;&nbsp;
+
+									</div>
+								</div>
+								<button type="button" class="btn btn-info">Details</button>
+							</div>
+						</div>
+					</div>
+					<?php
+				}
+				?>
+
+			</div>
+		</div>
+		<?php sqlsrv_free_stmt($stmt);
+		sqlsrv_close($conn);
+		?>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</body>
+	</html>
