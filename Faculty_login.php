@@ -61,7 +61,7 @@ if(isset($_SESSION["role"])){
              </div> -->
              <div class="form-group">
                <label for="EmpNo">Employe No:</label>
-               <input id="EmpNo_edit" type="text" name="EmpNo" placeholder="Employe No" required class="form-control">
+               <input id="EmpNo_edit" type="text" name="EmpNo" placeholder="Employe No" class="form-control">
              </div>
              <div class="form-group">
                <label for="Password">Password:</label>
