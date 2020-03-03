@@ -233,6 +233,7 @@ if(isset($_SESSION["role"])){
             </div>
             </div>
             </div>
+            <!-- faculty modal ends here -->
 
   </div>
   </div>
@@ -247,8 +248,8 @@ if(isset($_SESSION["role"])){
   Degree_id = document.getElementById("Degree_edit");
   Password_id = document.getElementById("Password_edit");
   Desig_id = document.getElementById("desig_edit");
-  function show_edit_modal(sub_c,name,Pass,Phn1,Phn2,Degree,Emp,desig) {
-    old_id.value = sub_c;
+  function show_edit_modal(old_id_var,name,Pass,Phn1,Phn2,Degree,Emp,desig) {
+    old_id.value = old_id_var;
     name_id.value=name;
     EmpNo_id.value = Emp;
     Phn1_id.value = Phn1;
