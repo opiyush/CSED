@@ -53,9 +53,9 @@
   <li class="nav-item">
     <a class="nav-link" href="Library.php">Library <span class="sr-only">(current)</span></a>
   </li>
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
-  </li>
+  </li> -->
   <li class="nav-item">
     <a class="nav-link" href="#">Placement <span class="sr-only">(current)</span></a>
   </li>
@@ -98,12 +98,32 @@ else
   </li>
   <?php
 } ?>
-<!-- log out btn -->
+
+<!-- sign out btn -->
 <?php
 if(isset($_SESSION["role"]))
 {
   if($_SESSION["role"]=="Admin" or $_SESSION["role"]=="HOD" or $_SESSION["role"]=="Faculty" or $_SESSION["role"]=="TechStaff")
   {?>
+    <?php
+    if($_SESSION['role']=="Admin" or $_SESSION["role"]=="HOD")
+    { ?>
+      <a name="home" id="admin_hod_home_btn" href="admin_page.php">Home
+      </a>
+    <?php
+    }
+    elseif ($_SESSION["role"]=="Faculty")
+    { ?>
+      <a name="home" id="faculty_home_btn" href='Faculty_login.php'>Home
+      </a>
+    <?php
+    }
+    elseif ($_SESSION["role"]=="TechStaff")
+    { ?>
+      <a name="home" id="techstaff_home_btn" href='Techstaff_login.php'>Home
+      </a>
+    <?php
+    }?>
     <form onsubmit="return clear_session(this);" name="signout" method="post" action="Signout_backend.php">
       <button name="logout" type="submit" id="submit1" class="sign_out_btn"><span>Sign Out</span>
       </button>
