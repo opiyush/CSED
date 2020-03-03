@@ -4,7 +4,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="Front_Page.php">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="Welcome.php">Home <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">About <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="Faculty.php">Faculty <span class="sr-only">(current)</span></a>
       <li class="nav-item dropdown">

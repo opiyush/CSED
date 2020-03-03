@@ -28,7 +28,7 @@
       <a class="nav-link" href="#">Link</a>
       </li> -->
   <li class="nav-item">
-    <a class="nav-link active" href="Front_Page.php">Home <span class="sr-only">(current)</span></a>
+    <a class="nav-link active" href="Welcome.php">Home <span class="sr-only">(current)</span></a>
   </li>
 
   <li class="nav-item">

@@ -30,7 +30,7 @@ if(isset($_SESSION["role"])){
 
 
     <?php include 'Sidebar_Techstaff.php' ?>
-        <form align="right" name="form1" method="post" action="Front_Page.php">
+        <form align="right" name="form1" method="post" action="Welcome.php">
        <label class="logoutLblPos">
        <input name="logout" type="submit" id="submit1" value="Sign Out">
        </label>
