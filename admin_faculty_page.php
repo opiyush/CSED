@@ -1,7 +1,7 @@
 <?php
  session_start();
 if(isset($_SESSION["role"])){
-  if($_SESSION["role"]=="Admin")
+  if($_SESSION["role"]=="Admin" or $_SESSION["role"]=="HOD")
   {
   ?>
 <!DOCTYPE html>
