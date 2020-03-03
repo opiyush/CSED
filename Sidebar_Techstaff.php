@@ -10,8 +10,13 @@
   <?php
   $rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
   ?>
-
-  <a style="color:white"><img id="propic" src="Added_Image/<?php echo $rows["Photo"]?>" alt="Profile Picture" height="130" width="130">&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+  <?php $photo_name=$rows["Photo"]?>
+  <?php if(is_null($photo_name))
+  {
+    $photo_name="images.png";
+  }
+    ?>
+  <a style="color:white"><img id="propic" src="Added_Image/<?php echo $photo_name?>" alt="Profile Picture" height="130" width="130">&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
   <b><?php echo $rows["Name"] ?></b><br>
   <!-- <b><?php echo $rows["UserId"]?></b></a> -->
 
