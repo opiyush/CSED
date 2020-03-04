@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css"  crossorigin="anonymous">
 
     <title>All News</title>
     <link rel="stylesheet" href="header.css">
@@ -61,5 +61,8 @@
             <p class="lead">Contact Us</p>
           </div>
      </div>
+     <script src="jquery/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+     <script src="jquery/popper.min.js" crossorigin="anonymous"></script>
+     <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -10,8 +10,8 @@ if(isset($_SESSION["role"])){
     <meta charset="utf-8">
     <title>Admin->News and Announcements </title>
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
+    <link rel="stylesheet" href="css/bootstrap.min.css"  crossorigin="anonymous">
+      </head>
 
 <body>
   <?php include 'nav-bar.php' ?>
@@ -211,10 +211,9 @@ function validate(form) {
     $("#edit_notice_modal").modal();
   }
   </script> -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
-
+  <script src="jquery/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+  <script src="jquery/popper.min.js" crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
 <?php
