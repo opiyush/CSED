@@ -45,7 +45,7 @@
               <td width="33%" align="center">
                 <br>
                	<figure>
-            		  <img src="image/freeware.jpeg" alt="Nature" width="50%" height="65%">
+            		  <img src="image/freeware.jpeg" alt="Nature" width="25%" height="35%">
                	</figure>
                 <br>
                 <div class="download_freeware" align="center">
@@ -56,7 +56,7 @@
               <td width="33%" align="center">
                 <br>
               	<figure>
-              		<img src="image/licensed.jpeg" alt="Nature" width="50%" height="65%">
+              		<img src="image/licensed.jpeg" alt="Nature" width="25%" height="35%">
               	</figure>
                 <br>
                 <div class="download_licensed" align="center">
@@ -66,7 +66,7 @@
               <td width="33%" align="center">
                 <br>
               	<figure>
-              		<img src="image/opensource.jpeg" alt="Nature" width="50%" height="65%">
+              		<img src="image/opensource.jpeg" alt="Nature" width="25%" height="35%">
               	</figure>
                 <br>
                 <div class="download_opensource" align="center">
