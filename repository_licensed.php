@@ -1,8 +1,5 @@
 <?php session_start(); ?>
 <style media="screen">
-  h2{
-    text-align: center;
-  }
 </style>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -24,8 +21,6 @@
     <div class="container">
     <div class="row">
       <div class="table_layout">
-        <br><br>
-        <h2>Licensed Softwares</h2>
         <br>
         <div class="table-responsive">
           <table id="mytable" class="table table-bordred table-striped" style="">
