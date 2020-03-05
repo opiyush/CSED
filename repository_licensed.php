@@ -15,7 +15,7 @@
     <?php include 'header.php';?>
     <?php include 'connection.php' ;?>
     <?php
-       $stmt = sqlsrv_query( $conn,"select * from Licensed",array()); //making query and storing it in stmt variable
+       $stmt = sqlsrv_query( $conn,"select * from Softwares WHERE Type = 2",array()); //making query and storing it in stmt variable
     // for displaying the top of the page
     //checking the result of fetching the contents
       if ($stmt !== NULL) {
@@ -38,7 +38,7 @@
             while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
             ?>
               <tr>
-              <td style="width: 10%"><?php echo substr($rows["Software_Name"],0,6).".."?></td>
+              <td style="width: 10%"><?php echo substr($rows["Software_Name"])?></td>
               <!-- download -->
               <td style="width: 5%">
                 <a target="_blank" href=<?php echo "Softwares/Licensed/" . $rows["Download"]?>>Download S/W</a>
