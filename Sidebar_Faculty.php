@@ -12,7 +12,7 @@
   $rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
   ?>
   <?php $photo_name=$rows["Photo"]?>
-  <?php if(is_null($photo_name)or $photo_name=="")
+  <?php if(is_null($photo_name) or $photo_name=="")
   {
     $photo_name="images.png";
   }

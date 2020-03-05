@@ -43,7 +43,7 @@
 								<div class="col-md-6">
 									<div class="col-md-6">
 										<?php $photo_name=$rows["Photo"]?>
-										<?php if(is_null($photo_name)or $photo_name=="")
+										<?php if(is_null($photo_name) or $photo_name=="")
 										{
 											$photo_name="images.png";
 										}

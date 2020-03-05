@@ -51,11 +51,11 @@
     <a class="nav-link" href="#">Infrastructure <span class="sr-only">(current)</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="Library.php">Library <span class="sr-only">(current)</span></a>
+    <a class="nav-link" href="#">Library <span class="sr-only">(current)</span></a>
   </li>
-  <!-- <li class="nav-item">
-    <a class="nav-link" href="#">Alumni <span class="sr-only">(current)</span></a>
-  </li> -->
+   <li class="nav-item">
+    <a class="nav-link" href="repository.php">Repository <span class="sr-only">(current)</span></a>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Placement <span class="sr-only">(current)</span></a>
   </li>

@@ -127,8 +127,11 @@ session_start();
       <!--News Section End-->
     </div>
       <div class="footer" >
-        <div class="container">
-          <p class="lead">Contact Us</p>
+        <div class="container" style="display: inline-block">
+          <h2>Contact Us</h2>
+
+
+          <div float="left">E-mail: hod.csed@knit.ac.in</div><div float="center">Phone No.: 240674 ext-201, 240675 ext-201</div> <div float="right">Mobile No.: 9415057454</div>
         </div>
       </div>
 
