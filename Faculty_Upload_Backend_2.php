@@ -1,7 +1,10 @@
 <html>
 <head>
+
+    <!-- for event only -->
   <?php include 'connection.php' ?>
   <?php
+
      $Event = $_POST['Event'];
      $Type = $_POST['Type'];
      $Heading = $_POST['Heading'];

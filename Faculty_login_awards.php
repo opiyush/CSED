@@ -36,13 +36,14 @@ if(isset($_SESSION["role"])){
             <textarea class="form-control" name="Heading" rows="2" placeholder="Heading"></textarea><br>
             <textarea class="form-control" name="Data" rows="15" placeholder="Details"></textarea><br>
             <input type="hidden"  name="Uploaded_By" value='<?php echo $email ?>'>
+            <input type="hidden"  name="Category" value='awards'>
             <button type="submit" class="btn btn-outline-primary">Upload</button>
           </div>
         </form>
       </div>
 
       <<?php
-      $stmt = sqlsrv_query( $conn, "select * from Awards_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
+      $stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='awards'",array($email)); //making query and storing it in stmt variable
       ?>
 
       <?php

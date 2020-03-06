@@ -1,5 +1,7 @@
 <html>
 <head>
+  <!-- for publications, project, research thesis,  -->
+
   <?php include 'connection.php' ?>
   <?php
      $Type = $_POST['Type'];

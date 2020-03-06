@@ -1,16 +1,18 @@
 <html>
 <head>
+  <!-- professional bodies, Adminstrative Responsibilty,  Academic Responsibilty, Awards Honors,Country Visited -->
   <?php include 'connection.php' ?>
   <?php
      $Heading = $_POST['Heading'];
      $Data = $_POST['Data'];
      $Date = date("d-m-Y");
      $Uploaded_By = $_POST['Uploaded_By'];
+     $Category=$_POST['Category'];
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
-     $params = array($Heading,$Data,$Date,$Uploaded_By);
+     $params = array($Heading,$Data,$Date,$Uploaded_By, $Category);
 
-     $stmt = sqlsrv_query( $conn,"Insert into Other_Upload (Heading, Data, Date, Uploaded_By) VALUES (?,?,?,?);",$params);
+     $stmt = sqlsrv_query( $conn,"Insert into Other_Upload (Heading, Data, Date, Uploaded_By, Category) VALUES (?,?,?,?, ?);",$params);
      if($stmt!=NULL)
      {
        echo "true"
