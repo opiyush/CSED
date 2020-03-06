@@ -16,12 +16,17 @@
      //$pass = random_int(1000,9999);
      //$subject = $_POST['subject'];
      $params = array($name,$Password,$EmpNo,$Phn1,$Phn2,$Degree,$oldEmail,$desig);
-     //$stmt = sqlsrv_query( $conn,"Update emp_details set Name=?, Password=?, EmpNo=?, Phn1=?, Phn2=?, Degree=? WHERE Email=? and Designation=?;",$params);
-     $stmt = sqlsrv_query( $conn,"EXEC UpdateEmp_on_id @name=?, @pass=?, @emp_no=?, @phn1=?, @phn2=?, @degree=?, @email=?, @desig=?;",$params);
+
      $stmt = sqlsrv_query( $conn, "EXEC GetEmp_by_email @email=?;",array($oldEmail));
      $rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
-     $params = array($EmpNo,$rows["EmpNo"]);
-     $stmt = sqlsrv_query( $conn,'Update Subjects_table set Emp_Id=? where Emp_Id=?;',$params);
+     $params2 = array($EmpNo,$rows["EmpNo"]);
+
+     //$stmt = sqlsrv_query( $conn,"Update emp_details set Name=?, Password=?, EmpNo=?, Phn1=?, Phn2=?, Degree=? WHERE Email=? and Designation=?;",$params);
+     $stmt = sqlsrv_query( $conn,"EXEC UpdateEmp_on_id @name=?, @pass=?, @emp_no=?, @phn1=?, @phn2=?, @degree=?, @email=?, @desig=?;",$params);
+
+
+
+     $stmt = sqlsrv_query( $conn,'Update Subjects_table set Emp_Id=? where Emp_Id=?;',$params2);
      echo '$stmt';
      if($CVLink!=NULL && $CVLink!="")
      {
