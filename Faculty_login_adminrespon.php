@@ -43,7 +43,7 @@ if(isset($_SESSION["role"])){
       </div>
 
       <<?php
-      $stmt = sqlsrv_query( $conn, "select * from Adminrespon_Upload where Uploaded_By=? and Category='admin_res'",array($email)); //making query and storing it in stmt variable
+      $stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='admin_res'",array($email)); //making query and storing it in stmt variable
       ?>
 
       <?php
