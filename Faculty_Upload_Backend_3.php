@@ -12,7 +12,7 @@
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
      $params = array($Heading,$Data,$Date,$Uploaded_By, $Category);
 
-     $stmt = sqlsrv_query( $conn,"Insert into Other_Upload (Heading, Data, Date, Uploaded_By, Category) VALUES (?,?,?,?, ?);",$params);
+     $stmt = sqlsrv_query( $conn,"Insert into Other_Uploads (Heading, Data, Date, Uploaded_By, Category) VALUES (?,?,?,?, ?);",$params);
      if($stmt!=NULL)
      {
        echo "true"
