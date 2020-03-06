@@ -12,14 +12,14 @@
     <?php include 'header.php';?>
     <?php include 'connection.php' ;?>
     <?php
-       $stmt = sqlsrv_query( $conn,"select * from Softwares WHERE Type = 3",array()); //making query and storing it in stmt variable
+       $stmt = sqlsrv_query( $conn,"select * from Software WHERE Type = 3",array()); //making query and storing it in stmt variable
     // for displaying the top of the page
     //checking the result of fetching the contents
       if ($stmt !== NULL) {
         //echo "printing the table\n";
     ?>
     <div class="container">
-    <div class="row">
+    <div class="">
       <div class="table_layout">
         <br>
         <div class="table-responsive">
@@ -33,13 +33,13 @@
             while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
             ?>
               <tr>
-                <td style="width: 10%"><?php echo substr($rows["Software_Name")?></td>
+                <td style="width: 40%"><?php echo substr($rows["Software_Name"],0,30)?></td>
               <!-- download -->
-              <td style="width: 5%">
+              <td style="width: 30%">
                 <a target="_blank" href=<?php echo "Softwares/Opensource/" . $rows["Download"]?>>Download S/W</a>
 
               </td>
-              <td style="width: 5%">
+              <td style="width: 30%">
               <a target="_blank" href=<?php echo "Softwares/Opensource/" . $rows["Download_Manual"]?>>Download Manual</a>
             </td>
               </tr>
@@ -47,6 +47,7 @@
             }
             }
             ?>
+  
             </tbody>
           </table>
 
