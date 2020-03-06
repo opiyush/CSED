@@ -189,18 +189,17 @@ if(isset($_SESSION["role"]))
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                 <form id="Login" action="signup_backend.php" method="post" enctype="multipart/form-data">
-                  <br>
-                  <input type="text" name="EmpNo" placeholder="Employe No" required class="form-control"><br><br>
+                  <input type="hidden" name="EmpNo" placeholder="Employe No" class="form-control"><br>
                   <input type="text" name="Name" placeholder="Full Name" required class="form-control"><br><br>
                   <input type="email" name="Email" placeholder="Email Id" required class="form-control"><br><br>
                   <input type="password" name="Password" placeholder="Password" required class="form-control"><br><br>
                   <input type="text" name="Phn1" placeholder="Contact No." required class="form-control"><br><br>
-                  <input type="text" name="Phn2" placeholder="Alternate Contact No." class="form-control"><br><br>
-                  <input type="text" name="Degree" placeholder="Degree" required class="form-control"><br><br>
-                  <label for="CVlink">Upload CV:</label><br>
-                  <input type="file" name="CVlink" placeholder="CV Link" id="CvToUpload" class=""><br><br>
-                  <label for="PhotoToUpload">Upload Photo:</label><br>
-                  <input type="file" name="Photo" id="PhotoToUpload" class=""><br><br>
+                  <input type="hidden" name="Phn2" placeholder="Alternate Contact No." class="form-control">
+                  <input type="hidden" name="Degree" placeholder="Degree"  class="form-control">
+                  <!-- <label for="CVlink">Upload CV:</label><br> -->
+                  <input type="hidden" name="CVlink" placeholder="CV Link" id="CvToUpload" class="">
+                  <!-- <label for="PhotoToUpload">Upload Photo:</label><br> -->
+                  <input type="hidden" name="Photo" id="PhotoToUpload" class="">
                   <select name="Designation" id="role" class="form-control">
                     <option value="" disabled selected hidden>Choose Role</option>
                     <option value="2">Faculty</option>
