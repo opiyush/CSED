@@ -52,7 +52,7 @@
 
 									</div>
 								</div>
-								<button type="button" class="btn btn-info">Details</button>
+								<!-- <button type="button" class="btn btn-info">Details</button> -->
 							</div>
 						</div>
 					</div>
