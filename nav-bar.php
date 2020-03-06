@@ -108,20 +108,24 @@ if(isset($_SESSION["role"]))
     <?php
     if($_SESSION['role']=="Admin" or $_SESSION["role"]=="HOD")
     { ?>
-      <a name="home" id="admin_hod_home_btn" href="admin_page.php">Home
-      </a>
+      <button class="btn-success btn-sm" name="home" id="admin_hod_home_btn" onclick="location.href='admin_page.php';" >H
+      </button>&nbsp;
     <?php
     }
     elseif ($_SESSION["role"]=="Faculty")
     { ?>
-      <a name="home" id="faculty_home_btn" href='Faculty_login.php'>Home
-      </a>
+      <!-- <a name="home" id="faculty_home_btn" href='Faculty_login.php'>H
+      </a> -->
+      <button class="btn-success btn-sm" name="home" id="faculty_home_btn" onclick="location.href='Faculty_login.php';" >H
+      </button>&nbsp;
     <?php
     }
     elseif ($_SESSION["role"]=="TechStaff")
     { ?>
-      <a name="home" id="techstaff_home_btn" href='Techstaff_login.php'>Home
-      </a>
+      <!-- <a name="home" id="techstaff_home_btn" href='Techstaff_login.php'>H
+      </a> -->
+      <button class="btn-success btn-sm" name="home" id="techstaff_home_btn" onclick="location.href='Techstaff_login.php';" >H
+      </button>&nbsp;
     <?php
     }?>
     <form onsubmit="return clear_session(this);" name="signout" method="post" action="Signout_backend.php">
