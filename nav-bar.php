@@ -80,22 +80,209 @@ if(isset($_SESSION["role"]))
 {
   if(!($_SESSION["role"]=="Admin" or $_SESSION["role"]=="HOD" or $_SESSION["role"]=="Faculty" or $_SESSION["role"]=="TechStaff"))
   {?>
-    <li class="nav-item">
+
+    <!-- <li class="nav-item">
       <a class="nav-link" data-toggle="modal"  data-target="#myModal" style="color:red;cursor:pointer;">Log In<span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="modal" data-target="#myModal2" style="color: red;cursor:pointer;">Sign Up<span class="sr-only"></span></a>
-    </li>
+    </li> -->
+
+
+    <!-- New modal Start -->
+
+    <!--Modal: Login / Register Form-->
+<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog cascading-modal" role="document">
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Modal cascading tabs-->
+      <div class="modal-c-tabs">
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+              Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+              Sign Up</a>
+          </li>
+        </ul>
+
+        <!-- Tab panels -->
+        <div class="tab-content">
+          <!--Panel 7-->
+          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body mb-1">
+              <form id="Login" action="login_backend.php" method="post">
+                <br>
+                <input type="email" name="Email" placeholder="User Id" required class="form-control"><br><br>
+                <input type="password" name="Pss" placeholder="Password" required class="form-control"><br><br>
+                <select name="Role" id="role" class="form-control">
+                  <option value="" disabled selected hidden>Choose Role</option>
+                  <option value="0">Admin</option>
+                  <option value="1" >HOD</option>
+                  <option value="2" >Faculty</option>
+                  <option value="3" >Technical Staff</option>
+                </select><br><br>
+                <input type="submit" name="Login" value="Login" class="btn-primary">
+              </form >
+            </div>
+            <!--Footer-->
+          </div>
+          <!--/.Panel 7-->
+
+          <!--Panel 8-->
+          <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+            <!--Body-->
+            <div class="modal-body">
+              <form id="Login" action="signup_backend.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="EmpNo" placeholder="Employe No" class="form-control"><br>
+                <input type="text" name="Name" placeholder="Full Name" required class="form-control"><br><br>
+                <input type="email" name="Email" placeholder="Email Id" required class="form-control"><br><br>
+                <input type="password" name="Password" placeholder="Password" required class="form-control"><br><br>
+                <input type="text" name="Phn1" placeholder="Contact No." required class="form-control"><br><br>
+                <input type="hidden" name="Phn2" placeholder="Alternate Contact No." class="form-control">
+                <input type="hidden" name="Degree" placeholder="Degree"  class="form-control">
+                <!-- <label for="CVlink">Upload CV:</label><br> -->
+                <input type="hidden" name="CVlink" placeholder="CV Link" id="CvToUpload" class="">
+                <!-- <label for="PhotoToUpload">Upload Photo:</label><br> -->
+                <input type="hidden" name="Photo" id="PhotoToUpload" class="">
+                <select name="Designation" id="role" class="form-control">
+                  <option value="" disabled selected hidden>Choose Role</option>
+                  <option value="2">Faculty</option>
+                  <option value="3">Technical Staff</option>
+                </select><br><br>
+                <input type="submit" name="Sign Up" value="Sign Up" class="btn-primary">
+              </form >
+            </div>
+            <!--Footer-->
+          </div>
+          <!--/.Panel 8-->
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: Login / Register Form-->
+<div class="nav-item">
+  <a href="" class="nav-link btn btn-default btn-rounded" data-toggle="modal" data-target="#modalLRForm">LogIn/Sign Up</a>
+</div>
+<!-- New Modal ends -->
+
+
   <?php }
 }
 else
 {?>
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link" data-toggle="modal"  data-target="#myModal" style="color:red;cursor:pointer;">Log In<span class="sr-only">(current)</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" data-toggle="modal" data-target="#myModal2" style="color: red;cursor:pointer;">Sign Up<span class="sr-only"></span></a>
-  </li>
+  </li> -->
+
+
+<!-- New Modal Start-->
+  <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+      <!--Content-->
+      <div class="modal-content">
+
+        <!--Modal cascading tabs-->
+        <div class="modal-c-tabs">
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
+                Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
+                Sign Up</a>
+            </li>
+          </ul>
+
+          <!-- Tab panels -->
+          <div class="tab-content">
+            <!--Panel 7-->
+            <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+              <!--Body-->
+              <div class="modal-body mb-1">
+                <form id="Login" action="login_backend.php" method="post">
+                  <br>
+                  <input type="email" name="Email" placeholder="User Id" required class="form-control"><br><br>
+                  <input type="password" name="Pss" placeholder="Password" required class="form-control"><br><br>
+                  <select name="Role" id="role" class="form-control">
+                    <option value="" disabled selected hidden>Choose Role</option>
+                    <option value="0">Admin</option>
+                    <option value="1" >HOD</option>
+                    <option value="2" >Faculty</option>
+                    <option value="3" >Technical Staff</option>
+                  </select><br><br>
+                  <input type="submit" name="Login" value="Login" class="btn-primary">
+                </form >
+              </div>
+              <!--Footer-->
+
+            </div>
+            <!--/.Panel 7-->
+
+            <!--Panel 8-->
+            <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+              <!--Body-->
+              <div class="modal-body">
+                <form id="Login" action="signup_backend.php" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="EmpNo" placeholder="Employe No" class="form-control"><br>
+                  <input type="text" name="Name" placeholder="Full Name" required class="form-control"><br><br>
+                  <input type="email" name="Email" placeholder="Email Id" required class="form-control"><br><br>
+                  <input type="password" name="Password" placeholder="Password" required class="form-control"><br><br>
+                  <input type="text" name="Phn1" placeholder="Contact No." required class="form-control"><br><br>
+                  <input type="hidden" name="Phn2" placeholder="Alternate Contact No." class="form-control">
+                  <input type="hidden" name="Degree" placeholder="Degree"  class="form-control">
+                  <!-- <label for="CVlink">Upload CV:</label><br> -->
+                  <input type="hidden" name="CVlink" placeholder="CV Link" id="CvToUpload" class="">
+                  <!-- <label for="PhotoToUpload">Upload Photo:</label><br> -->
+                  <input type="hidden" name="Photo" id="PhotoToUpload" class="">
+                  <select name="Designation" id="role" class="form-control">
+                    <option value="" disabled selected hidden>Choose Role</option>
+                    <option value="2">Faculty</option>
+                    <option value="3">Technical Staff</option>
+                  </select><br><br>
+                  <input type="submit" name="Sign Up" value="Sign Up" class="btn-primary">
+                </form >
+              </div>
+              <!--Footer-->
+
+            </div>
+            <!--/.Panel 8-->
+          </div>
+
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+  <!--Modal: Login / Register Form-->
+
+  <div class="nav-item">
+    <a href="" class="nav-link btn btn-danger btn-rounded " data-toggle="modal" data-target="#modalLRForm">LogIn/Sign Up</a>
+  </div>
+  <!-- New Modal ends -->
+
+
+
   <?php
 } ?>
 
@@ -140,12 +327,10 @@ if(isset($_SESSION["role"]))
 </div>
 </nav>
 </div>
-<!-- modals -->
-<div id="myModal" class="modal fade" role="dialog">
+<!-- Old modal -->
+<!-- <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-    <!-- Modal content-->
     <div class="modal-content">
-      <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">Login</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -176,13 +361,9 @@ if(isset($_SESSION["role"]))
     </div>
   </div>
 </div>
-
-<!-- Modal -->
 <div id="myModal2" class="modal fade" role="dialog">
   <div class="modal-dialog">
-    <!-- Modal content-->
     <div class="modal-content">
-      <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">Sign Up</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -200,9 +381,7 @@ if(isset($_SESSION["role"]))
                   <input type="text" name="Phn1" placeholder="Contact No." required class="form-control"><br><br>
                   <input type="hidden" name="Phn2" placeholder="Alternate Contact No." class="form-control">
                   <input type="hidden" name="Degree" placeholder="Degree"  class="form-control">
-                  <!-- <label for="CVlink">Upload CV:</label><br> -->
                   <input type="hidden" name="CVlink" placeholder="CV Link" id="CvToUpload" class="">
-                  <!-- <label for="PhotoToUpload">Upload Photo:</label><br> -->
                   <input type="hidden" name="Photo" id="PhotoToUpload" class="">
                   <select name="Designation" id="role" class="form-control">
                     <option value="" disabled selected hidden>Choose Role</option>
@@ -218,8 +397,8 @@ if(isset($_SESSION["role"]))
       </div>
     </div>
   </div>
-</div>
-<!-- modals end -->
+</div>-->
+<!-- Old modals end -->
 
 <script>
 // for nav bar to get fixed while scrolling
