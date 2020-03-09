@@ -19,7 +19,9 @@
     ?>
   <a style="color:white"><img id="propic" src="Added_Image/<?php echo $photo_name?>" alt="Profile Picture" height="130" width="130">&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
   <b><?php echo $rows["Name"] ?></b><br>
-  <b><?php echo $rows["UserId"]?></b></a>
+  <!-- <b><?php echo $rows["UserId"]?></b> -->
+  </a>
+  <?php $emp_id = $rows["EmpNo"] ?>
 
   <div class="selectonly">
     <a href="Faculty_login.php">My Profile<span class="sr-only">(current)</span></a>

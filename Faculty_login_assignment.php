@@ -50,7 +50,7 @@ if(isset($_SESSION["role"])){
             <th>Published On</th>
             <th>Due Date</th>
             <th>Published By</th>
-            <th>Link</th>
+            <th>Download</th>
             <th>Subject</th>
             <!-- <th>Edit</th> -->
             <th>Delete</th>
@@ -65,7 +65,7 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Published_date"]?></td>
             <td><?php echo $rows["Due_date"]?></td>
             <td><?php echo $rows["Emp_Id"]?></td>
-            <td><?php echo $rows["Assg_Link"]?></td>
+            <td><a target="_blank" href="<?php echo "Added_Assignment/".$rows["Assg_Link"]?>">Click</a></td>
             <td><?php echo $rows["Sub_Code"]?></td>
 
             <!-- delete and edit -->
@@ -146,20 +146,8 @@ function validate(form) {
                   <label for="link">Upload Assignment:</label><br>
                   <input id="link" type="file" class="" name="AssgFile">
                 </div>
-                <div class="form-group">
-                  <label for="Emp_Id">Published_By:</label>
-                  <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllFaculty;" ,array());
-                  if ($stmt != NULL) {
-                  ?>
-                  <select class="form-control" id="emp" name="Emp_Id">
-                  <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
-                   ?>
-                   <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
-                  <?php }
-                  } ?>
-                  </select>
-                  <!-- <input type="text" class="form-control" name="Emp_Id"> -->
-                </div>
+
+                <input type="hidden" class="form-group" name="Emp_Id" value="<?php echo $emp_id; ?>"></input>
                 <div class="form-group">
                   <label for="Subject">Select Subject</label>
                   <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllSubjects;",array());
@@ -174,7 +162,7 @@ function validate(form) {
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="empno">Select Due Date</label>
+                  <label for="Due_date">Select Due Date</label>
                   <input type="date" class="form-control" name="Due_date">
                 </div>
 
