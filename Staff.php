@@ -51,10 +51,11 @@
 										<img id="propic" src="Added_Image/<?php echo $photo_name?>" alt="Profile Picture" height="130" width="130">&nbsp;&nbsp;&nbsp;&nbsp;
 									</div>
 								</div>
-								<button type="button" class="btn btn-info">Details</button>
+								<!-- <button type="button" class="btn btn-info">Details</button> -->
 							</div>
 						</div>
 					</div>
+				</div>
 					<?php
 				}
 				?>
