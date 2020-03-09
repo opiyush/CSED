@@ -8,11 +8,11 @@ if(isset($_SESSION["role"])){
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <head>
-        <link rel="stylesheet" href="Faculty_login.css">
-        <link rel="stylesheet" href="header.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css"  crossorigin="anonymous">
-        
-    <title>Faculty</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="Faculty_login.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css"  crossorigin="anonymous">
+
+    <title>Technical Staff</title>
   </head>
   <body>
     <?php include 'connection.php'?>

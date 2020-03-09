@@ -25,5 +25,6 @@
   <div class="selectonly">
     <a href="Techstaff_login.php">My Profile<span class="sr-only">(current)</span></a>
     <a href="Techstaff_login_Upload.php">Upload Arrival</span></a>
+    <a href="techstaff_login_notice.php">Add/Remove Notice</a>
   </div>
 </div>
