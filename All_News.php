@@ -56,11 +56,6 @@
         }
        ?>
        <br><br>
-     <div class="footer" >
-          <div class="container">
-            <p class="lead">Contact Us</p>
-          </div>
-     </div>
      <script src="jquery/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
      <script src="jquery/popper.min.js" crossorigin="anonymous"></script>
      <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
