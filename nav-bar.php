@@ -104,7 +104,7 @@ if(isset($_SESSION["role"]))
         <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
-              Login</a>
+              Log In</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
@@ -174,7 +174,7 @@ if(isset($_SESSION["role"]))
 </div>
 <!--Modal: Login / Register Form-->
 <div class="nav-item">
-  <a href="" class="nav-link btn btn-default btn-rounded" data-toggle="modal" data-target="#modalLRForm">LogIn/Sign Up</a>
+  <a href="" class="btn btn-danger" id="login_nav_bar" data-toggle="modal" data-target="#modalLRForm">Log In</a>
 </div>
 <!-- New Modal ends -->
 
@@ -277,7 +277,7 @@ else
   <!--Modal: Login / Register Form-->
 
   <div class="nav-item">
-    <a href="" class="nav-link btn btn-danger btn-rounded " data-toggle="modal" data-target="#modalLRForm">LogIn/Sign Up</a>
+    <a href="" class="btn btn-danger" id="login_nav_bar" data-toggle="modal" data-target="#modalLRForm">Log In</a>
   </div>
   <!-- New Modal ends -->
 
