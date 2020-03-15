@@ -48,11 +48,11 @@
     <a class="nav-link" href="Staff.php">Staff <span class="sr-only">(current)</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Infrastructure <span class="sr-only">(current)</span></a>
+    <a class="nav-link" href="infrastructure.php">Infrastructure <span class="sr-only">(current)</span></a>
   </li>
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link" href="#">Library <span class="sr-only">(current)</span></a>
-  </li>
+  </li> -->
    <li class="nav-item">
     <a class="nav-link" href="repository.php">Repository <span class="sr-only">(current)</span></a>
   </li>
