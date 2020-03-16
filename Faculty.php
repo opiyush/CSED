@@ -52,7 +52,9 @@
 
 									</div>
 								</div>
-								<!-- <button type="button" class="btn btn-info">Details</button> -->
+								<form class="" action="generate_pdf.php" method="post">
+									<button type="submit" class="btn btn-info" name="Email" value="<?php echo $rows["Email"]; ?>">Details</button>
+								</form>
 							</div>
 						</div>
 					</div>
