@@ -57,11 +57,6 @@ session_start();
     </a>
   </div>
 
-
-
-
-
-
   <?php //$stmt = sqlsrv_query( $conn, "select * from Notice_table ORDER BY Published_Date desc",array());
   $stmt = sqlsrv_query( $conn, "EXEC GetAllNotice_by_pub_date;",array());
   if ($stmt !== NULL) {
@@ -96,48 +91,59 @@ session_start();
                  M4: To inculcate professional behavior and strong ethical values.</p>
             </div>
         </div>
-        <div class=" col-md-4 news_header">
-          <h3>Announcements</h3>
-          <div id="ann_banner"class="col-md-4 panel" style="padding:0px 0px 5px 0px; ">
-            <div class="panel-body">
-                <div class="col-xs-12">
-                  <ul class="">
+
+
+        <div class="col-md-4">
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+
+          <div class="cardAnnouncements">
+            <div class="cardAnnouncements-header"><strong>Announcements</strong>
+              <span style="float:right;font-size:13px;"><a href="All_News.php"> <strong>More</strong></a> &nbsp;&nbsp;&nbsp;
+                <button class="button2" onclick="AnimationResume()">⏵</button>
+                <button class="button1" onclick="AnimationStart()">⏸</button></span></div>
+            <div class="cardAnnouncements-main">
+
+              <div class="main-description"><div class="marquee-container" id="marquee-container">
+                <div id="marquee">
+                  <ul style="margin-left:-20px; color: #229bb1;line-height:26px;font-size: 12px;">
                     <?php
                     while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC))
                     {
                       ?>
-                      <li class="news-item">
+                      <li>
                         <a title="<?php echo $rows["Heading"] ?>" target="_blank" href=<?php echo "Added_Notices/" . $rows["Notice_Link"]?> >  <?php echo $rows["Heading"] ?> </a>
-                        <!--<span></span>-->
                       </li>
                     <?php }
                   }
                   else{
                     echo "something went wrong";
                   } ?>
+
                 </ul>
               </div>
+            </div>
           </div>
-          </div>
-
-          <div class="panel-footer"><a href="All_News.php" class="btn">All News</a></div>
-</div>
-
-      </div>
-      <!--News Section End-->
-    </div>
-      <div class="footer" >
-        <div class="container" style="display: inline-block">
-          <h2>Contact Us</h2>
-
-
-          <div float="left">E-mail: hod.csed@knit.ac.in</div><div float="center">Phone No.: 240674 ext-201, 240675 ext-201</div> <div float="right">Mobile No.: 9415057454</div>
         </div>
       </div>
-
-      <script src="jquery/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
-      <script src="jquery/popper.min.js" crossorigin="anonymous"></script>
-      <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
+      <script>
+      var AnimationStart;
+      var AnimationResume;
+      var AnimationStart = function(){
+        document.getElementById('marquee').style.animationPlayState="paused";
+      }
+      var AnimationResume = function(){
+        document.getElementById('marquee').style.animationPlayState="running";
+      }
+      </script>
+    </div>
+      <!--News Section End-->
+    </div><br>
+    <script src="jquery/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="jquery/popper.min.js" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
     </body>
-
+    <body>
+        <?php include 'footer.php' ?>
+    </body>
     </html>
