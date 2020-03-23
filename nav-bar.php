@@ -292,33 +292,43 @@ if(isset($_SESSION["role"]))
 {
   if($_SESSION["role"]=="Admin" or $_SESSION["role"]=="HOD" or $_SESSION["role"]=="Faculty" or $_SESSION["role"]=="TechStaff")
   {?>
+    <div class="px-sm-3">
+      <li class="dropleft dropdown">
+        <img src=<?php echo "Added_Image/".$_SESSION['email']."Photo.jpg" ?> alt="NA" id="navbarDropdownAvatar" onerror="standby()" class="img-thumbnail avatar img-circle dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="dropdown-menu">
+
+
     <?php
     if($_SESSION['role']=="Admin" or $_SESSION["role"]=="HOD")
     { ?>
-      <button class="btn-success btn-sm" name="home" id="admin_hod_home_btn" onclick="location.href='admin_page.php';" >H
-      </button>&nbsp;
+      <button class="dropdown-item" name="home" id="admin_hod_home_btn" onclick="location.href='admin_page.php';" >Your Profile
+      </button>
     <?php
     }
     elseif ($_SESSION["role"]=="Faculty")
     { ?>
       <!-- <a name="home" id="faculty_home_btn" href='Faculty_login.php'>H
       </a> -->
-      <button class="btn-success btn-sm" name="home" id="faculty_home_btn" onclick="location.href='Faculty_login.php';" >H
-      </button>&nbsp;
+      <button class="dropdown-item" name="home" id="faculty_home_btn" onclick="location.href='Faculty_login.php';" >Your Profile
+      </button>
     <?php
     }
     elseif ($_SESSION["role"]=="TechStaff")
     { ?>
       <!-- <a name="home" id="techstaff_home_btn" href='Techstaff_login.php'>H
       </a> -->
-      <button class="btn-success btn-sm" name="home" id="techstaff_home_btn" onclick="location.href='Techstaff_login.php';" >H
-      </button>&nbsp;
+      <button class="dropdown-item" name="home" id="techstaff_home_btn" onclick="location.href='Techstaff_login.php';" >Your Profile
+      </button>
     <?php
     }?>
-    <form onsubmit="return clear_session(this);" name="signout" method="post" action="Signout_backend.php">
-      <button name="logout" type="submit" id="submit1" class="sign_out_btn"><span>Sign Out</span>
+    <form class="dropdown-item" onsubmit="return clear_session(this);" name="signout" method="post" action="Signout_backend.php">
+      <button name="logout" type="submit" id="submit1" class="sign_out_btn btn-primary"><span>Sign Out</span>
       </button>
     </form>
+
+  </div>
+</li>
+</div>
     <?php
   }
 }?>
@@ -401,6 +411,15 @@ if(isset($_SESSION["role"]))
 <!-- Old modals end -->
 
 <script>
+  var avatar_img = document.getElementById('navbarDropdownAvatar');
+function standby() {
+  // alert('The image could not be loaded.');
+    try {
+      avatar_img.src ='Added_Image/images.png';
+    } catch (e) {
+      console.log("error in allocating default images");
+    }
+}
 // for nav bar to get fixed while scrolling
 window.onscroll = function() {scrollcontrol()};
 // Get the navbar
