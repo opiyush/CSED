@@ -61,6 +61,7 @@ h3{
 	float: left;
 }
 #login_nav_bar{
+  /* padding: 0px; */
 
 }
 #Login input  {
@@ -190,14 +191,17 @@ nav div a:hover{
 /* sign out end */
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
-#navbar_id {
+nav#navbar_id.navbar {
   overflow: visible;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* Navbar links */
 #navbar_id a {
   float: left;
   display: block;
+  padding: 12px;
 }
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {

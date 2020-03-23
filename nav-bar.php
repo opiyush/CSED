@@ -15,7 +15,7 @@
 }
 </style>
 <div id="navbar_wrapper_id" class=""><!-- height of it should be same as that of nav bar, for holding the position-->
-  <nav id="navbar_id" class="navbar navbar-expand-md navbar-black bg-white">
+  <nav id="navbar_id" class="navbar navbar-expand-md navbar-black bg-white" >
   <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target=".dual-collapse2" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -173,8 +173,8 @@ if(isset($_SESSION["role"]))
   </div>
 </div>
 <!--Modal: Login / Register Form-->
-<div class="nav-item">
-  <a href="" class="btn btn-danger" id="login_nav_bar" data-toggle="modal" data-target="#modalLRForm">Log In</a>
+<div class="mx-sm-2 my-sm-1">
+  <a href="" class="btn btn-danger py-sm-2" id="login_nav_bar" data-toggle="modal" data-target="#modalLRForm">Log In</a>
 </div>
 <!-- New Modal ends -->
 
@@ -276,8 +276,8 @@ else
   </div>
   <!--Modal: Login / Register Form-->
 
-  <div class="nav-item">
-    <a href="" class="btn btn-danger" id="login_nav_bar" data-toggle="modal" data-target="#modalLRForm">Log In</a>
+  <div class="my-sm-1 mx-sm-2">
+    <a href="" class="btn btn-danger py-sm-2" id="login_nav_bar" data-toggle="modal" data-target="#modalLRForm">Log In</a>
   </div>
   <!-- New Modal ends -->
 
