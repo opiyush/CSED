@@ -15,9 +15,14 @@ session_start();
      die( print_r( sqlsrv_errors(), true));
     }
    $valid = sqlsrv_get_field( $stmt, 0);
+
+   //especially for profile pic, try to use a smaller picture to reduce loding time
+   $stmt = sqlsrv_query( $conn, "EXEC GetEmp_by_email @email=?;",array($email));
+   $profile_pic = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
    //echo "$valid: ";
   if($valid == 1)
   {
+    $_SESSION["profile_pic"]=$profile_pic["Photo"];
     $_SESSION["email"]=$email; //assigning email to session variable
       if($role == 0)//0 for admin
       {

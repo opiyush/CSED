@@ -2,6 +2,7 @@
 <?php include 'connection.php'?>
 
 <?php
+    $photo_cv_upload=0;
     $EmpNo = $_POST['EmpNo'];
     $Name = $_POST['Name'];
     $Email = $_POST['Email'];
@@ -9,8 +10,14 @@
     $Phn1 = $_POST['Phn1'];
     $Phn2 = $_POST['Phn2'];
     $Degree = $_POST['Degree'];
+    if($photo_cv_upload){
     $CVlink = $_FILES["CVlink"]["name"];
     $Photo= $_FILES["Photo"]["name"];
+    }
+    else {
+      $CVlink=Null;
+      $Photo=Null;
+    }
     $Designation = $_POST['Designation'];
     $params = array($Email,$Password,$Designation);
 
@@ -21,12 +28,16 @@
      die( print_r( sqlsrv_errors(), true));
     }
    $valid = sqlsrv_get_field( $stmt, 0);
+
    //echo "$valid: ";
   if($valid == 1)
   {
+    $_SESSION["profile_pic"]=Null;
     $_SESSION["email"]=$Email; //assigning email to session variable
     //print_r($params);
 
+    if(photo_cv_upload)
+    {
     if(!empty($_FILES["Photo"]["name"]))
     {//upload images
       $target_dir = "Added_Image/";
@@ -98,6 +109,7 @@
           }
         }
       }
+    }
 
     $params = array($EmpNo,$Name,$Phn1,$Phn2,$Degree,$CVlink,$Photo,$Email);
     //$str="Update emp_details set EmpNo = ?,Name = ?, Phn1 = ?, Phn2 =?, Degree = ?, CVlink =?, Photo = ?,Active='1' where Email=?";

@@ -34,6 +34,9 @@
   <li class="nav-item">
     <a class="nav-link" href="Faculty.php">Faculty</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="Staff.php">Staff <span class="sr-only">(current)</span></a>
+  </li>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Academic Corner
@@ -43,9 +46,6 @@
       <a class="dropdown-item" href="Pre_paper.php">Previous Paper</a>
       <a class="dropdown-item" href="Scedule.php">Schedule</a>
     </div>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="Staff.php">Staff <span class="sr-only">(current)</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="infrastructure.php">Infrastructure <span class="sr-only">(current)</span></a>
@@ -294,7 +294,17 @@ if(isset($_SESSION["role"]))
   {?>
     <div class="px-sm-3">
       <li class="dropleft dropdown">
-        <img src=<?php echo "Added_Image/".$_SESSION['email']."Photo.jpg" ?> alt="NA" id="navbarDropdownAvatar" onerror="standby()" class="img-thumbnail avatar img-circle dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <?php
+        $photo_var = $_SESSION['profile_pic'];//session variable is always set (it's set in login, signup and when changed(but the navbar is cached so new profile image dont show instantaneously))
+        if ($photo_var==Null or $photo_var=="") {
+          $photo_var = "images.png";
+        }
+        else {
+          //$photo_var = $photo_var."Photo.jpg";
+        }
+        //echo $photo_var; ?>
+        <!-- <img src=<?php //echo "Added_Image/".$_SESSION['email']."Photo.jpg" ?> alt="NA" id="navbarDropdownAvatar" onerror="standby()" class="img-thumbnail avatar img-circle dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+        <img src=<?php echo "Added_Image/".$photo_var.""?> alt="NA" id="navbarDropdownAvatar" onerror="standby()" class="img-thumbnail avatar img-circle dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="dropdown-menu">
 
 

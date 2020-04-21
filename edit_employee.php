@@ -96,6 +96,7 @@
       $params = array($Photo,$oldEmail); //eg-if email = harsh@gmail.com so photo will be saved at harsh@gamil.comPhoto
       //$stmt = sqlsrv_query( $conn,"Update emp_details set Photo=? WHERE Email=?;",$params);
       $stmt = sqlsrv_query( $conn,"EXEC UpdateEmp_photo_on_id @photo_link=?, @email=?;",$params);
+      $_SESSION["profile_pic"] =$Photo;
 
     }
      if($stmt==true)
