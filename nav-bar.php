@@ -19,7 +19,7 @@
   <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target=".dual-collapse2" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 my-1">
     <ul class="navbar-nav mr-auto">
       <!-- <li class="nav-item active">
       <a class="nav-link" href="#">Left</a>

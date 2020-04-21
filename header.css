@@ -154,7 +154,9 @@ nav div a:hover{
   color: primary;
   padding: 2px;
 }
-
+/* .dropdown-menu{
+  right: 0;
+} */
 .dropdown:hover .dropdown-menu {display: block;}
 .dropdown-menu a:hover {
   background-color: #014566;

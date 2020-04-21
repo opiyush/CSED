@@ -99,7 +99,7 @@ session_start();
 
           <div class="cardAnnouncements">
             <div class="cardAnnouncements-header"><strong>Announcements</strong>
-              <span style="float:right;font-size:13px;"><a href="All_News.php"> <strong>More</strong></a> &nbsp;&nbsp;&nbsp;
+              <span style="float:right;font-size:13px;"><a href="All_News.php" style="color:#fc3a47"> <strong>More</strong></a> &nbsp;&nbsp;&nbsp;
                 <button class="button2" onclick="AnimationResume()">⏵</button>
                 <button class="button1" onclick="AnimationStart()">⏸</button></span></div>
             <div class="cardAnnouncements-main">

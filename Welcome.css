@@ -8,13 +8,13 @@ div.content {
   width: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid #014566;
+  border: 1px solid #0145660a;
   border-radius: 5px;
   overflow: hidden;
   margin: 5px;
     -webkit-box-shadow: -1px 10px 10px #014566;
   -moz-box-shadow: -1px 10px 10px #014566;
-  box-shadow: -1px 10px 10px #014566;
+  box-shadow: -1px 10px 10px #01456678;
 
 }
 
