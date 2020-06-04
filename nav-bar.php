@@ -41,7 +41,8 @@
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Academic Corner
     </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+    <!-- fixed dropwon close when going to dropdown items by padding=0 and margin=0 -->
+    <div class="dropdown-menu" style="padding: 0px; margin: 0px;" aria-labelledby="navbarDropdownMenuLink">
       <a class="dropdown-item" href="Assignment1.php">Assignment</a>
       <a class="dropdown-item" href="Pre_paper.php">Previous Paper</a>
       <a class="dropdown-item" href="Scedule.php">Schedule</a>
