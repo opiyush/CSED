@@ -52,7 +52,6 @@ h3{
 	font-family: sans-serif;
 }
 
-
 #Login{
 	float: left;
 }
@@ -108,7 +107,8 @@ h3{
 }
 
 .modal-body{
-	padding:0;
+	padding:15px;
+  margin: 0px;
 }
 .close {
 	float: right;

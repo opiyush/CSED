@@ -48,7 +48,7 @@
 										$photo_name="images.png";
 									}
 										?>
-									<img id="propic" src="Added_Image/<?php echo $photo_name?>" alt="Profile Picture" height="130" width="130">&nbsp;&nbsp;&nbsp;&nbsp;
+									<img id="propic" src="Added_Image/<?php echo $photo_name?>" alt="Profile Picture" style="border-radius:46%;" height="130" width="130">&nbsp;&nbsp;&nbsp;&nbsp;
 
 									</div>
 								</div>
