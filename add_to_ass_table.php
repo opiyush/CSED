@@ -9,19 +9,19 @@
      $Due_date = $_POST["Due_date"];
      $empid = $_POST["Emp_Id"];
      $sub_code =$_POST["Sub_Code"];
-     //$subject = $_POST['subject'];
-     //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
-     echo $AssgLink ." = This is the name\n";
+
+     // echo $AssgLink ." = This is the name<br>";
      $AssgLink = "";//initially set to null
+     $stmt=NULL;//should be null only!!!!
      if(!empty($_FILES["AssgFile"]["name"])){
        //upload cv
        $target_dir_a = "Added_Assignment/";
        $temp = explode('.',$_FILES["AssgFile"]["name"]);
        $ext_a = end($temp);
        $AssgLink = $uniqueId . "Assignment." . $ext_a;
-       echo $target_file_a = $target_dir_a . $AssgLink;
+       // echo $target_file_a = $target_dir_a . $AssgLink;
        $uploadOk_a = 1;
-       if(strtolower($ext_a)!= "pdf")//checking whether pdf or not
+       if(strtolower($ext_a)!= "pdf" and strtolower($ext_a)!= "txt")//checking whether pdf or not
            {
              $uploadOk_a = 0;
            }
@@ -32,18 +32,23 @@
          }
        else
        {
+         // echo "<br>uploading in progress";
          if (move_uploaded_file($_FILES["AssgFile"]["tmp_name"], $target_file_a)) {
+           $params = array($AssgLink,$Published_date,$Due_date,$empid,$heading,$sub_code);
+           $stmt = sqlsrv_query( $conn,"EXEC AddAssg @Assg_l=?, @pub_d=?, @due_d=?, @emp_id=?, @head=?, @sub_c=?;",$params);
+           // echo "<br>uploaded successfully";
          }
          else {
+           echo "Some error occoured please try again";
          }
        }
      }
 
-     $params = array($AssgLink,$Published_date,$Due_date,$empid,$heading,$sub_code);
+     // $params = array($AssgLink,$Published_date,$Due_date,$empid,$heading,$sub_code);
      //$stmt = sqlsrv_query( $conn,"Insert into Assignment (Assg_Link, Published_date, Due_date, Emp_Id, Heading, Sub_Code) VALUES (?,?,?,?,?,?);",$params);
-     $stmt = sqlsrv_query( $conn,"EXEC AddAssg @Assg_l=?, @pub_d=?, @due_d=?, @emp_id=?, @head=?, @sub_c=?;",$params);
+     // $stmt = sqlsrv_query( $conn,"EXEC AddAssg @Assg_l=?, @pub_d=?, @due_d=?, @emp_id=?, @head=?, @sub_c=?;",$params);
 
-     echo '$stmt';
+     // echo '$stmt';
      if($stmt!=NULL)
      {
        echo "true"

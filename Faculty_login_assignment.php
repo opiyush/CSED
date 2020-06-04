@@ -13,7 +13,7 @@ if(isset($_SESSION["role"])){
     <link rel="stylesheet" href="Faculty_login.css">
     <link rel="stylesheet" href="css/bootstrap.min.css"  crossorigin="anonymous">
     </head>
-    <style media="screen">
+    <!-- <style media="screen">
       .container{
         margin-left: 16%;
       }
@@ -21,7 +21,7 @@ if(isset($_SESSION["role"])){
         margin-left: 3rem;
         margin-top: 3rem;
       }
-    </style>
+    </style> -->
 <body>
   <?php include 'nav-bar.php' ?>
   <?php include 'Sidebar_Faculty.php' ?>
@@ -39,7 +39,7 @@ if(isset($_SESSION["role"])){
     if ($stmt !== NULL) {
       //echo "printing the table\n";
   ?>
-  <div class="container">
+  <div class="content1">
   <div class="row">
     <div class="col-md-12">
       <h4>List Of Assignments</h4>
@@ -67,12 +67,15 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Emp_Id"]?></td>
             <td><a target="_blank" href="<?php echo "Added_Assignment/".$rows["Assg_Link"]?>">Click</a></td>
             <td><?php echo $rows["Sub_Code"]?></td>
+            <!-- <td><?php echo $rows["Assg_Link"] ?></td> -->
 
             <!-- delete and edit -->
             <!-- <td>
               <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?//php echo $rows['Assg_Id'] ?>')" id="edit_assignment_btn" value="<?//php echo $rows['Assg_Id'] ?>">
               </button>
             </td> -->
+
+            <!-- delete option -->
             <td>
               <form onsubmit="return validate(this);" action="delete_assignment.php" method="post" data-placement="top" data-toggle="tooltip">
                <button class="btn btn-danger btn-xs"  name="submit" value="<?php echo $rows['Assg_Id']?>" >
@@ -89,7 +92,6 @@ if(isset($_SESSION["role"])){
         </table>
       </div>
     </div>
-  </div>
   </div>
 
   <!-- delete function if want to do it through js -->
@@ -253,6 +255,7 @@ function validate(form) {
   <script src="jquery/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
   <script src="jquery/popper.min.js" crossorigin="anonymous"></script>
   <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
+</div>
 </body>
 </html>
 <?php

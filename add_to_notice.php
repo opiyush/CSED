@@ -9,6 +9,7 @@
      $published_by = $_POST['published_by'];
      //$subject = $_POST['subject'];
      //$sql = 'INSERT INTO Table_1 (Name, EmpNo) VALUES (?, ?)';
+     $stmt = NULL;//should be initialised to null only!!!!
 
      if(!empty($_FILES["NoticeFile"]["name"])){
        //upload cv
@@ -30,15 +31,17 @@
        else
        {
          if (move_uploaded_file($_FILES["NoticeFile"]["tmp_name"], $target_file_n)) {
+           $params = array($NoticeLink,$Published_date,$published_by,$heading);
+           $stmt = sqlsrv_query( $conn,"EXEC AddNotice @Notice_l=?, @pub_d=?, @pub_b=?, @head=?;",$params);
          }
          else {
          }
        }
      }
 
-     $params = array($NoticeLink,$Published_date,$published_by,$heading);
+     // $params = array($NoticeLink,$Published_date,$published_by,$heading);
 //     $stmt = sqlsrv_query( $conn,"Insert into Notice_table (Notice_Link, Published_Date, Published_By, Heading) VALUES (?,?,?,?);",$params);
-     $stmt = sqlsrv_query( $conn,"EXEC AddNotice @Notice_l=?, @pub_d=?, @pub_b=?, @head=?;",$params);
+     // $stmt = sqlsrv_query( $conn,"EXEC AddNotice @Notice_l=?, @pub_d=?, @pub_b=?, @head=?;",$params);
 
      echo '$stmt';
      if($stmt!=NULL)
