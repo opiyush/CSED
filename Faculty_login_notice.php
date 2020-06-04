@@ -13,7 +13,7 @@ if(isset($_SESSION["role"])){
     <link rel="stylesheet" href="Faculty_login.css">
     <link rel="stylesheet" href="css/bootstrap.min.css"  crossorigin="anonymous">
       </head>
-    <style media="screen">
+    <!-- <style media="screen">
       .container{
         margin-left: 16%;
       }
@@ -21,7 +21,7 @@ if(isset($_SESSION["role"])){
         margin-left: 3rem;
         margin-top: 3rem;
       }
-    </style>
+    </style> -->
 <body>
   <?php include 'nav-bar.php' ?>
 
@@ -41,7 +41,7 @@ if(isset($_SESSION["role"])){
     if ($stmt != NULL) {
       //echo "printing the table\n";
   ?>
-  <div class="container">
+  <div class="content1">
   <div class="row">
     <div class="col-md-12">
       <h4>List Of Notices</h4>
@@ -63,7 +63,7 @@ if(isset($_SESSION["role"])){
             <td><?php echo $rows["Heading"] ?></td>
             <td><?php echo $rows["Published_Date"]?></td>
             <td><?php echo $rows["Published_By"]?></td>
-            <td><?php echo $rows["Notice_Link"]?></td>
+            <td><a target="_blank" href="<?php echo "Added_Notices/".$rows["Notice_Link"]?>">Click</a></td>
             <!-- delete and edit -->
             <!-- <td>
               <button class="btn btn-primary btn-xs" onclick="show_edit_modal('<?php echo $rows["Notice_Id"] ?>')" id="edit_notice_btn" value="<?php echo $rows['Notice_Id'] ?>">
@@ -86,7 +86,7 @@ if(isset($_SESSION["role"])){
       </div>
     </div>
   </div>
-  </div>
+
 
   <!-- delete function if want to do it through js -->
   <script>
@@ -222,7 +222,7 @@ function validate(form) {
   <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
 
   <!-- <input type="text" name="display" value="hello" id="display"> -->
-
+</div>
 </body>
 </html>
 <?php

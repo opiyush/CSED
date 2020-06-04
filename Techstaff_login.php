@@ -35,15 +35,36 @@ if(isset($_SESSION["role"])){
      <div class="Details">
        <h2>Hello, <?php echo $rows["Name"] ?></h2>
        <br><br>
-
-      <p><b>Name :</b>&nbsp;&nbsp;&nbsp;&nbsp;   <?php echo $rows["Name"] ?>  </p>
-      <p><b>Employee No. :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["EmpNo"]?>  </p>
-      <p><b>E-mail :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Email"]?> </p>
-      <p><b>Password :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Password"]?>  </p>
-      <p><b>Phone No. :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Phn1"]?>  </p>
-      <p><b>Alternate Phone No. :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Phn2"]?>  </p>
-      <p><b>Degree :</b>&nbsp;&nbsp;&nbsp;&nbsp; <?php echo $rows["Degree"]?>  </p>
-      <br><br>
+      <table class="table-bordered table">
+        <tr>
+          <td style="font-weight:bold;"> Name</td>
+          <td><?php echo $rows["Name"] ?></td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">Employe No</td>
+          <td><?php echo $rows["EmpNo"] ?></td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">Email</td>
+          <td><?php echo $rows["Email"] ?></td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">Password</td>
+          <td><?php echo $rows["Password"] ?></td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">Primary Phone No</td>
+          <td><?php echo $rows["Phn1"] ?></td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">Secondary Phone No</td>
+          <td><?php echo $rows["Phn2"] ?></td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">Highest Degree</td>
+          <td><?php echo $rows["Degree"] ?></td>
+        </tr>
+      </table>
 
       <button class="btn btn-primary btn-xs"
       onclick='show_edit_modal("<?php echo $rows["Email"];?>","<?php echo $rows["Name"];?>","<?php echo $rows["Password"];?>","<?php echo $rows["Phn1"];?>","<?php echo $rows["Phn2"];?>","<?php echo $rows["Degree"];?>","<?php echo $rows["EmpNo"];?>","<?php echo $rows["Designation"];?>");'
@@ -92,10 +113,10 @@ if(isset($_SESSION["role"])){
                <label for="Degree">Degree:</label>
                <input id="Degree_edit" type="text" name="Degree" placeholder="Degree" required class="form-control">
              </div>
-             <div class="form-group">
+             <!-- <div class="form-group">
                <label for="CVlink">Upload CV:</label><br>
                <input id="CVlink_edit" type="file" name="CVLink" id="cvToUpload" class="">
-             </div>
+             </div> -->
              <label for="PhotoToUpload">Upload Photo:</label><br>
              <input id="Photo_edit" type="file" name="Photo" id="PhotoToUpload" class=""><br>
              <!-- continue eduiting -->

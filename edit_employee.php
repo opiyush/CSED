@@ -10,7 +10,8 @@
      $Phn1 = $_POST["Phn1"];
      $Phn2 = $_POST["Phn2"];
      $Degree = $_POST["Degree"];
-     $CVLink = $_FILES["CVLink"]["name"];
+     $CVLink = NULL;
+     // $CVLink = $_FILES["CVLink"]["name"];
      $Photo = $_FILES["Photo"]["name"];
      $oldEmail = $_POST["old_Email"];
      //$pass = random_int(1000,9999);
@@ -88,14 +89,18 @@
       else
       {
         if (move_uploaded_file($_FILES["Photo"]["tmp_name"], $target_file)) {
+          $params = array($Photo,$oldEmail); //eg-if email = harsh@gmail.com so photo will be saved at harsh@gamil.comPhoto
+          //$stmt = sqlsrv_query( $conn,"Update emp_details set Photo=? WHERE Email=?;",$params);
+          $stmt = sqlsrv_query( $conn,"EXEC UpdateEmp_photo_on_id @photo_link=?, @email=?;",$params);
           }
         else {
+          echo "cant save file";
           }
       }
 
-      $params = array($Photo,$oldEmail); //eg-if email = harsh@gmail.com so photo will be saved at harsh@gamil.comPhoto
-      //$stmt = sqlsrv_query( $conn,"Update emp_details set Photo=? WHERE Email=?;",$params);
-      $stmt = sqlsrv_query( $conn,"EXEC UpdateEmp_photo_on_id @photo_link=?, @email=?;",$params);
+      // $params = array($Photo,$oldEmail); //eg-if email = harsh@gmail.com so photo will be saved at harsh@gamil.comPhoto
+      // //$stmt = sqlsrv_query( $conn,"Update emp_details set Photo=? WHERE Email=?;",$params);
+      // $stmt = sqlsrv_query( $conn,"EXEC UpdateEmp_photo_on_id @photo_link=?, @email=?;",$params);
       $_SESSION["profile_pic"] =$Photo;
 
     }

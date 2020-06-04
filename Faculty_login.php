@@ -102,10 +102,10 @@ if(isset($_SESSION["role"])){
                <label for="Degree">Degree:</label>
                <input id="Degree_edit" type="text" name="Degree" placeholder="Degree" required class="form-control">
              </div>
-             <div class="form-group">
+             <!-- <div class="form-group">
                <label for="CVlink">Upload CV:</label><br>
                <input id="CVlink_edit" type="file" name="CVLink" id="cvToUpload" class="">
-             </div>
+             </div> -->
              <label for="PhotoToUpload">Upload Photo:</label><br>
              <input id="Photo_edit" type="file" name="Photo" id="PhotoToUpload" class=""><br>
              <!-- continue eduiting -->

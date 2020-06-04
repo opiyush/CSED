@@ -19,15 +19,15 @@
        $NoticeLink = $uniqueId . "Notice." . $ext_n;
        echo $target_file_n = $target_dir_n . $NoticeLink;
        $uploadOk_n = 1;
-       if(strtolower($ext_n)!= "pdf")//checking whether pdf or not
-           {
-             $uploadOk_n = 0;
-           }
+       if(strtolower($ext_n)!= "pdf" and strtolower($ext_n)!= "txt")//checking whether pdf/txt or not
+       {
+         $uploadOk_n = 0;
+       }
        //$uploadOk_cv = 1;
        if ($uploadOk_n == 0) {
 
              // if everything is ok, try to upload file in else block
-         }
+           }
        else
        {
          if (move_uploaded_file($_FILES["NoticeFile"]["tmp_name"], $target_file_n)) {
