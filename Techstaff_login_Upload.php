@@ -35,7 +35,7 @@ if(isset($_SESSION["role"])){
       <div class="content1">
       <form action="Data_Upload.php" method="post">
         <div class="form-group">
-          <label for="New Arrival Details">New Arrival Details</label>
+          <label for="New Arrival Details"><h4>New Arrival Details</h4></label>
           <textarea class="form-control" name="Heading" rows="2" placeholder="Heading"></textarea><br>
           <textarea class="form-control" name="Data" rows="15" placeholder="Details of Arrival"></textarea><br>
           <input type="hidden"  name="Uploaded_By" value='<?php echo $email ?>'>
@@ -95,7 +95,8 @@ if(isset($_SESSION["role"])){
            </div>
          </div>
        </div>
-       <?php sqlsrv_free_stmt($stmt);
+       <?php
+       // sqlsrv_free_stmt($stmt);
        sqlsrv_close($conn);
        ?>
 

@@ -48,11 +48,11 @@ if(isset($_SESSION["role"])){
           while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
           ?>
             <tr>
-            <td><?php echo substr($rows["Heading"], 0, 10).".." ?></td>
+            <td><?php echo substr($rows["Heading"], 0, 15);if(strlen($rows["Heading"])>15)echo ".."; ?></td>
             <td><?php echo $rows["Published_date"]?></td>
             <td><?php echo $rows["Due_date"]?></td>
             <td><?php echo $rows["Emp_Id"]?></td>
-            <td><?php echo substr($rows["Assg_Link"],0,10).".."?></td>
+            <td><?php echo substr($rows["Assg_Link"],0,15);if(strlen($rows["Assg_Link"])>15)echo ".."; ?></td>
             <td><?php echo $rows["Sub_Code"]?></td>
 
             <!-- delete and edit -->

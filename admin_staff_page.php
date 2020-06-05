@@ -47,7 +47,7 @@ if(isset($_SESSION["role"])){
             <th>Degree</th>
             <th>CV Link</th>
             <th>Photo Link</th>
-            <th>Designation</th>
+            <th>Desig</th>
             <th>Active</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -57,18 +57,18 @@ if(isset($_SESSION["role"])){
           while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
           ?>
           <tr>
-          <td style="width: 10%"><?php echo substr($rows["Name"],0,6).".." ?></td>
-          <td style="width: 5%"><?php echo substr($rows["EmpNo"],0,6) ?></td>
-          <td style="width: 10%"><?php echo substr($rows["Email"],0,6).".."?></td>
-          <td style="width: 7%"><?php echo substr($rows["UserId"],0,6).".." ?></td>
-          <td style="width: 10%"><?php echo substr($rows["Password"],0,6).".." ?></td>
-          <td style="width: 10%"><?php echo $rows["Phn1"]?></td>
-          <td style="width: 10%"><?php echo $rows["Phn2"]?></td>
-          <td style="width: 5%"><?php echo substr($rows["Degree"],0,6).".."?></td>
-          <td style="width: 10%"><?php echo substr($rows["CVlink"], 0 ,6).".."?></td>
-          <td style="width: 10%"><?php echo substr($rows["Photo"],0,6).".."?></td>
-          <td style="width: 2%"><?php echo $rows["Designation"]?></td>
-          <td style="width: 2%"><?php echo $rows["Active"]?></td>
+            <td style="width: 10%"><?php echo substr($rows["Name"],0,) ?></td>
+            <td style="width: 5%"><?php echo substr($rows["EmpNo"],0,9);if(strlen($rows["EmpNo"]) > 9) echo ".."; ?></td>
+            <td style="width: 10%"><?php echo substr($rows["Email"],0,12);if(strlen($rows["Email"])>12)echo ".."; ?></td>
+            <td style="width: 7%"><?php echo substr($rows["UserId"],0,8);if(strlen($rows["UserId"])>8)echo ".."; ?></td>
+            <td style="width: 10%"><?php echo substr($rows["Password"],0,) ?></td>
+            <td style="width: 10%"><?php echo $rows["Phn1"]?></td>
+            <td style="width: 10%"><?php echo $rows["Phn2"]?></td>
+            <td style="width: 5%"><?php echo substr($rows["Degree"],0,6);if(strlen($rows["Degree"])>6)echo ".."; ?></td>
+            <td style="width: 10%"><?php echo substr($rows["CVlink"], 0 ,6);if(strlen($rows["CVlink"])>6)echo "..";?></td>
+            <td style="width: 10%"><?php echo substr($rows["Photo"],0,6);if(strlen($rows["Photo"])>6)echo "..";?></td>
+            <td style="width: 2%"><?php echo $rows["Designation"]?></td>
+            <td style="width: 2%"><?php echo $rows["Active"]?></td>
             <!-- delete and edit -->
             <td>
               <button class="btn btn-primary btn-xs"
