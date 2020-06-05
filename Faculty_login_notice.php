@@ -136,18 +136,18 @@ function validate(form) {
 
                 <div class="form-group">
                   <label for="name">Heading:</label>
-                  <input type="name" class="form-control" name="heading">
+                  <input type="name" class="form-control" name="heading" required>
                 </div>
                 <div class="form-group">
                   <label for="empno">Upload Notice:</label><br>
-                  <input type="file" class="" name="NoticeFile">
+                  <input type="file" class="" name="NoticeFile" required>
                 </div>
                 <div class="form-group">
                   <label for="Emp_Id">Published_By:</label>
                   <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllFaculty;" ,array());
                   if ($stmt != NULL) {
                   ?>
-                  <select class="form-control" id="emp" name="published_by">
+                  <select class="form-control" id="emp" name="published_by" required>
                   <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
                    ?>
                    <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
@@ -183,7 +183,7 @@ function validate(form) {
 
                   <div class="form-group">
                     <label for="name">Heading:</label>
-                    <input type="name" class="form-control" name="heading">
+                    <input type="name" class="form-control" name="heading" required>
                   </div>
                   <div class="form-group">
                     <label for="empno">Link:</label>

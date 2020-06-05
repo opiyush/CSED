@@ -13,15 +13,6 @@ if(isset($_SESSION["role"])){
     <link rel="stylesheet" href="Faculty_login.css">
     <link rel="stylesheet" href="css/bootstrap.min.css"  crossorigin="anonymous">
     </head>
-    <!-- <style media="screen">
-      .container{
-        margin-left: 16%;
-      }
-      .row{
-        margin-left: 3rem;
-        margin-top: 3rem;
-      }
-    </style> -->
 <body>
   <?php include 'nav-bar.php' ?>
   <?php include 'Sidebar_Faculty.php' ?>
@@ -36,7 +27,7 @@ if(isset($_SESSION["role"])){
 
   <?php
   //checking the result of fetching the contents
-    if ($stmt !== NULL) {
+    if ($stmt != NULL) {
       //echo "printing the table\n";
   ?>
   <div class="content1">
@@ -60,7 +51,6 @@ if(isset($_SESSION["role"])){
           while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
           ?>
             <tr>
-
             <td><?php echo $rows["Heading"] ?></td>
             <td><?php echo $rows["Published_date"]?></td>
             <td><?php echo $rows["Due_date"]?></td>
@@ -142,11 +132,11 @@ function validate(form) {
 
                 <div class="form-group">
                   <label for="heading">Heading:</label>
-                  <input type="name" class="form-control" name="heading">
+                  <input type="name" class="form-control" name="heading" required>
                 </div>
                 <div class="form-group">
                   <label for="link">Upload Assignment:</label><br>
-                  <input id="link" type="file" class="" name="AssgFile">
+                  <input id="link" type="file" class="" name="AssgFile" required>
                 </div>
 
                 <input type="hidden" class="form-group" name="Emp_Id" value="<?php echo $emp_id; ?>"></input>
@@ -155,7 +145,7 @@ function validate(form) {
                   <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllSubjects;",array());
                   if ($stmt !== NULL) {
                   ?>
-                  <select class="form-control" id="Subject" name="Sub_Code">
+                  <select class="form-control" id="Subject" name="Sub_Code" required>
                     <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
                      ?>
                     <option value="<?php echo $rows["Sub_Code"] ?>"><?php echo $rows["Subject"] ?></option>
@@ -199,7 +189,7 @@ function validate(form) {
 
                   <div class="form-group">
                     <label for="heading">Heading:</label>
-                    <input type="name" class="form-control" name="heading">
+                    <input type="name" class="form-control" name="heading" required>
                   </div>
                   <div class="">
                     <label for="link">Upload Assignment:</label><br>

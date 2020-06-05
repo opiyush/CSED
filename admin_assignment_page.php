@@ -129,18 +129,18 @@ function validate(form) {
 
                 <div class="form-group">
                   <label for="heading">Heading:</label>
-                  <input type="name" class="form-control" name="heading">
+                  <input type="name" class="form-control" name="heading" required >
                 </div>
                 <div class="">
                   <label for="link">Upload Assignment:</label><br>
-                  <input id="link" type="file" class="" name="AssgFile">
+                  <input id="link" type="file" class="" name="AssgFile" required >
                 </div><br>
                 <div class="form-group">
                   <label for="Emp_Id">By Faculty</label>
                   <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllEmp_name_eid;",array());
                   if ($stmt != NULL) {
                   ?>
-                  <select class="form-control" id="emp" name="Emp_Id">
+                  <select class="form-control" id="emp" name="Emp_Id" required >
                   <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
                    ?>
                    <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
@@ -152,9 +152,9 @@ function validate(form) {
                 <div class="form-group">
                   <label for="Subject">Select Subject</label>
                   <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllSubjects;",array());
-                  if ($stmt !== NULL) {
+                  if ($stmt != NULL) {
                   ?>
-                  <select class="form-control" id="Subject" name="Sub_Code">
+                  <select class="form-control" id="Subject" name="Sub_Code" required>
                     <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
                      ?>
                     <option value="<?php echo $rows["Sub_Code"] ?>"><?php echo $rows["Subject"] ?></option>
@@ -200,7 +200,7 @@ function validate(form) {
 
                   <div class="form-group">
                     <label for="heading">Heading:</label>
-                    <input id="heading_edit" type="name" class="form-control" name="heading">
+                    <input id="heading_edit" type="name" class="form-control" name="heading" required >
                   </div>
                   <!-- <div class="form-group">
                     <label for="link">Link:</label>
@@ -208,12 +208,12 @@ function validate(form) {
                   </div> -->
                   <div class="form-group">
                     <label for="Emp_Id">By Faculty</label>
-                    <input id="Emp_Id_edit" type="text" class="form-control" name="Emp_Id">
+                    <input id="Emp_Id_edit" type="text" class="form-control" name="Emp_Id" required>
                   </div>
                   <input type="hidden" id="old_Assg_Id_id" name="old_Assg_Id">
                   <div class="form-group">
                     <label for="Subject">Select Subject</label>
-                    <select class="form-control" id="Subject_edit" name="Sub_Code">
+                    <select class="form-control" id="Subject_edit" name="Sub_Code" required>
                       <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
                        ?>
                       <option value="<?php echo $rows["Sub_Code"] ?>"><?php echo $rows["Subject"] ?></option>
@@ -240,7 +240,7 @@ function validate(form) {
   </div>
   </div>
   </div>
-  <!-- is of edit Assignment  -->
+  <!-- is end of edit Assignment  -->
 
   <script>
   old_id = document.getElementById("old_Assg_Id_id");

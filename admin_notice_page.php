@@ -26,7 +26,7 @@ if(isset($_SESSION["role"])){
 
   <?php
   //checking the result of fetching the contents
-    if ($stmt !== NULL) {
+    if ($stmt != NULL) {
       //echo "printing the table\n";
   ?>
   <div class="container">
@@ -119,19 +119,17 @@ function validate(form) {
             <div class="modal-header">
               <h4 class="modal-title">Add The Notice</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-
             </div>
             <form action="add_to_notice.php" method="post" enctype="multipart/form-data">
             <!-- Modal body -->
             <div class="modal-body">
-
                 <div class="form-group">
                   <label for="name">Heading:</label>
-                  <input type="name" class="form-control" name="heading">
+                  <input type="name" class="form-control" name="heading" required>
                 </div>
                 <div class="form-group">
                   <label for="link">Upload Notice:</label><br>
-                  <input id="link" type="file" class="" name="NoticeFile">
+                  <input id="link" type="file" class="" name="NoticeFile" required>
                 </div>
                 <div class="form-group">
                   <label for="Published_By_add">Published By:</label>
@@ -159,22 +157,23 @@ function validate(form) {
           </div>
 
           <!-- modal of edit notice -->
-          <div class="modal fade" id="edit_notice_modal" role="dialog">
+          <!-- <div class="modal fade" id="edit_notice_modal" role="dialog">
           <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content"> -->
 
               <!-- Modal Header -->
-              <div class="modal-header">
+
+              <!-- <div class="modal-header">
                 <h4 class="modal-title">Add The Notice</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
-              <form action="edit_notice.php" method="post">
+              <form action="edit_notice.php" method="post"> -->
               <!-- Modal body -->
-              <div class="modal-body">
 
+              <!-- <div class="modal-body">
                   <div class="form-group">
                     <label for="name">Heading:</label>
-                    <input id="heading_edit" type="name" class="form-control" name="heading">
+                    <input id="heading_edit" type="name" class="form-control" name="heading" required>
                   </div>
                   <div class="form-group">
                     <label for="link">link:</label>
@@ -185,16 +184,17 @@ function validate(form) {
                     <input id="Published_By_edit" type="text" class="form-control" name="published_by">
                   </div>
                   <input type="hidden" id="old_Notice_Id_id" name="old_Notice_Id">
-              </div>
+              </div> -->
               <!-- Modal footer -->
-              <div class="modal-footer">
+
+              <!-- <div class="modal-footer">
                 <button type="submit" class="btn btn-success">Submit</input>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
               </div>
               </form>
             </div>
             </div>
-            </div>
+            </div> -->
   </div>
   </div>
   </div>

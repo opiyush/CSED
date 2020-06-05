@@ -23,7 +23,7 @@ if(isset($_SESSION["role"])){
 
   <?php
   //checking the result of fetching the contents
-    if ($stmt !== NULL) {
+    if ($stmt != NULL) {
       //echo "printing the table\n";
   ?>
   <div class="container">
@@ -119,15 +119,15 @@ function validate(form) {
 
                 <div class="form-group">
                   <label for="name">Subject Code (eg KCS-103)</label>
-                  <input type="name" class="form-control" name="Sub_Code">
+                  <input type="name" class="form-control" name="Sub_Code" required>
                 </div>
                 <div class="form-group">
                   <label for="empno">Subject Name</label>
-                  <input type="text" class="form-control" name="Subject">
+                  <input type="text" class="form-control" name="Subject" required>
                 </div>
                 <div class="form-group">
                   <label for="empno">Semester</label>
-                  <input type="text" class="form-control" name="Semester">
+                  <input type="text" class="form-control" name="Semester" required>
                 </div>
                 <div class="form-group">
                   <label for="empno">Employee Id</label>
@@ -135,7 +135,7 @@ function validate(form) {
                   <?php $stmt=sqlsrv_query( $conn, "EXEC GetAllEmp_name_eid;",array());
                   if ($stmt != NULL) {
                   ?>
-                  <select id="emp_add" class="form-control" id="emp" name="Emp_Id">
+                  <select id="emp_add" class="form-control" id="emp" name="Emp_Id" required>
                     <?php while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
                      ?>
                     <option value="<?php echo $rows["EmpNo"] ?>"><?php echo $rows["Name"];?> (<?php echo $rows["EmpNo"];?>)</option>
@@ -174,15 +174,15 @@ function validate(form) {
 
                   <div class="form-group">
                     <label for="sub_code_edit">Subject Code (eg KCS-103)</label>
-                    <input id="sub_code_edit" type="name" class="form-control" name="Sub_Code">
+                    <input id="sub_code_edit" type="name" class="form-control" name="Sub_Code" required>
                   </div>
                   <div class="form-group">
                     <label for="subject_edit">Subject Name</label>
-                    <input id="subject_edit" type="text" class="form-control" name="Subject">
+                    <input id="subject_edit" type="text" class="form-control" name="Subject" required>
                   </div>
                   <div class="form-group">
                     <label for="semester_edit">Semester</label>
-                    <input id="semester_edit" type="text" class="form-control" name="Semester">
+                    <input id="semester_edit" type="text" class="form-control" name="Semester" required>
                   </div>
                   <div class="form-group">
                     <label for="emp_edit">Employee Id</label>

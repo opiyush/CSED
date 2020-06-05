@@ -76,7 +76,7 @@ if(isset($_SESSION["role"])){
          <div class="modal-body">
              <div class="form-group">
                <label for="name">Name:</label>
-               <input id="name_edit" type="name" class="form-control" name="name">
+               <input id="name_edit" type="name" class="form-control" name="name" required>
              </div>
              <!-- <div class="form-group">
                <label for="email">Email:</label>
@@ -84,7 +84,7 @@ if(isset($_SESSION["role"])){
              </div> -->
              <div class="form-group">
                <label for="EmpNo">Employe No:</label>
-               <input id="EmpNo_edit" type="text" name="EmpNo" placeholder="Employe No" class="form-control">
+               <input id="EmpNo_edit" type="text" name="EmpNo" placeholder="Employe No" class="form-control" required>
              </div>
              <div class="form-group">
                <label for="Password">Password:</label>
@@ -106,8 +106,10 @@ if(isset($_SESSION["role"])){
                <label for="CVlink">Upload CV:</label><br>
                <input id="CVlink_edit" type="file" name="CVLink" id="cvToUpload" class="">
              </div> -->
-             <label for="PhotoToUpload">Upload Photo:</label><br>
-             <input id="Photo_edit" type="file" name="Photo" id="PhotoToUpload" class=""><br>
+             <div class="form-group">
+               <label for="PhotoToUpload" class="form-control-file">Upload Photo:</label>
+               <input type="file" name="Photo" id="PhotoToUpload" class=""><br>
+             </div>
              <!-- continue eduiting -->
              <input type="hidden" name="Designation" id="desig_edit">
              <input type="hidden" id="old_Email_id" name="old_Email">
@@ -144,6 +146,7 @@ if(isset($_SESSION["role"])){
          Desig_id.value = desig;
          $("#edit_faculty_modal").modal();
        }
+
        </script>
 
        <script src="jquery/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>

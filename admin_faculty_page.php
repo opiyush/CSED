@@ -26,7 +26,7 @@ if(isset($_SESSION["role"])){
 
   <?php
   //checking the result of fetching the contents
-    if ($stmt !== NULL) {
+    if ($stmt != NULL) {
       //echo "printing the table\n";
   ?>
   <div class="container">
@@ -39,7 +39,7 @@ if(isset($_SESSION["role"])){
             <th>Name</th>
             <th>Employee No</th>
             <th>Email</th>
-            <th>UserId</th>
+            <!-- <th>UserId</th> -->
             <th>Password</th>
             <th>Phn1</th>
             <th>Phn2</th>
@@ -59,7 +59,7 @@ if(isset($_SESSION["role"])){
             <td style="width: 10%"><?php echo substr($rows["Name"],0,) ?></td>
             <td style="width: 5%"><?php echo substr($rows["EmpNo"],0,9);if(strlen($rows["EmpNo"]) > 9) echo ".."; ?></td>
             <td style="width: 10%"><?php echo substr($rows["Email"],0,12);if(strlen($rows["Email"])>12)echo ".."; ?></td>
-            <td style="width: 7%"><?php echo substr($rows["UserId"],0,8);if(strlen($rows["UserId"])>8)echo ".."; ?></td>
+            <!-- <td style="width: 7%"><?php// echo substr($rows["UserId"],0,8);if(strlen($rows["UserId"])>8)echo ".."; ?></td> -->
             <td style="width: 10%"><?php echo substr($rows["Password"],0,) ?></td>
             <td style="width: 10%"><?php echo $rows["Phn1"]?></td>
             <td style="width: 10%"><?php echo $rows["Phn2"]?></td>
@@ -143,21 +143,12 @@ if(isset($_SESSION["role"])){
             <div class="modal-body">
                 <div class="form-group">
                   <label for="name">Name:</label>
-                  <input type="name" class="form-control" name="name">
+                  <input type="name" class="form-control" name="name" required>
                 </div>
                 <div class="form-group">
                   <label for="email">Email:</label>
-                  <input type="text" class="form-control" name="email">
+                  <input type="text" class="form-control" name="email" required>
                 </div>
-                <!-- <div class="form-group">
-                  <label for="sel1"></label>
-                  <select class="form-control" id="sel1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                  </select>
-                </div> -->
                 <input type="hidden" name="Designation" value="2">
             </div>
             <!-- Modal footer -->
@@ -187,7 +178,7 @@ if(isset($_SESSION["role"])){
               <div class="modal-body">
                   <div class="form-group">
                     <label for="name">Name:</label>
-                    <input id="name_edit" type="name" class="form-control" name="name">
+                    <input id="name_edit" type="name" class="form-control" name="name" required>
                   </div>
                   <!-- <div class="form-group">
                     <label for="email">Email:</label>
@@ -211,7 +202,7 @@ if(isset($_SESSION["role"])){
                   </div>
                   <div class="form-group">
                     <label for="Degree">Degree:</label>
-                    <input id="Degree_edit" type="text" name="Degree" placeholder="Degree" required class="form-control">
+                    <input id="Degree_edit" type="text" name="Degree" placeholder="Degree" class="form-control">
                   </div>
                   <!-- <div class="form-group">
                     <label for="CVlink">Upload CV:</label><br>
