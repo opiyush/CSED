@@ -29,6 +29,7 @@
 		<div class="row mt-5">
 			<?php
 			while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+				if($rows["Active"]==0) continue;
 				?>
 				<div class="col-md-6 mb-5">
 					<div class="card" >
