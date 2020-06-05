@@ -120,7 +120,7 @@ function validate(form) {
   //sqlsrv_close($conn);
   ?>
 
-  <!-- add faculty button and its modal -->
+  <!-- add assignment button and its modal -->
   <div class="container">
     <div class="row">
       <div class="col-md-12">

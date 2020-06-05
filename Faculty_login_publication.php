@@ -62,7 +62,7 @@ if(isset($_SESSION["role"])){
         //echo "printing the table\n";
         ?>
 
-        <div class="container" style="padding:13%">
+        <div class="content1" style="padding:13%">
           <div class="row">
             <div class="col-md-12">
               <h4>Previous Uploads</h4>
@@ -99,7 +99,8 @@ if(isset($_SESSION["role"])){
           </div>
         </div>
       </div>
-      <?php sqlsrv_free_stmt($stmt);
+      <?php
+      // sqlsrv_free_stmt($stmt);
       sqlsrv_close($conn);
       ?>
       <script src="jquery/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>

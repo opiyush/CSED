@@ -114,7 +114,7 @@ function validate(form) {
   <!-- eding the php script and closing the connection -->
 
 
-  <!-- add faculty button and its modal -->
+  <!-- add notice button and its modal -->
   <div class="container">
     <div class="row">
       <div class="col-md-12">

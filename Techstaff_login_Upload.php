@@ -52,10 +52,10 @@ if(isset($_SESSION["role"])){
 
 
        <?php
-       if ($stmt !== NULL) {
+       if ($stmt != NULL) {
          //echo "printing the table\n";
          ?>
-         <div class="container" style="padding:13%">
+         <div class="content1" style="padding:13%">
            <div class="row">
 
 

@@ -7,6 +7,7 @@
      $Published_date = date("Y-m-d/H:i");
      $uniqueId = date("His") . date("dmY");
      $Due_date = $_POST["Due_date"];
+     $Due_date = $Due_date;
      $empid = $_POST["Emp_Id"];
      $sub_code =$_POST["Sub_Code"];
 
@@ -19,7 +20,7 @@
        $temp = explode('.',$_FILES["AssgFile"]["name"]);
        $ext_a = end($temp);
        $AssgLink = $uniqueId . "Assignment." . $ext_a;
-       // echo $target_file_a = $target_dir_a . $AssgLink;
+       $target_file_a = $target_dir_a . $AssgLink;
        $uploadOk_a = 1;
        if(strtolower($ext_a)!= "pdf" and strtolower($ext_a)!= "txt")//checking whether pdf or not
            {
