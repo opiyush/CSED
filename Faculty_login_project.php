@@ -32,7 +32,7 @@ if(isset($_SESSION["role"])){
       <div class="content1">
         <form action="Faculty_Upload_Backend.php" method="post">
           <div class="form-group">
-            <label for="Project Details">Project Details</label><br><br>
+            <label for="Project Details"><h4>Project Details</h4></label><br><br>
             <select name="Type">
               <option value="Under Graduate">Under Graduate</option>
               <option value="Post Graduate">Post Graduate</option>

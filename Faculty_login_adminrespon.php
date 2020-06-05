@@ -32,7 +32,7 @@ if(isset($_SESSION["role"])){
       <div class="content1">
         <form action="Faculty_Upload_Backend_3.php" method="post">
           <div class="form-group">
-            <label for="Adminstrative Responsibilty at Institute Level">Adminstrative Responsibilty at Institute Level</label><br><br>
+            <label for="Adminstrative Responsibilty at Institute Level"><h4>Adminstrative Responsibilty at Institute Level</h4></label><br><br>
             <textarea class="form-control" name="Heading" rows="2" placeholder="Heading"></textarea><br>
             <textarea class="form-control" name="Data" rows="15" placeholder="Details"></textarea><br>
             <input type="hidden"  name="Uploaded_By" value='<?php echo $email ?>'>
