@@ -45,8 +45,194 @@ if ($stmt !=NULL) {
 
 //now make query and store the information as required in the variable $contents_pdf in html form
 
+//fetching contents
+$stmt = sqlsrv_query( $conn, "select * from Publication_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
+if ($stmt != NULL) {
+  $contents_pdf.= "<div><h4>Publication</h4></div>";
+  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    $contents_pdf.="
+    <div>
+      <div>".$rows['Type']."</div>
+      <div>
+        <h5>".$rows['Heading']."</h5>
+        <span>".$rows['Date']->format('d/m/Y')."</span>
+      </div>
+      <div>
+        ".$rows['Data'].
+      "</div>
+    </div>
 
+    ";
 
+  }
+}
+//done fetchin form first section
+
+//fetching data from second section
+$stmt = sqlsrv_query( $conn, "select * from Project_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
+if ($stmt != NULL) {
+  $contents_pdf.= "<div><h4>Projects</h4></div>";
+  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    $contents_pdf.="
+    <div>
+      <div>".$rows['Type']."</div>
+      <div>
+        <h5>".$rows['Heading']."</h5>
+        <span>".$rows['Date']->format('d/m/Y')."</span>
+      </div>
+      <div>
+        ".$rows['Data'].
+      "</div>
+    </div>
+
+    ";
+
+  }
+}
+//done from project section
+
+//fecthing from research thesis
+$stmt = sqlsrv_query( $conn, "select * from Thesis_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
+if ($stmt != NULL) {
+  $contents_pdf.= "<div><h4>Research Thesis</h4></div>";
+  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    $contents_pdf.="
+    <div>
+      <div>".$rows['Type']."</div>
+      <div>
+        <h5>".$rows['Heading']."</h5>
+        <span>".$rows['Date']->format('d/m/Y')."</span>
+      </div>
+      <div>
+        ".$rows['Data'].
+      "</div>
+    </div>
+
+    ";
+
+  }
+}
+//done fetching from research Thesis
+
+//fetching from events section
+$stmt = sqlsrv_query( $conn, "select * from Event_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
+if ($stmt != NULL) {
+  $contents_pdf.= "<div><h4>Events</h4></div>";
+  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    $contents_pdf.="
+    <div>
+      <div>".$rows['Event']."</div>
+      <div>".$rows['Type']."</div>
+      <div>
+        <h5>".$rows['Heading']."</h5>
+        <span>".$rows['Date']->format('d/m/Y')."</span>
+      </div>
+      <div>
+        ".$rows['Data'].
+      "</div>
+    </div>
+
+    ";
+
+  }
+}
+//done for events
+
+//fetching for professional bodies
+$stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='prof_bodies'",array($email)); //making query and storing it in stmt variable
+if ($stmt != NULL) {
+  $contents_pdf.= "<div><h4>Professional Bodies</h4></div>";
+  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    $contents_pdf.="
+    <div>
+      <div>
+        <h5>".$rows['Heading']."</h5>
+        <span>".$rows['Date']->format('d/m/Y')."</span>
+      </div>
+      <div>
+        ".$rows['Data'].
+      "</div>
+    </div>
+    ";
+  }
+}
+//done fetching professional Bodies
+//fetching for admin responsibilities
+$stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='admin_res'",array($email)); //making query and storing it in stmt variable
+if ($stmt != NULL) {
+  $contents_pdf.= "<div><h4>Administrative responsibilities</h4></div>";
+  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    $contents_pdf.="
+    <div>
+      <div>
+        <h5>".$rows['Heading']."</h5>
+        <span>".$rows['Date']->format('d/m/Y')."</span>
+      </div>
+      <div>
+        ".$rows['Data'].
+      "</div>
+    </div>
+    ";
+  }
+}
+//done admin resp
+//fetching academic resp
+$stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='academic_res'",array($email)); //making query and storing it in stmt variable
+if ($stmt != NULL) {
+  $contents_pdf.= "<div><h4>Professional Bodies</h4></div>";
+  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    $contents_pdf.="
+    <div>
+      <div>
+        <h5>".$rows['Heading']."</h5>
+        <span>".$rows['Date']->format('d/m/Y')."</span>
+      </div>
+      <div>
+        ".$rows['Data'].
+      "</div>
+    </div>
+    ";
+  }
+}
+//done academic
+//fetching awards
+$stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='awards'",array($email)); //making query and storing it in stmt variable
+if ($stmt != NULL) {
+  $contents_pdf.= "<div><h4>Professional Bodies</h4></div>";
+  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    $contents_pdf.="
+    <div>
+      <div>
+        <h5>".$rows['Heading']."</h5>
+        <span>".$rows['Date']->format('d/m/Y')."</span>
+      </div>
+      <div>
+        ".$rows['Data'].
+      "</div>
+    </div>
+    ";
+  }
+}
+//done awards
+//fetching country visited
+$stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='country'",array($email)); //making query and storing it in stmt variable
+if ($stmt != NULL) {
+  $contents_pdf.= "<div><h4>Professional Bodies</h4></div>";
+  while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    $contents_pdf.="
+    <div>
+      <div>
+        <h5>".$rows['Heading']."</h5>
+        <span>".$rows['Date']->format('d/m/Y')."</span>
+      </div>
+      <div>
+        ".$rows['Data'].
+      "</div>
+    </div>
+    ";
+  }
+}
+//fetched all contents
 
 
 
