@@ -33,8 +33,8 @@ if(isset($_SESSION["role"])){
         <form action="Faculty_Upload_Backend_3.php" method="post">
           <div class="form-group">
             <label for="Awards Honors and Achievements"><h4>Awards Honors and Achievements</h4></label><br><br>
-            <textarea class="form-control" name="Heading" rows="2" placeholder="Heading"></textarea><br>
-            <textarea class="form-control" name="Data" rows="15" placeholder="Details"></textarea><br>
+            <textarea class="form-control" name="Heading" rows="2" placeholder="Heading" required></textarea><br>
+            <textarea class="form-control" name="Data" rows="15" placeholder="Details" required></textarea><br>
             <input type="hidden"  name="Uploaded_By" value='<?php echo $email ?>'>
             <input type="hidden"  name="Category" value='awards'>
             <button type="submit" class="btn btn-outline-primary">Upload</button>

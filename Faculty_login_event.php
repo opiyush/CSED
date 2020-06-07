@@ -32,7 +32,7 @@ if(isset($_SESSION["role"])){
       <div class="content1">
         <form action="Faculty_Upload_Backend_2.php" method="post">
           <div class="form-group">
-            <label for="Event"><h4>Events</h4></label><br><br>
+            <label for="Event"><h4>Events</h4></label><br>
             <select name="Event">
               <option value="Workshop">Workshop</option>
               <option value="FDP">FDP</option>
@@ -42,15 +42,15 @@ if(isset($_SESSION["role"])){
               <option value="International Conference">International Conference</option>
               <option value="National Conference">National Conference</option>
               <option value="International Conference">International Conference</option>
-            </select><br>
+            </select><br><br>
 
             <select name="Type">
               <option value="Organized">Organized</option>
               <option value="Attended">Attended</option>
-            </select><br>
+            </select><br><br>
 
-            <textarea class="form-control" name="Heading" rows="2" placeholder="Heading"></textarea><br>
-            <textarea class="form-control" name="Data" rows="15" placeholder="Details"></textarea><br>
+            <textarea class="form-control" name="Heading" rows="2" placeholder="Heading" required></textarea><br>
+            <textarea class="form-control" name="Data" rows="15" placeholder="Details" required></textarea><br>
             <input type="hidden"  name="Uploaded_By" value='<?php echo $email ?>'>
             <button type="submit" class="btn btn-outline-primary">Upload</button>
           </div>
@@ -77,7 +77,7 @@ if(isset($_SESSION["role"])){
                     <th>Event</th>
                     <th>Type</th>
                     <th>Heading</th>
-                    <th>Publised Date</th>
+                    <th>Published Date</th>
                     <th>Details</th>
                   </thead>
 
