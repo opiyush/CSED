@@ -34,7 +34,7 @@ if(isset($_SESSION["role"])){
           <div class="form-group">
             <label for="Publication Details"><h4>Publication Details</h4></label><br><br>
             <select name="Type">
-              <option value="International General Publication">Internation General Publication</option>
+              <option value="International General Publication">International General Publication</option>
               <option value="National General Publication">National General Publication</option>
               <option value="International Conference">International Conference</option>
               <option value="National Conference">National Conference</option>
@@ -44,8 +44,8 @@ if(isset($_SESSION["role"])){
               <option value="Copyright">Copyright</option>
               <option value="Other">Other</option>
             </select><br>
-            <textarea class="form-control" name="Heading" rows="2" placeholder="Heading"></textarea><br>
-            <textarea class="form-control" name="Data" rows="15" placeholder="Details"></textarea><br>
+            <textarea class="form-control" name="Heading" rows="2" placeholder="Heading" required></textarea><br>
+            <textarea class="form-control" name="Data" rows="15" placeholder="Details" required></textarea><br>
             <input type="hidden"  name="Uploaded_By" value='<?php echo $email ?>'>
             <input type="hidden"  name="Table" value='Publication_Upload'>
             <button type="submit" class="btn btn-outline-primary">Upload</button>

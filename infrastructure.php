@@ -23,7 +23,7 @@
       while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
       ?>
         <div class="card mx-2" style="max-width: 10rem;">
-          <img src="https://cdn1.iconfinder.com/data/icons/metro-ui-dock-icon-set--icons-by-dakirby/256/Netflix.png" alt="" class="card-img-top">
+          <img src="image/default.png" alt="" class="card-img-top">
           <div class="card-body">
             Lab <?php $x+=1; echo $x; ?>
             <div>
@@ -34,7 +34,7 @@
             </div>
           </div>
           <button onclick='details_diaplay_modal("<?php echo $rows["lab_number"];?>","<?php echo $rows["pc_type"];?>");'>
-            click to view modal
+            click to view
           </button>
         </div>
 
