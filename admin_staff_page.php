@@ -45,7 +45,7 @@ if(isset($_SESSION["role"])){
             <th>Phn1</th>
             <th>Phn2</th>
             <th>Degree</th>
-            <th>CV Link</th>
+            <!-- <th>CV Link</th> -->
             <th>Photo Link</th>
             <th>Desig</th>
             <th>Active</th>
@@ -65,7 +65,7 @@ if(isset($_SESSION["role"])){
             <td style="width: 10%"><?php echo $rows["Phn1"]?></td>
             <td style="width: 10%"><?php echo $rows["Phn2"]?></td>
             <td style="width: 5%"><?php echo substr($rows["Degree"],0,6);if(strlen($rows["Degree"])>6)echo ".."; ?></td>
-            <td style="width: 10%"><?php echo substr($rows["CVlink"], 0 ,6);if(strlen($rows["CVlink"])>6)echo "..";?></td>
+            <!-- <td style="width: 10%"><?php echo substr($rows["CVlink"], 0 ,6);if(strlen($rows["CVlink"])>6)echo "..";?></td> -->
             <td style="width: 10%"><?php echo substr($rows["Photo"],0,6);if(strlen($rows["Photo"])>6)echo "..";?></td>
             <td style="width: 2%"><?php echo $rows["Designation"]?></td>
             <td style="width: 2%"><?php echo $rows["Active"]?></td>
