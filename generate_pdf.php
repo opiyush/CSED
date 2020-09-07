@@ -44,17 +44,22 @@ if ($stmt !=NULL) {
 }
 
 //now make query and store the information as required in the variable $contents_pdf in html form
-
+$contents_pdf.="<div></div>";
 //fetching contents
 $stmt = sqlsrv_query( $conn, "select * from Publication_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
 if ($stmt != NULL) {
-  $contents_pdf.= "<div><h4>Publication</h4></div>";
+  $display_heading=1;
   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    if($display_heading==1)
+    {
+      $contents_pdf.= "<div><h4>Publication</h4></div>";
+      $display_heading=0;
+    }
     $contents_pdf.="
     <div>
-      <div>".$rows['Type']."</div>
+      <div>Type-".$rows['Type']."</div>
       <div>
-        <h5>".$rows['Heading']."</h5>
+        <h5>*".$rows['Heading']."</h5>
         <span>".$rows['Date']->format('d/m/Y')."</span>
       </div>
       <div>
@@ -71,13 +76,18 @@ if ($stmt != NULL) {
 //fetching data from second section
 $stmt = sqlsrv_query( $conn, "select * from Project_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
 if ($stmt != NULL) {
-  $contents_pdf.= "<div><h4>Projects</h4></div>";
+  $display_heading=1;
   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    if($display_heading==1)
+    {
+      $contents_pdf.= "<div><h4>Projects</h4></div>";
+      $display_heading=0;
+    }
     $contents_pdf.="
     <div>
-      <div>".$rows['Type']."</div>
+      <div>Type-".$rows['Type']."</div>
       <div>
-        <h5>".$rows['Heading']."</h5>
+        <h5>*".$rows['Heading']."</h5>
         <span>".$rows['Date']->format('d/m/Y')."</span>
       </div>
       <div>
@@ -94,13 +104,18 @@ if ($stmt != NULL) {
 //fecthing from research thesis
 $stmt = sqlsrv_query( $conn, "select * from Thesis_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
 if ($stmt != NULL) {
-  $contents_pdf.= "<div><h4>Research Thesis</h4></div>";
+  $display_heading=1;
   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    if($display_heading==1)
+    {
+      $contents_pdf.= "<div><h4>Research Thesis</h4></div>";
+      $display_heading=0;
+    }
     $contents_pdf.="
     <div>
-      <div>".$rows['Type']."</div>
+      <div>Type-".$rows['Type']."</div>
       <div>
-        <h5>".$rows['Heading']."</h5>
+        <h5>*".$rows['Heading']."</h5>
         <span>".$rows['Date']->format('d/m/Y')."</span>
       </div>
       <div>
@@ -117,14 +132,19 @@ if ($stmt != NULL) {
 //fetching from events section
 $stmt = sqlsrv_query( $conn, "select * from Event_Upload where Uploaded_By=?",array($email)); //making query and storing it in stmt variable
 if ($stmt != NULL) {
-  $contents_pdf.= "<div><h4>Events</h4></div>";
+  $display_heading=1;
   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    if($display_heading==1)
+    {
+      $contents_pdf.= "<div><h4>Events</h4></div>";
+      $display_heading=0;
+    }
     $contents_pdf.="
     <div>
-      <div>".$rows['Event']."</div>
-      <div>".$rows['Type']."</div>
+      <div>Event-".$rows['Event']."</div>
+      <div>Role-".$rows['Type']."</div>
       <div>
-        <h5>".$rows['Heading']."</h5>
+        <h5>*".$rows['Heading']."</h5>
         <span>".$rows['Date']->format('d/m/Y')."</span>
       </div>
       <div>
@@ -141,12 +161,17 @@ if ($stmt != NULL) {
 //fetching for professional bodies
 $stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='prof_bodies'",array($email)); //making query and storing it in stmt variable
 if ($stmt != NULL) {
-  $contents_pdf.= "<div><h4>Professional Bodies</h4></div>";
+  $display_heading=1;
   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    if($display_heading==1)
+    {
+      $contents_pdf.= "<div><h4>Professional Bodies</h4></div>";
+      $display_heading=0;
+    }
     $contents_pdf.="
     <div>
       <div>
-        <h5>".$rows['Heading']."</h5>
+        <h5>*".$rows['Heading']."</h5>
         <span>".$rows['Date']->format('d/m/Y')."</span>
       </div>
       <div>
@@ -160,12 +185,17 @@ if ($stmt != NULL) {
 //fetching for admin responsibilities
 $stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='admin_res'",array($email)); //making query and storing it in stmt variable
 if ($stmt != NULL) {
-  $contents_pdf.= "<div><h4>Administrative responsibilities</h4></div>";
+  $display_heading=1;
   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    if($display_heading==1)
+    {
+      $contents_pdf.= "<div><h4>Administrative Responsibilities</h4></div>";
+      $display_heading=0;
+    }
     $contents_pdf.="
     <div>
       <div>
-        <h5>".$rows['Heading']."</h5>
+        <h5>*".$rows['Heading']."</h5>
         <span>".$rows['Date']->format('d/m/Y')."</span>
       </div>
       <div>
@@ -179,12 +209,17 @@ if ($stmt != NULL) {
 //fetching academic resp
 $stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='academic_res'",array($email)); //making query and storing it in stmt variable
 if ($stmt != NULL) {
-  $contents_pdf.= "<div><h4>Professional Bodies</h4></div>";
+  $display_heading=1;
   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    if($display_heading==1)
+    {
+      $contents_pdf.= "<div><h4>Academic Responsibilities</h4></div>";
+      $display_heading=0;
+    }
     $contents_pdf.="
     <div>
       <div>
-        <h5>".$rows['Heading']."</h5>
+        <h5>*".$rows['Heading']."</h5>
         <span>".$rows['Date']->format('d/m/Y')."</span>
       </div>
       <div>
@@ -198,12 +233,17 @@ if ($stmt != NULL) {
 //fetching awards
 $stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='awards'",array($email)); //making query and storing it in stmt variable
 if ($stmt != NULL) {
-  $contents_pdf.= "<div><h4>Professional Bodies</h4></div>";
+  $display_heading=1;
   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    if($display_heading==1)
+    {
+      $contents_pdf.= "<div><h4>Awards</h4></div>";
+      $display_heading=0;
+    }
     $contents_pdf.="
     <div>
       <div>
-        <h5>".$rows['Heading']."</h5>
+        <h5>*".$rows['Heading']."</h5>
         <span>".$rows['Date']->format('d/m/Y')."</span>
       </div>
       <div>
@@ -217,12 +257,17 @@ if ($stmt != NULL) {
 //fetching country visited
 $stmt = sqlsrv_query( $conn, "select * from Other_Uploads where Uploaded_By=? and Category='country'",array($email)); //making query and storing it in stmt variable
 if ($stmt != NULL) {
-  $contents_pdf.= "<div><h4>Professional Bodies</h4></div>";
+  $display_heading=1;
   while($rows = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)){
+    if($display_heading==1)
+    {
+      $contents_pdf.= "<div><h4>Countries Visited</h4></div>";
+      $display_heading=0;
+    }
     $contents_pdf.="
     <div>
       <div>
-        <h5>".$rows['Heading']."</h5>
+        <h5>*".$rows['Heading']."</h5>
         <span>".$rows['Date']->format('d/m/Y')."</span>
       </div>
       <div>
@@ -234,6 +279,7 @@ if ($stmt != NULL) {
 }
 //fetched all contents
 
+// $contents_pdf = str_replace("\n", "", $contents_pdf);
 
 
 
@@ -248,12 +294,13 @@ require_once('tcpdf.php');
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
+
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Nicola Asuni');
-$pdf->SetTitle('TCPDF Example 001');
-$pdf->SetSubject('TCPDF Tutorial');
-$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+$pdf->SetAuthor('Harsh Pandey');
+$pdf->SetTitle('resume by TCPDF');
+$pdf->SetSubject('auto generated');
+$pdf->SetKeywords('TCPDF, PDF, resume, auto_generated, guide');
 
 // set default header data
 // change the header
